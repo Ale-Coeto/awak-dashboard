@@ -1,4 +1,14 @@
-﻿html {
+﻿:root {
+    --verde_claro: #89B486;
+    --verde_principal: #2C5629;
+    --verde_oscuro: #0C270A;
+    --gris_oscuro: #4E4F5D;
+    --gris_claro: #F1F2F7;
+    --amarillo: #F9B235;
+    --rojo: #C75A4D;
+}
+
+html {
   font-size: 14px;
 }
 
