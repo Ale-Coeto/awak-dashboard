@@ -1,0 +1,120 @@
+﻿@page
+@model Dashboard.Pages.PerfilModel
+@{
+    Layout = "Shared/_Layout.cshtml";
+}
+
+
+<h1 class="title">
+    Perfil
+</h1>
+
+<div class="container mt-5">
+    <div class="perfil">
+        <div class="container">
+
+            <form method="post" asp-page-handler="Perfil">
+                <h2 class="subtitulo">
+                    Datos generales
+                </h2>
+                <hr class="mb-4"/>
+
+
+                <div class="mb-3">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label">Nombre</label>
+                    </div>
+                    <input asp-for="Nombre" Model.NombreCorrecto ? disabled : null type="text" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                </div>
+
+                <div class="mb-3">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label">Apellido</label>
+                    </div>
+                    <input asp-for="Nombre" type="text" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                </div>
+
+                <div class="mb-5">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label">Correo Electrónico</label>
+                    </div>
+                    <input asp-for="Nombre" type="text" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                </div>
+
+
+                <h2 class="subtitulo mt-5">
+                    Datos adicionales
+                </h2>
+                <hr class="mb-4" />
+
+                <div class="mb-3">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label">Red social o linkedin</label>
+                    </div>
+                    <input asp-for="Nombre" type="text" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                </div>
+
+                <div class="mb-4">
+                    <div class="d-flex align-items-center">
+                        <label class="form-label">Bio</label>
+                    </div>
+                    <textarea asp-for="Nombre" type="text" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")"></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary mt-5 mb-5">
+                    Actualizar Perfil
+                </button>
+
+            </form>
+
+        </div>
+
+
+        <div class="container">
+
+            <div class="mb-4">
+                <h2 class="subtitulo">
+                    Imagen de perfil
+                </h2>
+                <hr class="mb-4" />
+
+                <div class="d-flex flex-column justify-content-center">
+                    <div class="img-container mb-4">
+                        <img src="~/images/profile.jpeg" class="rounded-full" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mb-5">
+                        Cambiar Imagen
+                    </button>
+                </div>
+            </div>
+
+            <div class="mb-4">
+                <h2 class="subtitulo">
+                    Contraseña
+                </h2>
+                <hr class="mb-4" />
+
+                <form method="post" asp-page-handler="Contrasena">
+                    <div class="mb-2">
+                        <label class="form-label">Anterior Contraseña</label>
+                        <input asp-for="Nombre" type="password" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Nueva Contraseña</label>
+                        <input asp-for="Nombre" type="password" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Confirmar Contraseña</label>
+                        <input asp-for="Nombre" type="password" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                    </div>
+
+                    <button type="submit" class="btn btn-primary mt-5 mb-5">
+                        Actualizar contraseña
+                    </button>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>

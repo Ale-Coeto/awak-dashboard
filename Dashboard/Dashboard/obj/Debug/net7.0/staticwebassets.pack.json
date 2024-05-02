@@ -17,6 +17,18 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/logo.png",
+      "PackagePath": "staticwebassets/images/logo.png"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/profile.jpeg",
+      "PackagePath": "staticwebassets/images/profile.jpeg"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/profile.webp",
+      "PackagePath": "staticwebassets/images/profile.webp"
+    },
+    {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/js/site.js",
       "PackagePath": "staticwebassets/js/site.js"
     },

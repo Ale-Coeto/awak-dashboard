@@ -1,30 +1,36 @@
 ﻿<Properties StartupConfiguration="{78EDD756-8782-4138-961E-0C3810EDB4A9}|https">
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Dashboard/Pages/Shared/_Layout.cshtml">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Dashboard/Pages/Index.cshtml">
     <Files>
-      <File FileName="Dashboard/Pages/Index.cshtml" Line="1" Column="1" />
-      <File FileName="Dashboard/Pages/Shared/_Layout.cshtml" Line="15" Column="39" />
+      <File FileName="Dashboard/Pages/Index.cshtml" Line="12" Column="29" />
+      <File FileName="Dashboard/Pages/Shared/_Layout.cshtml" Line="53" Column="29" />
+      <File FileName="Dashboard/wwwroot/css/site.css" Line="97" Column="22" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
-          <Node name="Dashboard" expanded="True">
-            <Node name="Dashboard" expanded="True">
-              <Node name="Pages" expanded="True">
-                <Node name="Shared" expanded="True">
-                  <Node name="_Layout.cshtml" selected="True" />
-                </Node>
+          <Node name="Dashboard">
+            <Node name="Dashboard">
+              <Node name="Pages">
+                <Node name="Shared" expanded="True" />
+                <Node name="Index.cshtml" selected="True" />
+              </Node>
+              <Node name="wwwroot">
+                <Node name="css" expanded="True" />
               </Node>
             </Node>
           </Node>
         </State>
       </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
     </Pads>
   </MonoDevelop.Ide.Workbench>
-  <MonoDevelop.Ide.ItemProperties.Dashboard FirstBuild="True" PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.Dashboard PreferredExecutionTarget="/Applications/Google Chrome.app" />
 </Properties>

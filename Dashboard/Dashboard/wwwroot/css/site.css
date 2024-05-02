@@ -2,8 +2,11 @@
     --verde_claro: #89B486;
     --verde_principal: #2C5629;
     --verde_oscuro: #0C270A;
+    --verde_hover: #AFDFAB;
+    --verde_texto: #407B46;
     --gris_oscuro: #4E4F5D;
     --gris_claro: #F1F2F7;
+    --gris_select: #E4E7F4;
     --amarillo: #F9B235;
     --rojo: #C75A4D;
 }
@@ -29,4 +32,122 @@ html {
 
 body {
   margin-bottom: 60px;
+}
+
+.bg-gray {
+    background-color: var(--gris_claro);
+}
+
+
+
+.navbar {
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    padding: 20px;
+    top: 0;
+    bottom: 0;
+    color: var(--gris_oscuro)
+/*    justify-content: start;*/
+}
+
+.nav-item {
+/*    color: var(--gris_oscuro);*/
+    width: max-content;
+}
+
+.navbar .nav-link {
+    width: 100%;
+    color: var(--gris_oscuro);
+}
+
+.navbar .active {
+    background-color: var(--gris_select);
+    color: var(--verde_claro);
+    border-radius: 7px;
+    width: max-content;
+}
+
+.navbar .dull {
+    background-color: var(--gris_select);
+    border-radius: 7px;
+}
+
+.img-container {
+/*    padding: 5px;*/
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}
+
+.img-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.group {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.body-content {
+    margin-left: 220px;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    padding-right: 20px;
+    padding-left: 20px;
+}
+
+.title {
+    font-size: xx-large;
+    font-weight: 600;
+}
+
+i {
+    color: var(--amarillo);
+}
+
+.btn-primary {
+    background-color: var(--verde_texto);
+    width: fit-content;
+    align-self: center;
+}
+
+.btn-primary:hover {
+    background-color: var(--verde_claro);
+}
+
+.img-container {
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.rounded-full {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.subtitulo {
+    font-size: x-large;
+}
+
+.perfil {
+    display: flex;
+    flex-direction: row;
+    gap: 10%;
+/*    justify-content: space-between;*/
+}
+
+@media(max-width : 1028px) {
+    .perfil {
+        flex-direction: column;
+        
+    }
 }
