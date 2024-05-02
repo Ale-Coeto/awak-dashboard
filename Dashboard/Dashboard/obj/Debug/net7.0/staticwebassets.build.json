@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "h0WaM9tXXI0KDF2MAmzgDZFF+XFqBYS6ZFqGHF+5uYw=",
+  "Hash": "kif07zwiODHmSullyIAUr0CsbiEyuY2C4szOYjPCWRk=",
   "Source": "Dashboard",
   "BasePath": "_content/Dashboard",
   "Mode": "Default",
@@ -53,6 +53,25 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\Dashboard.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\wwwroot\\css\\login.css",
+      "SourceId": "Dashboard",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\wwwroot\\",
+      "BasePath": "_content/Dashboard",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "PreferTarget",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\css\\login.css"
     },
     {
       "Identity": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\wwwroot\\css\\register.css",
