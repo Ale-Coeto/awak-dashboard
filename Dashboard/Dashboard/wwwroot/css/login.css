@@ -1,0 +1,128 @@
+:root {
+    --verde_claro: #89B486;
+    --verde_principal: #2C5629;
+    --verde_oscuro: #0C270A;
+    --gris_oscuro: #4E4F5D;
+    --gris_claro: #F1F2F7;
+    --amarillo: #F9B235;
+    --rojo: #C75A4D;
+}
+
+html {
+    font-size: 14px;
+}
+
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+    /*box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;*/
+}
+
+.btn-custom {
+    border-radius: 5px;
+    border: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+}
+
+/* Escrito por Pablo */
+.container {
+    background-color: #F8F9FA;
+    border: 1px solid #CED4DA;
+    border-radius: 5px;
+    margin: 0 auto;
+    margin-top: 50px;
+    max-width: 400px;
+    padding: 40px 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form {
+    margin-bottom: 20px;
+}
+
+.btn-iniciar {
+    background-color: var(--verde_claro);
+    color: #FFFFFF;
+    width: 100%;
+}
+
+.btn-registrarse {
+    background-color: #F8F9FA;
+    color: #89B486;
+    width: 100%;
+}
+
+.redirect {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.validation-error {
+    color: #DC3545;
+}
+
+.form-control.is-invalid,
+.form-control:focus.is-invalid {
+    border-color: #DC3545;
+    box-shadow: 0 0 0 0.2rem rgba(220,53,69,.25);
+}
+
+p {
+    text-align: center;
+}
+
+.dialog-container {
+    background-color: transparent;
+    border: none;
+    top: 40%;
+    position: relative;
+    transform: translate(0, -50%);
+}
+
+.text-action {
+    color: var(--gris_oscuro);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+}
+
+.text-field {
+    color: var(--gris_oscuro);
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+}
+
+.anchor-text {
+    color: var(--verde_claro);
+    text-decoration: none;
+}
+.anchor-text:hover {
+    color: var(--verde_oscuro);
+    text-decoration: underline;
+}
+
+.anchor-forgot {
+    color: var(--gris_oscuro);
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+}

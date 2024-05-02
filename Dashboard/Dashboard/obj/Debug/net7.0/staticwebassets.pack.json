@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\favicon.ico"
     },
     {
+      "Id": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\wwwroot\\images\\FondoImagen-90.png",
+      "PackagePath": "staticwebassets\\images\\FondoImagen-90.png"
+    },
+    {
+      "Id": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\wwwroot\\images\\FondoImagen.png",
+      "PackagePath": "staticwebassets\\images\\FondoImagen.png"
+    },
+    {
       "Id": "C:\\Users\\oscar\\source\\repos\\awak-dashboard\\Dashboard\\Dashboard\\wwwroot\\images\\LogoAwak.png",
       "PackagePath": "staticwebassets\\images\\LogoAwak.png"
     },

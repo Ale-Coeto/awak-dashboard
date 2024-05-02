@@ -1,0 +1,27 @@
+﻿@page "/login"
+@model Dashboard.Pages.LoginModel
+@{
+    Layout = "~/Pages/Shared/_LayoutRegister.cshtml";
+    ViewData["Title"] = "Inicio de Sesión";
+}
+
+<div class="container dialog-container">
+    <h2 class="text-action">Inicio de Sesión</h2>
+    <form method="post" class="pt-5">
+        <div class="form">
+            <label class="text-field" asp-for="Correo">Correo</label>
+            <input asp-for="Correo" class="form-control" required />
+            <span asp-validation-for="Correo" class="text-danger"></span>
+        </div>
+        <div class="form">
+            <label class="text-field" asp-for="Contrasenia">Contraseña</label>
+            <input asp-for="Contrasenia" type="password" class="form-control" required />
+            <span asp-validation-for="Contrasenia" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
+    </form>
+    <div class="redirect">
+        <p class="text-field">¿Eres nuevo? <a class="anchor-text" asp-page="./Registro">Regístrate</a></p>
+        <p><a class="anchor-forgot" asp-page="./RecuperarContraseña">He olvidado mi contraseña</a></p>
+    </div>
+</div>
