@@ -35,9 +35,22 @@ namespace Dashboard.Pages
         public string Bio { set; get; } = "";
         public bool BioCorrecto { set; get; }
 
+        public bool IsUser { set; get; } = false;
+
+        public int Id { set; get; }
+
         public void OnGet()
         {
-            
+            IsUser = Request.Query.ContainsKey("admin");
+            IsUser = !IsUser;
+            int id = 0;
+
+            if (Request.Query.ContainsKey("id"))
+            {
+                int.TryParse(Request.Query["id"], out id);
+                Id = id;
+            }
+
         }
 
         public void OnPostPerfil()

@@ -44,7 +44,7 @@ body {
     display: flex;
     flex-direction: column;
     position: fixed;
-    padding: 20px;
+    padding: 40px;
     top: 0;
     bottom: 0;
     color: var(--gris_oscuro)
@@ -53,7 +53,11 @@ body {
 
 .nav-item {
 /*    color: var(--gris_oscuro);*/
-    width: max-content;
+    width: 100%;
+}
+
+.nav-link {
+    text-align: center;
 }
 
 .navbar .nav-link {
@@ -61,16 +65,26 @@ body {
     color: var(--gris_oscuro);
 }
 
+.nav-item:hover {
+    background-color: var(--gris_select);
+    border-radius: 7px;
+}
+
 .navbar .active {
     background-color: var(--gris_select);
-    color: var(--verde_claro);
+    color: var(--verde_texto);
     border-radius: 7px;
-    width: max-content;
 }
 
 .navbar .dull {
     background-color: var(--gris_select);
     border-radius: 7px;
+    
+}
+
+.dull:hover {
+    color: var(--verde_texto);
+    cursor: pointer;
 }
 
 
@@ -78,19 +92,21 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
+    gap: 4px;
 }
 
 .body-content {
-    margin-left: 220px;
+    margin-left: 250px;
     padding-top: 40px;
     padding-bottom: 40px;
-    padding-right: 20px;
+    padding-right: 40px;
     padding-left: 20px;
 }
 
 .title {
     font-size: xx-large;
     font-weight: 600;
+    margin: 0;
 }
 
 i {
@@ -120,6 +136,16 @@ i {
     width: 150px;
     height: 150px;
     overflow: hidden;
+}
+
+.perfil-container {
+    /*    padding: 5px;*/
+    width: 40px;
+    height: 40px;
+    overflow: hidden;
+    border-radius: 50%;
+    align-self: center;
+    margin-left: 10px
 }
 
 .img-container img {
