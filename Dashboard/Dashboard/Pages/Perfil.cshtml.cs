@@ -15,7 +15,7 @@ namespace Dashboard.Pages
 
 
         [BindProperty]
-        public string Apellido { set; get; } = "";
+        public string Usuario { set; get; } = "";
         public bool ApellidoCorrecto { set; get; }
 
 

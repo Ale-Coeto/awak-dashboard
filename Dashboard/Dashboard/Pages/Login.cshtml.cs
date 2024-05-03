@@ -33,7 +33,7 @@ namespace Dashboard.Pages
             ValidUser = DatabaseManager.IsValidUser(Correo, Contrasenia);
 
             if (ValidUser)
-                return RedirectToPage("./Index");
+                return RedirectToPage("./Inicio");
             else
                 return Page();
         }

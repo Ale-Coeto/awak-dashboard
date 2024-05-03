@@ -9,12 +9,12 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
-      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/perfil.css",
-      "PackagePath": "staticwebassets/css/perfil.css"
-    },
-    {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/login.css",
       "PackagePath": "staticwebassets/css/login.css"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/perfil.css",
+      "PackagePath": "staticwebassets/css/perfil.css"
     },
     {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/register.css",
@@ -29,14 +29,6 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/logo.png",
-      "PackagePath": "staticwebassets/imgs/logo.png"
-    },
-    {
-      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/profile.jpeg",
-      "PackagePath": "staticwebassets/imgs/profile.jpeg"
-    },
-    {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/FondoImagen-90.png",
       "PackagePath": "staticwebassets/images/FondoImagen-90.png"
     },
@@ -47,6 +39,18 @@
     {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/LogoAwak.png",
       "PackagePath": "staticwebassets/images/LogoAwak.png"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/logo.png",
+      "PackagePath": "staticwebassets/images/logo.png"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/profile.jpeg",
+      "PackagePath": "staticwebassets/images/profile.jpeg"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/profile.webp",
+      "PackagePath": "staticwebassets/images/profile.webp"
     },
     {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/js/site.js",
