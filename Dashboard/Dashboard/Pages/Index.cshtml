@@ -1,30 +1,12 @@
 ﻿@page
 @model IndexModel
 @{
-    ViewData["Title"] = "Dashboard";
-
+    Layout = "~/Pages/Shared/_LayoutRegister.cshtml";
+    ViewData["Title"] = "Home page";
 }
 
-@{
-    // Access the "layout" query parameter from the URL
-    string layoutParam = Request.Query["layout"];
-
-    // Determine the condition based on the value of the "layout" parameter
-    string layout = "Shared/_Layout.cshtml"; // Default layout
-    if (layoutParam == "layout2")
-    {
-        layout = "_Layout2.cshtml";
-    }
-}
-
-@{Layout = layout;
-    }
-
-
-<!--<div class="">
-    <h1 class="title">
-        Dashboard
-    </h1>-->
+<div class="text-center">
+    <p>aaa</p>
+    @*<h1 class="display-4">Welcome</h1>*@
     @*<p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>*@
-<!--</div>-->
-
+</div>

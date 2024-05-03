@@ -6,6 +6,7 @@
     <title>@ViewData["Title"] </title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/perfil.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Dashboard.styles.css" asp-append-version="true" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
 </head>
@@ -24,10 +25,10 @@
                         <label class="mb-2"> Menu </label>
                         <div class="group">
                             <div class="nav-item">
-                                <a class="nav-link @((string)ViewData["Title"] == "Dashboard" ? "active" : "none")" aria-current="page" asp-page="/Index">Dashboard</a>
+                                <a class="nav-link @((string)ViewData["Title"] == "Inicio" ? "active" : "none")" aria-current="page" asp-page="/Inicio">Dashboard</a>
                             </div>
                             <div class="nav-item">
-                                <a class="nav-link @((string)ViewData["Title"] == "Usuarios" ? "active" : "none")" href="#">Usuarios</a>
+                                <a class="nav-link @((string)ViewData["Title"] == "Dashboard" ? "active" : "none")" asp-page="/Dashboard">Usuarios</a>
                             </div>
                         </div>
                     </div>

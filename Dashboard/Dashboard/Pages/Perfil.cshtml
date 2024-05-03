@@ -27,9 +27,9 @@
 
                 <div class="mb-3">
                     <div class="d-flex align-items-center">
-                        <label class="form-label">Apellido</label>
+                        <label class="form-label">Usuario</label>
                     </div>
-                    <input asp-for="Apellido" type="text" value="@Model.Apellido" disabled="@Model.IsUser" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
+                    <input asp-for="Usuario" type="text" value="@Model.Usuario" disabled="@Model.IsUser" class="form-control @(Model.NombreCorrecto ? "condition-true" : "condition-false")" />
                 </div>
 
                 <div class="mb-5">

@@ -9,9 +9,9 @@
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'https' " />
   <PropertyGroup Condition=" '$(RunConfiguration)' == 'http' " />
   <ItemGroup>
-    <Content Remove="wwwroot\images\" />
+    <Content Remove="wwwroot\imgs\" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="wwwroot\images\" />
+    <Folder Include="wwwroot\imgs\" />
   </ItemGroup>
 </Project>

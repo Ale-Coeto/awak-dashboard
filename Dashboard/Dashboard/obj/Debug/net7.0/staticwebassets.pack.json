@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/perfil.css",
+      "PackagePath": "staticwebassets/css/perfil.css"
+    },
+    {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/site.css",
       "PackagePath": "staticwebassets/css/site.css"
     },
@@ -17,16 +21,16 @@
       "PackagePath": "staticwebassets/favicon.ico"
     },
     {
-      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/logo.png",
-      "PackagePath": "staticwebassets/images/logo.png"
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/logo.png",
+      "PackagePath": "staticwebassets/imgs/logo.png"
     },
     {
-      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/profile.jpeg",
-      "PackagePath": "staticwebassets/images/profile.jpeg"
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/profile.jpeg",
+      "PackagePath": "staticwebassets/imgs/profile.jpeg"
     },
     {
-      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/profile.webp",
-      "PackagePath": "staticwebassets/images/profile.webp"
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/profile.webp",
+      "PackagePath": "staticwebassets/imgs/profile.webp"
     },
     {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/js/site.js",
