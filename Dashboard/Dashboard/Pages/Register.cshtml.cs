@@ -16,11 +16,11 @@ namespace Dashboard.Pages
 
 		[BindProperty]
 		[Required(ErrorMessage = "El campo 'Correo' es obligatorio.")]
-		[EmailAddress(ErrorMessage = "El formato del correo electr�nico no es v�lido.")]
+		[EmailAddress(ErrorMessage = "El formato del correo electrónico no es v�lido.")]
 		public string Correo { get; set; } = "";
 
         [BindProperty]
-		[Required(ErrorMessage = "El campo 'Contrase�a' es obligatorio.")]
+		[Required(ErrorMessage = "El campo 'Contraseña' es obligatorio.")]
 		public string Contrasenia { get; set; } = "";
 
 
@@ -34,7 +34,7 @@ namespace Dashboard.Pages
 
 			DatabaseManager.InsertUser(Nombre, Correo, Contrasenia);
 
-			return RedirectToPage("./Index");
+			return RedirectToPage("./Inicio");
 		}
 	}
 }

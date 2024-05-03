@@ -8,7 +8,7 @@ namespace Dashboard
 {
 	public static class DatabaseManager
 	{
-        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=;";
+        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=acoeto24;";
 
         private static readonly MySqlConnection Connection = new MySqlConnection(ConnectionString);
 
