@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets/Dashboard.bundle.scp.css"
     },
     {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/.DS_Store",
+      "PackagePath": "staticwebassets/.DS_Store"
+    },
+    {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/login.css",
       "PackagePath": "staticwebassets/css/login.css"
     },
