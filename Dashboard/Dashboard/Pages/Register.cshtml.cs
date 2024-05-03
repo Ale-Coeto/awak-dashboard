@@ -10,18 +10,18 @@ namespace Dashboard.Pages
 {
 	public class RegisterModel : PageModel
 	{
-        [BindProperty]
-        [Required(ErrorMessage = "El campo 'Nombre' es obligatorio.")]
-        public string Nombre { get; set; }
+		[BindProperty]
+		[Required(ErrorMessage = "El campo 'Nombre' es obligatorio.")]
+		public string Nombre { get; set; } = "";
 
 		[BindProperty]
 		[Required(ErrorMessage = "El campo 'Correo' es obligatorio.")]
-		[EmailAddress(ErrorMessage = "El formato del correo electrónico no es válido.")]
-		public string Correo { get; set; }
+		[EmailAddress(ErrorMessage = "El formato del correo electrï¿½nico no es vï¿½lido.")]
+		public string Correo { get; set; } = "";
 
-		[BindProperty]
-		[Required(ErrorMessage = "El campo 'Contraseña' es obligatorio.")]
-		public string Contrasenia { get; set; }
+        [BindProperty]
+		[Required(ErrorMessage = "El campo 'Contraseï¿½a' es obligatorio.")]
+		public string Contrasenia { get; set; } = "";
 
 
 
@@ -31,6 +31,8 @@ namespace Dashboard.Pages
 			{
 				return Page();
 			}
+
+			DatabaseManager.InsertUser(Nombre, Correo, Contrasenia);
 
 			return RedirectToPage("./Index");
 		}

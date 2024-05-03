@@ -10,7 +10,7 @@
     <form method="post" class="pt-5">
         <div class="form">
             <label class="text-field" asp-for="Nombre">Nombre</label>
-            <input asp-for="Nombre" type="password" class="form-control" required />
+            <input asp-for="Nombre" type="text" class="form-control" required />
             <span asp-validation-for="Nombre" class="text-danger"></span>
         </div>
         <div class="form">
@@ -19,7 +19,7 @@
             <span asp-validation-for="Correo" class="text-danger"></span>
         </div>
         <div class="form">
-            <label class="text-field" asp-for="Contrasenia">Contraseña</label>
+            <label class="text-field" asp-for="Contrasenia">Contraseï¿½a</label>
             <input asp-for="Contrasenia" type="password" class="form-control" required />
             <span asp-validation-for="Contrasenia" class="text-danger"></span>
         </div>
@@ -27,6 +27,6 @@
         <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
     </form>
     <div class="redirect">
-        <p class="text-field">¿Ya tienes una cuenta? <a class="anchor-text" asp-page="./login">Inicia Sesión</a></p>
+        <p class="text-field">ï¿½Ya tienes una cuenta? <a class="anchor-text" asp-page="./login">Inicia Sesiï¿½n</a></p>
     </div>
 </div>

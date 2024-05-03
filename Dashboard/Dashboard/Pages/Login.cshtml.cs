@@ -12,21 +12,30 @@ namespace Dashboard.Pages
     {
         [BindProperty]
         [Required(ErrorMessage = "El campo \'Correo\' es obligatorio.")]
-        [EmailAddress(ErrorMessage = "El formato del correo electrÛnico no es v·lido.")]
-        public string Correo { get; set; }
+        [EmailAddress(ErrorMessage = "El formato del correo electr√≥nico no es v√°lido.")]
+        public string Correo { get; set; } = "";
 
         [BindProperty]
-        [Required(ErrorMessage = "El campo 'ContraseÒa' es obligatorio.")]
-        public string Contrasenia { get; set; }
+        [Required(ErrorMessage = "El campo 'Contrase√±a' es obligatorio.")]
+        public string Contrasenia { get; set; } = "";
+
+        public bool ValidUser { get; set; }
 
         public IActionResult OnPost()
         {
+            
+
             if (!ModelState.IsValid)
             {
                 return Page();
             }
 
-            return RedirectToPage("./Index");
+            ValidUser = DatabaseManager.IsValidUser(Correo, Contrasenia);
+
+            if (ValidUser)
+                return RedirectToPage("./Index");
+            else
+                return Page();
         }
     }
 }
