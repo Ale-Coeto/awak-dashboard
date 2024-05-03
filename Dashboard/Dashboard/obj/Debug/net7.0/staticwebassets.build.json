@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "J75ybTj8p6767B4R4f1O/VV3nzzxXi0qtKDOASGMS08=",
+  "Hash": "Xq4F8MZp77YzexMU2gREK8HScOnMfosm2UkL9VUNybc=",
   "Source": "Dashboard",
   "BasePath": "_content/Dashboard",
   "Mode": "Default",
@@ -49,23 +49,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/obj/Debug/net7.0/scopedcss/projectbundle/Dashboard.bundle.scp.css"
-    },
-    {
-      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/.DS_Store",
-      "SourceId": "Dashboard",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/",
-      "BasePath": "_content/Dashboard",
-      "RelativePath": ".DS_Store",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/.DS_Store"
     },
     {
       "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/login.css",
