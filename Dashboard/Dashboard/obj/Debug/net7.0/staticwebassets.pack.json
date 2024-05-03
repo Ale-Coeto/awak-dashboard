@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets/.DS_Store"
     },
     {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/inicio.css",
+      "PackagePath": "staticwebassets/css/inicio.css"
+    },
+    {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/login.css",
       "PackagePath": "staticwebassets/css/login.css"
     },
@@ -39,6 +43,10 @@
     {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/LogoAwak.png",
       "PackagePath": "staticwebassets/images/LogoAwak.png"
+    },
+    {
+      "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/Welcome.png",
+      "PackagePath": "staticwebassets/images/Welcome.png"
     },
     {
       "Id": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/logo.png",
