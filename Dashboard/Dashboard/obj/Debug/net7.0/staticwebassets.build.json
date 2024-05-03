@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eWgYeTJPGThe3RQy87V1tyysoYrYD6ntj9Mjilsk0M0=",
+  "Hash": "J75ybTj8p6767B4R4f1O/VV3nzzxXi0qtKDOASGMS08=",
   "Source": "Dashboard",
   "BasePath": "_content/Dashboard",
   "Mode": "Default",
@@ -85,6 +85,40 @@
       "OriginalItemSpec": "wwwroot/css/perfil.css"
     },
     {
+      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/login.css",
+      "SourceId": "Dashboard",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/",
+      "BasePath": "_content/Dashboard",
+      "RelativePath": "css/login.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/login.css"
+    },
+    {
+      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/register.css",
+      "SourceId": "Dashboard",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/",
+      "BasePath": "_content/Dashboard",
+      "RelativePath": "css/register.css",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/css/register.css"
+    },
+    {
       "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/css/site.css",
       "SourceId": "Dashboard",
       "SourceType": "Discovered",
@@ -136,6 +170,23 @@
       "OriginalItemSpec": "wwwroot/imgs/logo.png"
     },
     {
+      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/FondoImagen-90.png",
+      "SourceId": "Dashboard",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/",
+      "BasePath": "_content/Dashboard",
+      "RelativePath": "images/FondoImagen-90.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/FondoImagen-90.png"
+    },
+    {
       "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/profile.jpeg",
       "SourceId": "Dashboard",
       "SourceType": "Discovered",
@@ -153,12 +204,12 @@
       "OriginalItemSpec": "wwwroot/imgs/profile.jpeg"
     },
     {
-      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/imgs/profile.webp",
+      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/FondoImagen.png",
       "SourceId": "Dashboard",
       "SourceType": "Discovered",
       "ContentRoot": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/",
       "BasePath": "_content/Dashboard",
-      "RelativePath": "imgs/profile.webp",
+      "RelativePath": "images/FondoImagen.png",
       "AssetKind": "All",
       "AssetMode": "All",
       "AssetRole": "Primary",
@@ -167,7 +218,24 @@
       "AssetTraitValue": "",
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/imgs/profile.webp"
+      "OriginalItemSpec": "wwwroot/images/FondoImagen.png"
+    },
+    {
+      "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/images/LogoAwak.png",
+      "SourceId": "Dashboard",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/",
+      "BasePath": "_content/Dashboard",
+      "RelativePath": "images/LogoAwak.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/images/LogoAwak.png"
     },
     {
       "Identity": "/Users/alecoeto/Documents/Web/awak-dashboard/Dashboard/Dashboard/wwwroot/js/site.js",

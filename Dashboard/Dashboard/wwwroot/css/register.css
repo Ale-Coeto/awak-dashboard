@@ -1,0 +1,74 @@
+﻿:root {
+    --verde_claro: #89B486;
+    --verde_principal: #2C5629;
+    --verde_oscuro: #0C270A;
+    --gris_oscuro: #4E4F5D;
+    --gris_claro: #F1F2F7;
+    --amarillo: #F9B235;
+    --rojo: #C75A4D;
+}
+
+.bg-claro {
+    background-color: #89B486;
+}
+
+.img-container {
+    max-width: 100%;
+    overflow: hidden; /* Optional: Hide any overflowing content */
+}
+
+.side-navbar{
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40vw;
+    background-image: url('../images/FondoImagen-90.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.side-content {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    width: 60vw;
+}
+
+/*// <uniquifier > : Use a unique and descriptive class name
+// <weight > : Use a value from 100 to 900*/
+
+.inter-400 {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.register-title {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: white;
+}
+
+.register-sub-title {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    color: white;
+    font-size: 1.5em;
+}
+
+.register-image{
+    margin-top: 5em;
+}
+
+.register-title-container{
+    margin: 3em;
+    margin-top: 5.5em;
+}
