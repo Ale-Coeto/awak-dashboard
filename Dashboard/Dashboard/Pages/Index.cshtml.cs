@@ -22,6 +22,8 @@ public class IndexModel : PageModel
     {
         // Redirect to the login page
         return RedirectToPage("./Login");
+        //return RedirectToPage("./Inicio");
+
     }
 }
 
