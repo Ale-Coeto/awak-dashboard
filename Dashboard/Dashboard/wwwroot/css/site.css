@@ -110,6 +110,7 @@ body {
     background-color: var(--verde_texto);
     width: fit-content;
     align-self: center;
+    border: none;
 }
 
 .btn-primary:hover {

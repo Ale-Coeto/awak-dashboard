@@ -1,0 +1,73 @@
+﻿:root {
+    --verde_claro: #89B486;
+    --verde_principal: #2C5629;
+    --verde_oscuro: #0C270A;
+    --verde_hover: #AFDFAB;
+    --verde_texto: #407B46;
+    --gris_oscuro: #4E4F5D;
+    --gris_claro: #F1F2F7;
+    --gris_select: #E4E7F4;
+    --amarillo: #F9B235;
+    --rojo: #C75A4D;
+}
+
+.welcome-container {
+    align-content: center;
+    overflow: hidden;
+    align-self: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-container img {
+    height: 100%;
+    width: 100%;
+}
+
+.bg-welcome {
+    background-image: url('/images/welcome.png');
+    background-size: cover;
+    background-position: bottom;
+    
+}
+
+.welcome-container .row {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.welcome-container p {
+    text-align: justify;
+}
+.row>* {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.white {
+    color: white;
+    text-decoration: none;
+}
+
+.white:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.box-home {
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: justify;
+    
+}
+
+.t3 {
+    font-size: medium;
+}
+
+.green {
+    color: var(--verde_texto);
+}
+
+.green:hover {
+    color: var(--verde_claro);
+}

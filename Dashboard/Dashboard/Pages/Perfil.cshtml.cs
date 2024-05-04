@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
@@ -10,57 +11,124 @@ namespace Dashboard.Pages
 	public class PerfilModel : PageModel
     {
         [BindProperty]
-        public string Nombre { set; get; } = "";
-        public bool NombreCorrecto { set; get; }
+        [Required(ErrorMessage = "El campo \'Nombre\' es obligatorio.")]
+        public string Nombre { set; get; }
 
 
         [BindProperty]
-        public string Usuario { set; get; } = "";
-        public bool ApellidoCorrecto { set; get; }
+        public string Username { set; get; } = "";
 
 
         [BindProperty]
+        //[Required(ErrorMessage = "El campo \'Correo\' es obligatorio.")]
         public string Correo { set; get; } = "";
-        public bool CorreoCorrecto { set; get; }
 
         [BindProperty]
-        public string Contrasena { set; get; } = "";
-        public bool ContrasenaCorrecto { set; get; }
+        [Required(ErrorMessage = "El campo \'Anterior Contraseña\' es obligatorio.")]
+        public string Contrasenia { set; get; } = "";
+
+        [BindProperty]
+        [Required(ErrorMessage = "El campo \'Nueva Contraseña\' es obligatorio.")]
+        public string NuevaContrasenia1 { set; get; } = "";
+
+        [BindProperty]
+        [Required(ErrorMessage = "El campo \'Confirmar Contraseña\' es obligatorio.")]
+        public string NuevaContrasenia2 { set; get; } = "";
 
         [BindProperty]
         public string Red { set; get; } = "";
-        public bool RedCorrecto { set; get; }
 
         [BindProperty]
         public string Bio { set; get; } = "";
-        public bool BioCorrecto { set; get; }
 
-        public bool IsUser { set; get; } = false;
+        [BindProperty]
+        public DateOnly Cumpleanios { set; get; }
 
-        public int Id { set; get; }
+        public bool IsUser { set; get; } = true;
+
+        public string Id { set; get; } = "";
+
+        Usuario user = new Usuario();
 
         public void OnGet()
         {
-            IsUser = Request.Query.ContainsKey("admin");
-            IsUser = !IsUser;
-            int id = 0;
-
-            if (Request.Query.ContainsKey("id"))
+            //string id = "";
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")) == false)
             {
-                int.TryParse(Request.Query["id"], out id);
-                Id = id;
+                Id = HttpContext.Session.GetString("ID");
             }
+
+            user = DatabaseManager.GetUsuario(Id);
+            Console.WriteLine(Id);
+
+            Nombre = user.Nombre;
+            Username = user.Username;
+            Correo = user.Correo;
+            Red = user.RedSocial;
+            Bio = user.Bio;
+
+            Cumpleanios = user.Cumpleanios;
+
+
+            //IsUser = true;
+
 
         }
 
         public void OnPostPerfil()
         {
 
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")) == false)
+            {
+                Id = HttpContext.Session.GetString("ID");
+            }
+
+            Nombre = HttpContext.Session.GetString("Nombre");
+            Correo = HttpContext.Session.GetString("Correo");
+
+
+            user.Username = Username;
+            user.RedSocial = Red;
+            user.Cumpleanios = Cumpleanios;
+            user.Bio = Bio;
+            Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
+
+            Console.WriteLine(Username);
+            Console.WriteLine(Id);
+            DatabaseManager.UpdateUser(Id, user);
+            RedirectToPage("./Perfil");
         }
 
-        public void OnPostContrasena()
+        public void OnPostContrasenia()
         {
+            Id = HttpContext.Session.GetString("ID");
 
+            string pass = DatabaseManager.GetPassword(Id);
+            user = DatabaseManager.GetUsuario(Id);
+            Nombre = user.Nombre;
+            Username = user.Username;
+            Correo = user.Correo;
+            Red = user.RedSocial;
+            Bio = user.Bio;
+            Cumpleanios = user.Cumpleanios;
+
+            //if (Contrasenia != pass)
+            //{
+            //    RedirectToPage("./Perfil");
+            //}
+
+            //else if (NuevaContrasenia1 != NuevaContrasenia2)
+            //{
+            //    RedirectToPage("./Perfil");
+            //} 
+            if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
+            {
+                Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+                DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+                RedirectToPage("./Perfil");
+
+            }
+            //RedirectToPage("/YourPage", new { user = user });
         }
     }
 }

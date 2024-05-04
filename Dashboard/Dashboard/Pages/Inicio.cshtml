@@ -4,6 +4,62 @@
     ViewData["Title"] = "Inicio";
 }
 
-<div>
-    hi
+<div class="container p-5">
+    <div class="row no-padding">
+        <div class="welcome-container">
+            <div class="bg-welcome">
+                <div class="p-5">
+                    <h2 class="subtitulo">
+                        
+                        Bienvenid@@, @Model.Nombre!
+                    </h2>
+                    <p class="mb-5 mt-3">
+                        En esta página podrás encontrar información sobre tu proceso de OnBoarding, tu progreso y pendientes.
+                        También podrás ver información sobre otros integrantes de Awaq y sus avances en el videojuego de introducción.
+                    </p>
+                    <div class="btn btn-primary mb-5">
+                        <a class="white" asp-page="/Dashboard"> Ir a mi dashboard </a>
+                    </div>
+                    
+                    <br class="mb-5" />
+                </div>
+                
+            </div>
+        </div>
+    </div>
+    <div class="row mt-5">
+        <div class="col">
+            <div class="box-home p-4">
+                <h3 class="t3 mb-3">
+                    General
+                </h3>
+
+                <div class="mb-3">
+                    Rol: Usuario
+                </div>
+                <div class="mb-3">
+                    Progreso: 0/5 Zonas completadas
+                </div>
+                <div>
+                    Puntuación: 1000 pts
+                </div>
+            </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+        <div class="col">
+            <div class="box-home p-4">
+                <h3 class="t3 mb-3">
+                    Sobre Awaq
+                </h3>
+                <p>
+                    Awaq es una organización de cooperación internacional que desarrolla mediante Estaciones Biológicas, proyectos de investigación científica y conservación de ecosistemas en comunidades menos favorecidas a partir de modelos económicos alternativos que mejoren la calidad de vida de sus habitantes.
+                </p>
+                <a class="green" href="https://www.somosawaq.org/">
+                    https://www.somosawaq.org/
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

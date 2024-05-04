@@ -32,9 +32,13 @@ namespace Dashboard.Pages
 				return Page();
 			}
 
-			DatabaseManager.InsertUser(Nombre, Correo, Contrasenia);
-
-			return RedirectToPage("./Inicio");
+            
+            int id = DatabaseManager.InsertUser(Nombre, Correo, Contrasenia);
+            HttpContext.Session.SetString("ID", id.ToString());
+            HttpContext.Session.SetString("Correo", Correo);
+            HttpContext.Session.SetString("Nombre", Nombre);
+            //ViewData["Nombre"] = Nombre;
+            return RedirectToPage("./Inicio");
 		}
 	}
 }

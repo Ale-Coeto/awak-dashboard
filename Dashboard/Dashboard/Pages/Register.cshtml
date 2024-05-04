@@ -19,14 +19,16 @@
             <span asp-validation-for="Correo" class="text-danger"></span>
         </div>
         <div class="form">
-            <label class="text-field" asp-for="Contrasenia">Contrase�a</label>
+            <label class="text-field" asp-for="Contrasenia">Contraseña</label>
             <input asp-for="Contrasenia" type="password" class="form-control" required />
             <span asp-validation-for="Contrasenia" class="text-danger"></span>
         </div>
 
-        <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
+        <button type="submit" class="btn-custom btn-iniciar">Registrarse</button>
     </form>
     <div class="redirect">
-        <p class="text-field">�Ya tienes una cuenta? <a class="anchor-text" asp-page="./login">Inicia Sesi�n</a></p>
+        <p class="text-field">¿Ya tienes una cuenta? <a class="anchor-text" asp-page="./login">Inicia Sesión</a></p>
     </div>
 </div>
+
+

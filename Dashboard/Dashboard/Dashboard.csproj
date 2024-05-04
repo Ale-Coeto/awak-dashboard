@@ -11,4 +11,10 @@
   <ItemGroup>
     <PackageReference Include="MySql.Data" Version="8.4.0" />
   </ItemGroup>
+  <ItemGroup>
+    <None Remove="Model\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Model\" />
+  </ItemGroup>
 </Project>
