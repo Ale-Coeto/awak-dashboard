@@ -11,11 +11,10 @@ namespace Dashboard
 {
 	public static class DatabaseManager
 	{
-        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=acoeto24;";
+        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=;";
 
         private static readonly MySqlConnection Connection = new MySqlConnection(ConnectionString);
 
-        //private static MySqlDataReader reader;
 
         public static MySqlConnection GetConnection()
         {
@@ -75,9 +74,7 @@ namespace Dashboard
                 Connection.Open();
             }
 
-            //if (user.Cumpleanios == Date) 
             string updateQuery = "UPDATE Usuario SET username = @username, cumpleanios = STR_TO_DATE(@cumpleanios, '%Y-%m-%d'), redSocial = @red, biography = @bio WHERE ID_usuario = @id";
-            //string updateQuery = "UPDATE Usuario SET username = @username, redSocial = @red, biography = @bio WHERE ID_usuario = @id";
 
             try
             {
@@ -93,8 +90,6 @@ namespace Dashboard
                     updateCommand.Parameters.AddWithValue("@bio", user.Bio);
                     int rowsUpdated = updateCommand.ExecuteNonQuery();
                     Console.WriteLine(rowsUpdated + " Rows updated");
-                    //int id = GetUserID(correo, contrasenia);
-                    //return id;
 
                 }
             }
@@ -113,9 +108,7 @@ namespace Dashboard
                 Connection.Open();
             }
 
-            //if (user.Cumpleanios == Date) 
             string updateQuery = "UPDATE Usuario SET contrasenia = @contrasenia WHERE ID_usuario = @id";
-            //string updateQuery = "UPDATE Usuario SET username = @username, redSocial = @red, biography = @bio WHERE ID_usuario = @id";
 
             try
             {
@@ -127,15 +120,12 @@ namespace Dashboard
 
                     int rowsUpdated = updateCommand.ExecuteNonQuery();
                     Console.WriteLine(rowsUpdated + " Rows updated");
-                    //int id = GetUserID(correo, contrasenia);
-                    //return id;
 
                 }
             }
             catch (MySqlException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
-                //return -1;
             }
 
         }
@@ -185,9 +175,6 @@ namespace Dashboard
                 {
                     MySqlCommand userCommand = new MySqlCommand(userQuery, Connection);
 
-                    //MySqlDataReader reader = userCommand.ExecuteReader();
-                    //while (reader.Read())
-                    //{
                     using (MySqlDataReader reader = userCommand.ExecuteReader())
                     {
                         if (reader.Read())
@@ -213,7 +200,6 @@ namespace Dashboard
                         }                      
                     }
                     
-                    //}
 
                     return user;
 
