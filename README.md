@@ -9,7 +9,7 @@ Dashboard para visualizar el progreso de usuarios en su proceso de onboarding.
 - [Bootstraps](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 - [C#](https://dotnet.microsoft.com/es-es/languages/csharp)
 - [MySQL](https://www.mysql.com/)
-
+- [Tailwind](https://tailwindcss.com/)
   
 ## Equipo de desarrollo
 | Name | Github | Email |
