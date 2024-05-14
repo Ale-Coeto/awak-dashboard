@@ -10,7 +10,7 @@
             <div class="bg-welcome">
                 <div class="p-5">
                     <h2 class="subtitulo">
-                        
+
                         Bienvenid@@, @Model.Nombre!
                     </h2>
                     <p class="mb-5 mt-3">
@@ -21,39 +21,80 @@
                         <a class="white" asp-page="/Dashboard"> Ir a mi dashboard </a>
                     </div>
                     
+
                     <br class="mb-5" />
                 </div>
-                
+
             </div>
         </div>
     </div>
-    <div class="row mt-5">
-        <div class="col">
-            <div class="box-home p-4">
-                <h3 class="t3 mb-3">
-                    General
-                </h3>
 
-                <div class="mb-3">
-                    Rol: Usuario
+    <div class="flex flex-col lg:flex-row mt-5 gap-12">
+
+        <!-- card 1 -->
+        <div class="box-home p-4">
+            <h3 class="t3 mb-4 font-semibold">
+                General
+            </h3>
+            
+            <div class="flex flex-col gap-6 ml-6 w-max">
+
+                <div class="flex flex-row items-center gap-4">
+                    <div class="text-xl text-slate-500">
+                        <i class="gray bi bi-person-fill"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="font-semibold mr-2">
+                            Rol
+                        </div>
+                        <div class="">
+                            Usuario
+                        </div>
+                    </div>
                 </div>
-                <div class="mb-3">
-                    Progreso: 0/5 Zonas completadas
+
+                <div class="flex flex-row items-center gap-4">
+                    <div class="text-xl text-slate-500">
+                        <i class="gray bi bi-check2-square"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="font-semibold mr-2">
+                            Progreso
+                        </div>
+                        <div class="">
+                            0/5 zonas completadas
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    Puntuación: 1000 pts
+                
+                <div class="flex flex-row items-center gap-4">
+                    <div class="text-xl text-slate-500">
+                        <i class="gray bi bi-star-fill"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="font-semibold mr-2">
+                            Puntuación
+                        </div>
+                        <div class="">
+                            10 pts
+                        </div>
+                    </div>
                 </div>
+
             </div>
         </div>
-        <div class="col-1">
+    
 
-        </div>
-        <div class="col">
-            <div class="box-home p-4">
-                <h3 class="t3 mb-3">
+        <!-- card 2 -->
+        <div class="box-home p-4">
+            <div class="flex flex-col justify-between">
+                <h3 class="mb-4 font-semibold">
                     Sobre Awaq
                 </h3>
-                <p>
+                <p class="mb-3">
                     Awaq es una organización de cooperación internacional que desarrolla mediante Estaciones Biológicas, proyectos de investigación científica y conservación de ecosistemas en comunidades menos favorecidas a partir de modelos económicos alternativos que mejoren la calidad de vida de sus habitantes.
                 </p>
                 <a class="green" href="https://www.somosawaq.org/">
@@ -61,5 +102,6 @@
                 </a>
             </div>
         </div>
+
     </div>
 </div>

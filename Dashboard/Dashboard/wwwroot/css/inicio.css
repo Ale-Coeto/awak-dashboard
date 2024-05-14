@@ -7,6 +7,7 @@
     --gris_oscuro: #4E4F5D;
     --gris_claro: #F1F2F7;
     --gris_select: #E4E7F4;
+    --gris_medio: #A3A4AD;
     --amarillo: #F9B235;
     --rojo: #C75A4D;
 }
@@ -27,7 +28,7 @@
     background-image: url('/images/welcome.png');
     background-size: cover;
     background-position: bottom;
-    
+
 }
 
 .welcome-container .row {
@@ -38,6 +39,7 @@
 .welcome-container p {
     text-align: justify;
 }
+
 .row>* {
     padding-right: 0px;
     padding-left: 0px;
@@ -56,8 +58,9 @@
 .box-home {
     border: 1px solid rgba(0, 0, 0, 0.2);
     border-radius: 10px;
+    height: 100%;
     text-align: justify;
-    
+
 }
 
 .t3 {
@@ -70,4 +73,8 @@
 
 .green:hover {
     color: var(--verde_claro);
+}
+
+.gray {
+    color: var(--gris_medio);
 }

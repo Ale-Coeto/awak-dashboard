@@ -44,6 +44,8 @@ namespace Dashboard.Pages
         [BindProperty]
         public DateOnly Cumpleanios { set; get; }
 
+        public string CumpleaniosTxt { set; get; } = "";
+
         public bool IsUser { set; get; } = true;
 
         public string Id { set; get; } = "";
@@ -59,7 +61,6 @@ namespace Dashboard.Pages
             }
 
             user = DatabaseManager.GetUsuario(Id);
-            Console.WriteLine(Id);
 
             Nombre = user.Nombre;
             Username = user.Username;
@@ -68,6 +69,15 @@ namespace Dashboard.Pages
             Bio = user.Bio;
 
             Cumpleanios = user.Cumpleanios;
+            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+
+            if (CumpleaniosTxt == "0001-01-01")
+            {
+                CumpleaniosTxt = "";
+            }
+            // Cumpleanios = DateOnly.FromDateTime(DateTime.ParseExact(formattedDate, "yyyy/MM/dd", null));
+
+            Console.WriteLine(CumpleaniosTxt);
 
 
             //IsUser = true;
@@ -90,6 +100,13 @@ namespace Dashboard.Pages
             user.Username = Username;
             user.RedSocial = Red;
             user.Cumpleanios = Cumpleanios;
+            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+
+            if (CumpleaniosTxt == "0001-01-01")
+            {
+                CumpleaniosTxt = "";
+            }
+
             user.Bio = Bio;
             Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
 
@@ -111,6 +128,12 @@ namespace Dashboard.Pages
             Red = user.RedSocial;
             Bio = user.Bio;
             Cumpleanios = user.Cumpleanios;
+            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+
+            if (CumpleaniosTxt == "0001-01-01")
+            {
+                CumpleaniosTxt = "";
+            }
 
             //if (Contrasenia != pass)
             //{
