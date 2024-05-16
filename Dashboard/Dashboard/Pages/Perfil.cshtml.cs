@@ -146,7 +146,7 @@ namespace Dashboard.Pages
             //} 
             if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
             {
-                Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+                // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
                 DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
                 RedirectToPage("./Perfil");
 
