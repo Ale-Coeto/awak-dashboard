@@ -17,5 +17,5 @@ Dashboard para visualizar el progreso de usuarios en su proceso de onboarding.
 |  | [](https://github.com/) | @ |
 |  | [](https://github.com/) | @ |
 |  | [](https://github.com/) | @ |
-|  | [](https://github.com/) | @ |
-| Alejandra Coeto | [@Ale-Coeto](https://github.com/AleCoeto) | a01285221@tec.com |
+|  Oscar Arreola | [@Oscar-gg](https://github.com/Oscar-gg) | a01178076@tec.mx |
+| Alejandra Coeto | [@Ale-Coeto](https://github.com/AleCoeto) | a01285221@tec.mx |
