@@ -77,7 +77,14 @@
             </div>
 
             <div class="nav-item">
-                <a class="nav-link dull" asp-page="/Login"> Cerrar sesión </a>
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Cerrar sesión</a>
+                }
+                else
+                {
+                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar Sesión</a>
+                }
             </div>
 
 
