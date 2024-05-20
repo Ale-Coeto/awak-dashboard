@@ -1,0 +1,49 @@
+[
+    {
+        "section": "Communications",
+        "concepts": [
+            {
+                "title": "Outlook",
+                "description": "Outlook is a personal information manager from Microsoft, available as a part of the Microsoft Office suite. Primarily an email application, it also includes a calendar, task manager, contact manager, note taking, journal, and web browsing."
+            },
+            {
+                "title": "Gmail",
+                "description": "Gmail is a free email service developed by Google. Users can access Gmail on the web and using third-party programs that synchronize email content through POP or IMAP protocols."
+            }
+        ]
+    },
+    {
+        "section": "Productivity",
+        "concepts": [
+            {
+                "title": "Microsoft Word",
+                "description": "Microsoft Word is a word processor developed by Microsoft. It was first released on October 25, 1983 under the name Multi-Tool Word for Xenix systems."
+            },
+            {
+                "title": "Microsoft Excel",
+                "description": "Microsoft Excel is a spreadsheet developed by Microsoft for Windows, macOS, Android and iOS. It features calculation, graphing tools, pivot tables, and a macro programming language called Visual Basic for Applications."
+            },
+            {
+                "title": "Microsoft PowerPoint",
+                "description": "Microsoft PowerPoint is a presentation program, created by Robert Gaskins and Dennis Austin at a software company named Forethought, Inc. It was released on April 20, 1987, initially for Macintosh computers only."
+            }
+        ]
+    },
+    {
+        "section": "Media",
+        "concepts": [
+            {
+                "title": "Microsoft Word",
+                "description": "Microsoft Word is a word processor developed by Microsoft. It was first released on October 25, 1983 under the name Multi-Tool Word for Xenix systems."
+            },
+            {
+                "title": "Microsoft Excel",
+                "description": "Microsoft Excel is a spreadsheet developed by Microsoft for Windows, macOS, Android and iOS. It features calculation, graphing tools, pivot tables, and a macro programming language called Visual Basic for Applications."
+            },
+            {
+                "title": "Microsoft PowerPoint",
+                "description": "Microsoft PowerPoint is a presentation program, created by Robert Gaskins and Dennis Austin at a software company named Forethought, Inc. It was released on April 20, 1987, initially for Macintosh computers only."
+            }
+        ]
+    }
+]

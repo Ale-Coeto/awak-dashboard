@@ -1,5 +1,81 @@
-﻿@page
+﻿@page "/Content"
 @model Dashboard.Pages.ContentModel
 @{
+    ViewData["Title"] = "Contenido";
 }
 
+<div class="">
+
+    <form class="flex gap-4 py-4 fixed h-22 w-full pr-64 pl-8 glass" method="post">
+
+        <select asp-for="SectionFilter" id="filters"
+            class="max-h-9 w-auto rounded-md bg-gray-100 py-2 px-3 text-gray-400 focus:text-gray-600 focus:outline-none">
+            <option value="" class="text-gray-400">Filters</option>
+            <option value="Communications">Communications</option>
+            <option value="a">Sections</option>
+        </select>
+
+        <input asp-for="SearchString"
+            class="max-h-9 w-full rounded-md bg-gray-100 py-2 px-3 text-gray-800 focus:text-gray-600 focus:outline-none"
+            type="text" placeholder="Search" />
+
+        <button id='submitBtn' type="submit" class="max-h-9 rounded-md px-8  text-white no-underline  bg-green">
+            Search
+        </button>
+
+        <button type="submit" name="reset"
+            class="max-h-9 border-2 border-green rounded-md text-nowrap px-8 no-underline ">
+            Clear
+        </button>
+    </form>
+
+
+    <div class="container px-20 pt-28 overflow-y-scroll">
+
+        @if (ContentModel.content.Count == 0)
+        {
+            <div class="alert alert-danger"> No concepts found </div>
+        }
+        else
+        {
+            @foreach (var item in ContentModel.content)
+            {
+                <div class="pb-12">
+                    <h2 class="font-semibold text-xl pb-4">
+                        @item.section
+                    </h2>
+
+                    <div class="flex flex-col gap-3 px-4">
+                        @foreach (var concept in item.concepts)
+                        {
+                            <div class="">
+                                <h3 class="font-semibold pb-1"> @concept.title </h3>
+                                <p>@concept.description</p>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            }
+        }
+    </div>
+
+
+</div>
+
+<script>
+    const submitButton = document.getElementById('submitBtn');
+
+    @* const searchInput = document.querySelector('input[type="text"]');
+        searchInput.addEventListener('input', () => {
+        if (searchInput.value.length > 0) {
+        submitButton.click();
+        }
+        }); *@
+
+    const selectionList = document.getElementById('filters');
+    selectionList.addEventListener('change', () => {
+        submitButton.click(); // Simulate click on submit button
+    });
+
+</script>
