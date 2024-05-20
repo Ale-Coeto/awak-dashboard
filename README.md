@@ -1,6 +1,10 @@
 # awak-dashboard
 Dashboard para visualizar el progreso de usuarios en su proceso de onboarding.
 
+## How to run
+
+1. Create the appsettings.json file -> you can use appsettings.json.example as a template. Make sure to provide valid Azure AD values.
+2. Create the db, provide connection string in the backend.
 
 ## Tech Stack
 

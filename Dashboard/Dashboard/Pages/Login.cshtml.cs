@@ -1,12 +1,6 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using Dashboard;
-using Microsoft.AspNetCore.Http;
 
 
 //using namespace Dashboar;
@@ -54,5 +48,16 @@ namespace Dashboard.Pages
             else
                 return Page();
         }
+
+        public IActionResult OnGet()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Redirect("/inicio");
+            }
+
+            return Page();
+        }
+
     }
 }
