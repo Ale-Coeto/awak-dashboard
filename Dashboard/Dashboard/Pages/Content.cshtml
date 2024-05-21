@@ -10,27 +10,27 @@
 
         <select asp-for="SectionFilter" id="filters"
             class="max-h-9 w-auto rounded-md bg-gray-100 py-2 px-3 text-gray-400 focus:text-gray-600 focus:outline-none">
-            <option value="" class="text-gray-400">Filters</option>
+            <option value="" class="text-gray-400">Filtrar</option>
             <option value="Communications">Communications</option>
             <option value="a">Sections</option>
         </select>
 
         <input asp-for="SearchString"
             class="max-h-9 w-full rounded-md bg-gray-100 py-2 px-3 text-gray-800 focus:text-gray-600 focus:outline-none"
-            type="text" placeholder="Search" />
+            type="text" placeholder="Buscar" />
 
         <button id='submitBtn' type="submit" class="max-h-9 rounded-md px-8  text-white no-underline  bg-green">
-            Search
+            Buscar
         </button>
 
         <button type="submit" name="reset"
             class="max-h-9 border-2 border-green rounded-md text-nowrap px-8 no-underline ">
-            Clear
+            Reiniciar
         </button>
     </form>
 
 
-    <div class="container px-20 pt-28 overflow-y-scroll">
+    <div class="container px-24 pt-28 overflow-y-scroll">
 
         @if (ContentModel.content.Count == 0)
         {
