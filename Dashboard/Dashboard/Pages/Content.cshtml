@@ -10,9 +10,10 @@
 
         <select asp-for="SectionFilter" id="filters"
             class="max-h-9 w-auto rounded-md bg-gray-100 py-2 px-3 text-gray-400 focus:text-gray-600 focus:outline-none">
-            <option value="" class="text-gray-400">Filtrar</option>
-            <option value="Communications">Communications</option>
-            <option value="a">Sections</option>
+            <option value=-1 class="text-gray-400">Filtrar</option>
+            @foreach (var item in ContentModel.sections) {
+                <option value="@item.Key">@item.Value</option>
+            }
         </select>
 
         <input asp-for="SearchString"
@@ -34,7 +35,7 @@
 
         @if (ContentModel.content.Count == 0)
         {
-            <div class="alert alert-danger"> No concepts found </div>
+            <div class="alert alert-danger"> No se encontró contenido. </div>
         }
         else
         {
@@ -48,9 +49,9 @@
                     <div class="flex flex-col gap-3 px-4">
                         @foreach (var concept in item.concepts)
                         {
-                            <div class="">
+                            <div class="pb-6">
                                 <h3 class="font-semibold pb-1"> @concept.title </h3>
-                                <p>@concept.description</p>
+                                <p class="whitespace-pre-wrap">@concept.description</p>
                             </div>
                         }
                     </div>

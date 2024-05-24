@@ -8,28 +8,40 @@ using System.Text.Json;
 
 namespace Dashboard.Pages
 {
+
+
     public class ContentModel : PageModel
     {
         [BindProperty]
         public string SearchString { get; set; } = "";
 
         [BindProperty]
-        public string SectionFilter { get; set; } = "";
+        public int SectionFilter { get; set; } = -1;
 
         public static List<Section> content = new List<Section>();
+
+
+        public static Dictionary<int, string> sections = new Dictionary<int, string>();
+
+
         public void OnGet()
         {
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Utils", "Data", "content.json");
-
+            sections.Clear();
+            
             try
             {
                 string json = System.IO.File.ReadAllText(filePath);
                 content = JsonSerializer.Deserialize<List<Section>>(json);
 
                 // Sort content in each section alphabetically
-                foreach (Section section in content)
+
+                for (int i = 0; i < content.Count; i++)
                 {
-                    section.concepts = section.concepts.OrderBy(x => x.title).ToList();
+                Section section = content[i];
+                section.concepts = section.concepts.OrderBy(x => x.title).ToList();
+                sections.Add(i, section.section);
+                // sections.Add(new Ids { id = i, title = section.section });
                 }
             }
             catch (Exception e)
@@ -61,15 +73,18 @@ namespace Dashboard.Pages
                     }
                 }
 
-
                 content = newContent;
                 Console.WriteLine(content.Count);
             }
 
             if (Request.Query.ContainsKey("filter"))
             {
-                SectionFilter = Request.Query["filter"].ToString() ?? "";
-                content = content.Where(s => s.section.ToLower().Contains(SectionFilter.ToLower())).ToList();
+                int filterValue;
+                if (int.TryParse(Request.Query["filter"], out filterValue))
+                {
+                    SectionFilter = filterValue;
+                    content = content.Where(s => s.section.ToLower().Contains(sections[filterValue])).ToList();
+                }
             }
 
 
@@ -91,7 +106,7 @@ namespace Dashboard.Pages
                 path += $"&search={SearchString}";
             }
 
-            if (!String.IsNullOrEmpty(SectionFilter) && SectionFilter != "")
+            if (SectionFilter != -1)
             {
                 path += $"&filter={SectionFilter}";
             }
