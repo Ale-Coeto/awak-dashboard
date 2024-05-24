@@ -39,6 +39,26 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.19, )"
+            },
+            "Microsoft.Identity.Web": {
+              "target": "Package",
+              "version": "[2.18.1, )"
+            },
+            "Microsoft.Identity.Web.DownstreamApi": {
+              "target": "Package",
+              "version": "[2.18.1, )"
+            },
+            "Microsoft.Identity.Web.UI": {
+              "target": "Package",
+              "version": "[2.18.1, )"
+            },
+            "Microsoft.IdentityModel.Protocols.OpenIdConnect": {
+              "target": "Package",
+              "version": "[7.5.2, )"
+            },
             "MySql.Data": {
               "target": "Package",
               "version": "[8.4.0, )"

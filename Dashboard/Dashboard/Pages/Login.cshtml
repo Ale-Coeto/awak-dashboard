@@ -5,7 +5,9 @@
     ViewData["Title"] = "Inicio de Sesión";
 }
 
-<div class="container dialog-container">
+@using System.Security.Principal
+
+<div class="dialog-container container">
     <h2 class="text-action">Inicio de Sesión</h2>
     <form method="post" class="pt-5">
         <div class="form">
@@ -20,8 +22,12 @@
         </div>
         <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
     </form>
+
     <div class="redirect">
         <p class="text-field">¿Eres nuevo? <a class="anchor-text" asp-page="./Register">Regístrate</a></p>
         <p><a class="anchor-forgot" asp-page="./RecuperarContraseña">He olvidado mi contraseña</a></p>
     </div>
+</div>
+<div class="flex flex-row">
+    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar sesión con SSO</a>
 </div>

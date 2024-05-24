@@ -1,10 +1,9 @@
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+
+
+//using namespace Dashboar;
 
 namespace Dashboard.Pages
 {
@@ -18,8 +17,9 @@ namespace Dashboard.Pages
         [BindProperty]
         [Required(ErrorMessage = "El campo 'Contraseña' es obligatorio.")]
         public string Contrasenia { get; set; } = "";
+        
+        public int ID_Usuario { get; set; }
 
-        public bool ValidUser { get; set; }
 
         public IActionResult OnPost()
         {
@@ -30,12 +30,34 @@ namespace Dashboard.Pages
                 return Page();
             }
 
-            ValidUser = DatabaseManager.IsValidUser(Correo, Contrasenia);
+            ID_Usuario = DatabaseManager.GetUserID(Correo, Contrasenia);
+            Console.WriteLine(ID_Usuario);
+            Usuario user = DatabaseManager.GetUsuario(ID_Usuario.ToString());
 
-            if (ValidUser)
-                return RedirectToPage("./Index");
+            //ValidUser = DatabaseManager.IsValidUser(Correo, Contrasenia);
+
+            if (ID_Usuario != -1)
+            {
+                HttpContext.Session.SetString("ID", ID_Usuario.ToString());
+                HttpContext.Session.SetString("Correo", Correo);
+                HttpContext.Session.SetString("Nombre", user.Nombre);
+
+                //ViewData["Nombre"] = 
+                return RedirectToPage("./Inicio");
+            }
             else
                 return Page();
         }
+
+        public IActionResult OnGet()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Redirect("/inicio");
+            }
+
+            return Page();
+        }
+
     }
 }

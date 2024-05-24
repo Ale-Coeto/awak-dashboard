@@ -1,38 +1,125 @@
-﻿<!DOCTYPE html>
+@using Microsoft.AspNetCore.Http;
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    string test = HttpContextAccessor.HttpContext.Session.GetString("Correo");
+
+    //if (string.IsNullOrEmpty(HttpContext.Session.GetString("Correo")) == false)
+    //{
+    // Id = HttpContext.Session.GetString("Correo");
+    //}
+}
+
+
+<!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Dashboard</title>
+    <title>@ViewData["Title"] </title>
+    <link rel="stylesheet" href="~/css/app.css" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/perfil.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/inicio.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Dashboard.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+
+    @* Tailwind *@
+    <!-- <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+
 </head>
-<body>
-    <header>
-        <ul class="nav flex-column">
-            <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Active</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Admin</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Usuarios</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link disabled">Configuracion</a>
-            </li>
-        </ul>
-    </header>
-    
-    @RenderBody()
-       
+
+<div class="">
+    <div class="navbar w-56 bg-gray z-10">
+
+        <div>
+            <div class="img-container mb-5">
+                <img src="~/images/logo.png" />
+            </div>
+
+            <div>
+                <div class="nav-group mb-4">
+                    <label class="mb-2"> Menú </label>
+                    <div class="group">
+                        <div class="nav-item">
+                            <a class="nav-link @((string)ViewData["Title"] == "Inicio" ? "active" : "none")"
+                                aria-current="page" asp-page="/Inicio">Inicio</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link @((string)ViewData["Title"] == "Dashboard" ? "active" : "none")"
+                                asp-page="/Dashboard">Dashboard</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link @((string)ViewData["Title"] == "Contenido" ? "active" : "none")"
+                                asp-page="/Content">Contenido</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="nav-group">
+                    <label class="mb-2"> Otros </label>
+                    <div class="nav-item">
+                        <a class="nav-link @((string)ViewData["Title"] == "Perfil" ? "active" : "none")"
+                            asp-page="/Perfil">Perfil</a>
+                    </div>
+
+
+            <div class="nav-item">
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Cerrar sesión</a>
+                }
+                else
+                {
+                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar Sesión</a>
+                }
+
+            </div>
+
+        </div>
+
+        <div class="nav-item">
+            <a class="nav-link dull" asp-page="/Login"> Cerrar sesión </a>
+        </div>
+
+
+
+    </div>
+
+
+
+
+    <div class="fixed top-0 flex w-full pl-56 h-20 z-0 items-center glass">
+        <div class="w-full flex justify-between items-center px-6 py-3">
+            <h1 class="title">
+                @ViewData["Title"]
+            </h1>
+            <div class="d-flex align-items-center">
+                <div>
+                    @test
+                </div>
+                <div class="perfil-container">
+                    <a asp-page="/Perfil">
+                        <img src="~/images/profile.jpeg" class="rounded-full" />
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="pl-56 mt-20 w-full">
+        @RenderBody()
+    </div>
+
+
 
     @*<footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2024 - Dashboard - <a asp-area="" asp-page="/Privacy">Privacy</a>
-        </div>
+    <div class="container">
+    &copy; 2024 - Dashboard - <a asp-area="" asp-page="/Privacy">Privacy</a>
+    </div>
     </footer>*@
 
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
@@ -40,5 +127,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-</body>
+</div>
+
 </html>

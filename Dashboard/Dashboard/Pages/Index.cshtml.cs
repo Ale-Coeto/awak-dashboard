@@ -12,8 +12,17 @@ public class IndexModel : PageModel
         _logger = logger;
     }
 
-    public void OnGet()
+    public IActionResult Index()
     {
+        // Redirect to the login page
+        return RedirectToPage("./Login");
+    }
+
+    public IActionResult OnGet()
+    {
+        // Redirect to the login page
+        return RedirectToPage("./Login");
+        //return RedirectToPage("./Inicio");
 
     }
 }

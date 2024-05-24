@@ -1,0 +1,78 @@
+﻿:root {
+  --verde_claro: #89b486;
+  --verde_principal: #2c5629;
+  --verde_oscuro: #0c270a;
+  --verde_hover: #afdfab;
+  --verde_texto: #407b46;
+  --gris_oscuro: #4e4f5d;
+  --gris_claro: #f1f2f7;
+  --gris_select: #e4e7f4;
+  --gris_medio: #a3a4ad;
+  --amarillo: #f9b235;
+  --rojo: #c75a4d;
+}
+
+.welcome-container {
+  align-content: center;
+  overflow: hidden;
+  align-self: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.welcome-container img {
+  height: 100%;
+  width: 100%;
+}
+
+.bg-welcome {
+  background-image: url("/images/welcome.png");
+  background-size: cover;
+  background-position: bottom;
+}
+
+.welcome-container .row {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.welcome-container p {
+  text-align: justify;
+}
+
+.row > * {
+  padding-right: 0px;
+  padding-left: 0px;
+}
+
+.white {
+  color: white;
+  text-decoration: none;
+}
+
+.white:hover {
+  color: white;
+  text-decoration: none;
+}
+
+.box-home {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  /* height: 100%; */
+  text-align: justify;
+}
+
+.t3 {
+  font-size: medium;
+}
+
+.green {
+  color: var(--verde_texto);
+}
+
+.green:hover {
+  color: var(--verde_claro);
+}
+
+.gray {
+  color: var(--gris_medio);
+}

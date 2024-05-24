@@ -3,8 +3,13 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
+# tailwindcss
+Dashboard/Dashboard/wwwroot/css/app.css
 # dotenv files
 .env
+
+# Hide Azure ad values (tenant, client id, and domain) * See appsettings.json.example for format
+appsettings.json
 
 # User-specific files
 *.rsuser

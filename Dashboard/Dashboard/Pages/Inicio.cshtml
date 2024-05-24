@@ -1,0 +1,114 @@
+﻿@page
+@model Dashboard.Pages.InicioModel
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+
+<div class="px-32 py-8">
+    <div class="row no-padding">
+        <div class="welcome-container">
+            <div class="bg-welcome">
+                <div class="p-5">
+                    <h2 class="subtitulo">
+
+                        Bienvenid@@, @Model.Nombre!
+                    </h2>
+                    <p class="mb-5 mt-3">
+                        En esta página podrás encontrar información sobre tu proceso de OnBoarding, tu progreso y
+                        pendientes.
+                        También podrás ver información sobre otros integrantes de Awaq y sus avances en el videojuego de
+                        introducción.
+                    </p>
+                    <div class="btn btn-primary mb-5">
+                        <a class="white" asp-page="/Dashboard"> Ir a mi dashboard </a>
+                    </div>
+
+
+                    <br class="mb-5" />
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="mt-5 gap-12 flex flex-col lg:flex-row">
+
+        <!-- card 1 -->
+        <div class="box-home p-4">
+            <h3 class="t3 mb-4 font-semibold">
+                General
+            </h3>
+
+            <div class="gap-6 ml-6 flex w-max flex-col">
+
+                <div class="gap-4 flex flex-row items-center">
+                    <div class="text-slate-500 text-xl">
+                        <i class="gray bi bi-person-fill"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="mr-2 font-semibold">
+                            Rol
+                        </div>
+                        <div class="">
+                            Usuario
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gap-4 flex flex-row items-center">
+                    <div class="text-slate-500 text-xl">
+                        <i class="gray bi bi-check2-square"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="mr-2 font-semibold">
+                            Progreso
+                        </div>
+                        <div class="">
+                            0/5 zonas completadas
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="gap-4 flex flex-row items-center">
+                    <div class="text-slate-500 text-xl">
+
+                        <i class="gray bi bi-star-fill"></i>
+                    </div>
+
+                    <div class="flex flex-col">
+                        <div class="mr-2 font-semibold">
+                            Puntuación
+                        </div>
+                        <div class="">
+                            10 pts
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- card 2 -->
+        <div class="box-home p-4">
+            <div class="flex flex-col justify-between">
+                <h3 class="mb-4 font-semibold">
+                    Sobre Awaq
+                </h3>
+                <p class="mb-3">
+                    Awaq es una organización de cooperación internacional que desarrolla mediante Estaciones
+                    Biológicas, proyectos de investigación científica y conservación de ecosistemas en comunidades
+                    menos favorecidas a partir de modelos económicos alternativos que mejoren la calidad de vida de sus
+                    habitantes.
+                </p>
+                <a class="green" href="https://www.somosawaq.org/">
+                    https://www.somosawaq.org/
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
