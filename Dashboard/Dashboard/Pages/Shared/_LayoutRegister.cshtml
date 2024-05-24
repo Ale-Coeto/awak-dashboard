@@ -4,14 +4,17 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Dashboard</title>
+
+    <!-- <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" /> -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    @* Tailwind *@
+    <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" />
+
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/Dashboard.styles.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
-
-    @* Tailwind *@
-    <link rel="stylesheet" href="~/css/app.css" asp-append-version="true" />
 
     @* Google fonts *@
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -25,7 +28,7 @@
         <header class="side-navbar bg-claro">
             <div class="col-12 align-content-center h-100">
                 <div class="d-flex flex-column h-100 mb-4">
-                    <img class="w-25 d-block register-image mx-auto mb-5" src="~/images/LogoAwak.png" alt="Logo de Awak" />
+                    <img class="w-25 d-block register-image mb-5 mx-auto" src="~/images/LogoAwak.png" alt="Logo de Awak" />
                     <div class="register-title-container text-center">
                         <h1 class="register-title">Bienvenido al Dashboard</h1>
                         <h3 class="register-sub-title pt-3">¡Monitorea tu progreso a lo largo del Onboarding!</h3>

@@ -1,9 +1,8 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using System.Security.Claims;
 
-
-//using namespace Dashboar;
 
 namespace Dashboard.Pages
 {
@@ -23,8 +22,6 @@ namespace Dashboard.Pages
 
         public IActionResult OnPost()
         {
-            
-
             if (!ModelState.IsValid)
             {
                 return Page();
@@ -53,7 +50,35 @@ namespace Dashboard.Pages
         {
             if (User.Identity?.IsAuthenticated == true)
             {
-                return Redirect("/inicio");
+                foreach (var claim in User.Claims)
+                {
+
+                    Console.WriteLine($"{claim.Type}: {claim.Value}");
+                }
+                var preferredUsernameClaim = User.Claims.FirstOrDefault(c => c.Type == "preferred_username");
+                Console.WriteLine("preferredUsernameClaim");
+                Console.WriteLine(preferredUsernameClaim.Value);
+
+                ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
+
+                //if (ID_Usuario != -1)
+                //{
+                //    DatabaseManager.InsertUser(nombre, correo, constrasenia);
+                //    ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
+                //}
+
+                Console.WriteLine(ID_Usuario);
+                Usuario user = DatabaseManager.GetUsuario(ID_Usuario.ToString());
+
+                if (ID_Usuario != -1)
+                {
+                    HttpContext.Session.SetString("ID", ID_Usuario.ToString());
+                    HttpContext.Session.SetString("Correo", Correo);
+                    HttpContext.Session.SetString("Nombre", user.Nombre);
+
+                    //ViewData["Nombre"] = 
+                    return RedirectToPage("./Inicio");
+                }
             }
 
             return Page();

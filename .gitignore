@@ -3,8 +3,6 @@
 ##
 ## Get latest from `dotnet new gitignore`
 
-# tailwindcss
-Dashboard/Dashboard/wwwroot/css/app.css
 # dotenv files
 .env
 

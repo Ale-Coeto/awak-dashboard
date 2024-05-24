@@ -9,25 +9,29 @@
 
 <div class="dialog-container container">
     <h2 class="text-action">Inicio de Sesión</h2>
-    <form method="post" class="pt-5">
-        <div class="form">
-            <label class="text-field" asp-for="Correo">Correo</label>
-            <input asp-for="Correo" class="form-control" required />
-            <span asp-validation-for="Correo" class="text-danger"></span>
-        </div>
-        <div class="form">
-            <label class="text-field" asp-for="Contrasenia">Contraseña</label>
-            <input asp-for="Contrasenia" type="password" class="form-control" required />
-            <span asp-validation-for="Contrasenia" class="text-danger"></span>
-        </div>
-        <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
-    </form>
-
-    <div class="redirect">
-        <p class="text-field">¿Eres nuevo? <a class="anchor-text" asp-page="./Register">Regístrate</a></p>
-        <p><a class="anchor-forgot" asp-page="./RecuperarContraseña">He olvidado mi contraseña</a></p>
+    <div class="gap-x-10 bg-[#f1f2f7] py-3 flex flex-col items-center justify-around rounded-md hover:bg-[#e4e7f4] md:flex-row">
+        <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">
+            <img src="images/Microsoft365.png" class="w-40 gap-x h-auto" />
+            <a class="nav-link text-dark btn-text" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar sesión con SSO</a>
+        </a>
     </div>
+    @*<form method="post" class="pt-5">
+            <div class="form">
+                <label class="text-field" asp-for="Correo">Correo</label>
+                <input asp-for="Correo" class="form-control" required />
+                <span asp-validation-for="Correo" class="text-danger"></span>
+            </div>
+            <div class="form">
+                <label class="text-field" asp-for="Contrasenia">Contraseña</label>
+                <input asp-for="Contrasenia" type="password" class="form-control" required />
+                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
+        </form>
+
+        <div class="redirect">
+            <p class="text-field">¿Eres nuevo? <a class="anchor-text" asp-page="./Register">Regístrate</a></p>
+            <p><a class="anchor-forgot" asp-page="./RecuperarContraseña">He olvidado mi contraseña</a></p>
+        </div>*@
 </div>
-<div class="flex flex-row">
-    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar sesión con SSO</a>
-</div>
+

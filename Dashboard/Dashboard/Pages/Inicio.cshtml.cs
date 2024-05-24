@@ -14,11 +14,11 @@ namespace Dashboard.Pages
         public IActionResult OnGet()
         {
             
-            if (User?.Identity?.IsAuthenticated ?? false)
-            {
-                return Page();
+            //if (User?.Identity?.IsAuthenticated ?? false)
+            //{
                 
-            }
+            //}
+            return Page();
 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")) == false)
             {

@@ -11,7 +11,7 @@ namespace Dashboard
 {
 	public static class DatabaseManager
 	{
-        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=acoeto24;";
+        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=4038;";
 
         private static readonly MySqlConnection Connection = new MySqlConnection(ConnectionString);
 
@@ -24,8 +24,6 @@ namespace Dashboard
             }
             return Connection;
         }
-
-       
 
         public static void CloseConnection()
         {
@@ -158,6 +156,34 @@ namespace Dashboard
 
         }
 
+        public static bool IsValidUserByMail(string correo)
+        {
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string existsQuery = $"SELECT EXISTS (SELECT 1 from Usuario where correo='{correo}' LIMIT 1) as User_exists;";
+
+            try
+            {
+
+                {
+                    MySqlCommand existsCommand = new MySqlCommand(existsQuery, Connection);
+                    bool userExists = Convert.ToBoolean(existsCommand.ExecuteScalar());
+                    Console.WriteLine("User valid: " + userExists);
+                    return userExists;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return false;
+            }
+
+        }
+
         public static Usuario GetUsuario(string id)
         {
             if (Connection.State != ConnectionState.Open)
@@ -227,6 +253,38 @@ namespace Dashboard
 
                 {
                     if (IsValidUser(correo, contrasenia))
+                    {
+                        MySqlCommand userCommand = new MySqlCommand(userQuery, Connection);
+                        int id = Convert.ToInt32(userCommand.ExecuteScalar());
+                        return id;
+
+                    }
+                    return -1;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return -1;
+            }
+
+        }
+
+        public static int GetUserIDByMail(string correo)
+        {
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string userQuery = $"SELECT ID_usuario FROM Usuario WHERE correo='{correo}' LIMIT 1";
+
+            try
+            {
+
+                {
+                    if (IsValidUserByMail(correo))
                     {
                         MySqlCommand userCommand = new MySqlCommand(userQuery, Connection);
                         int id = Convert.ToInt32(userCommand.ExecuteScalar());
