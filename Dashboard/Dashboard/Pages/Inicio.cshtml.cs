@@ -11,12 +11,20 @@ namespace Dashboard.Pages
     {
         public string Nombre { set; get; } = "";
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            
+            if (User?.Identity?.IsAuthenticated ?? false)
+            {
+                return Page();
+                
+            }
+
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")) == false)
             {
                 Nombre = HttpContext.Session.GetString("Nombre");
             }
+            return Redirect("/login");
         }
     }
 }
