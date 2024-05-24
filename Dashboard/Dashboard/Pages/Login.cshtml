@@ -9,27 +9,27 @@
 
 <div class="dialog-container container">
     <h2 class="text-action">Inicio de Sesión</h2>
-    <div class="gap-x-10 bg-[#f1f2f7] py-3 flex flex-col items-center justify-around rounded-md hover:bg-[#e4e7f4] md:flex-row">
+    <div class="bg-[#f1f2f7] flex flex-col items-center justify-around gap-x-10 rounded-md py-3 hover:bg-[#e4e7f4] md:flex-row">
         <a asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">
-            <img src="images/Microsoft365.png" class="w-40 gap-x h-auto" />
+            <img src="images/Microsoft365.png" class="gap-x h-auto w-40" />
             <a class="nav-link text-dark btn-text" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar sesión con SSO</a>
         </a>
     </div>
-    @*<form method="post" class="pt-5">
+    <form method="post" class="pt-5">
             <div class="form">
                 <label class="text-field" asp-for="Correo">Correo</label>
                 <input asp-for="Correo" class="form-control" required />
                 <span asp-validation-for="Correo" class="text-danger"></span>
             </div>
             <div class="form">
-                <label class="text-field" asp-for="Contrasenia">Contraseña</label>
-                <input asp-for="Contrasenia" type="password" class="form-control" required />
-                <span asp-validation-for="Contrasenia" class="text-danger"></span>
+                <label class="text-field" asp-for="Nombre">Nombre (solo requerido primera vez)</label>
+            <input asp-for="Nombre" class="form-control" />
+            <span asp-validation-for="Nombre" class="text-danger"></span>
             </div>
-            <button type="submit" class="btn-custom btn-iniciar">Iniciar</button>
+            <button type="submit" class="btn-custom btn-iniciar">Saltar OAUTH (temporal)</button>
         </form>
 
-        <div class="redirect">
+        @*<div class="redirect">
             <p class="text-field">¿Eres nuevo? <a class="anchor-text" asp-page="./Register">Regístrate</a></p>
             <p><a class="anchor-forgot" asp-page="./RecuperarContraseña">He olvidado mi contraseña</a></p>
         </div>*@

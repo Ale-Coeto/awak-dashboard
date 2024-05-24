@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Security.Claims;
+using Org.BouncyCastle.Asn1;
 
 
 namespace Dashboard.Pages
@@ -14,74 +15,102 @@ namespace Dashboard.Pages
         public string Correo { get; set; } = "";
 
         [BindProperty]
-        [Required(ErrorMessage = "El campo 'Contraseña' es obligatorio.")]
-        public string Contrasenia { get; set; } = "";
-        
+        public string? Nombre { get; set; } = "";
+
+        //[BindProperty]
+        //[Required(ErrorMessage = "El campo 'Contraseña' es obligatorio.")]
+        //public string Contrasenia { get; set; } = "";
+
         public int ID_Usuario { get; set; }
 
 
+        // Code to bypass OAUTH (for testing without tenant classes)
         public IActionResult OnPost()
         {
-            if (!ModelState.IsValid)
-            {
-                return Page();
-            }
+           if (!ModelState.IsValid)
+           {
+               return Page();
+           }
 
-            ID_Usuario = DatabaseManager.GetUserID(Correo, Contrasenia);
-            Console.WriteLine(ID_Usuario);
-            Usuario user = DatabaseManager.GetUsuario(ID_Usuario.ToString());
+           ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
 
-            //ValidUser = DatabaseManager.IsValidUser(Correo, Contrasenia);
+           
+           if (ID_Usuario == -1)
+           {
+               DatabaseManager.InsertUser(Nombre ?? Correo, Correo, "TEMP");
+               ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
+           }
 
-            if (ID_Usuario != -1)
-            {
-                HttpContext.Session.SetString("ID", ID_Usuario.ToString());
-                HttpContext.Session.SetString("Correo", Correo);
-                HttpContext.Session.SetString("Nombre", user.Nombre);
+           Usuario user = DatabaseManager.GetUsuario(ID_Usuario.ToString());
 
-                //ViewData["Nombre"] = 
-                return RedirectToPage("./Inicio");
-            }
-            else
-                return Page();
+           bool success = SetSessionData(user);
+
+           if (success)
+           {
+               return RedirectToPage("./Inicio");
+           }
+
+           return Page();
         }
 
         public IActionResult OnGet()
         {
-            if (User.Identity?.IsAuthenticated == true)
-            {
-                foreach (var claim in User.Claims)
-                {
+            
+           Console.WriteLine(HttpContext.Session.GetString("Correo"));
+           Console.WriteLine(HttpContext.Session.GetString("ID"));
+           Console.WriteLine(HttpContext.Session.GetString("Nombre"));
 
-                    Console.WriteLine($"{claim.Type}: {claim.Value}");
-                }
-                var preferredUsernameClaim = User.Claims.FirstOrDefault(c => c.Type == "preferred_username");
-                Console.WriteLine("preferredUsernameClaim");
-                Console.WriteLine(preferredUsernameClaim.Value);
+           if (HttpContext.Session.GetString("Correo") != null)
+           {
+               return RedirectToPage("./Inicio");
+           }
 
-                ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
+           if (User.Identity?.IsAuthenticated == true)
+           {
+               // Iterate through the claims obtained
+               //foreach (var claim in User.Claims)
+               //{
 
-                //if (ID_Usuario != -1)
-                //{
-                //    DatabaseManager.InsertUser(nombre, correo, constrasenia);
-                //    ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
-                //}
+               //    Console.WriteLine($"{claim.Type}: {claim.Value}");
+               //}
 
-                Console.WriteLine(ID_Usuario);
-                Usuario user = DatabaseManager.GetUsuario(ID_Usuario.ToString());
+               // Extract user email
+               var preferredUsernameClaim = User.Claims.FirstOrDefault(c => c.Type == "preferred_username");
+               string Correo = preferredUsernameClaim.Value;
 
-                if (ID_Usuario != -1)
-                {
-                    HttpContext.Session.SetString("ID", ID_Usuario.ToString());
-                    HttpContext.Session.SetString("Correo", Correo);
-                    HttpContext.Session.SetString("Nombre", user.Nombre);
+               ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
 
-                    //ViewData["Nombre"] = 
-                    return RedirectToPage("./Inicio");
-                }
-            }
+               if (ID_Usuario == -1)
+               {
+                   DatabaseManager.InsertUser(User.Identity.Name ?? Correo, Correo, "OAUTH");
+                   ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
+               }
 
-            return Page();
+               Usuario user = DatabaseManager.GetUsuario(ID_Usuario.ToString());
+
+               bool success = SetSessionData(user);
+               if (success)
+               {
+                   return RedirectToPage("./Inicio");
+               }
+           }
+
+           return Page();
+        }
+
+        private bool SetSessionData(Usuario? user)
+        {
+           if (user == null)
+               return false;
+
+           if (user.ID_usuario != -1)
+           {
+               HttpContext.Session.SetString("ID", user.ID_usuario.ToString());
+               HttpContext.Session.SetString("Correo", user.Correo);
+               HttpContext.Session.SetString("Nombre", user.Nombre);
+               return true;
+           }
+           return false;
         }
 
     }

@@ -9,8 +9,13 @@ namespace Dashboard.Pages
 {
 	public class DashboardModel : PageModel
     {
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                return RedirectToPage("./Login");
+            }
+            return Page();
         }
     }
 }

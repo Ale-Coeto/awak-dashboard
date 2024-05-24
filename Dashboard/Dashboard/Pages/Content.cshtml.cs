@@ -17,8 +17,13 @@ namespace Dashboard.Pages
         public string SectionFilter { get; set; } = "";
 
         public static List<Section> content = new List<Section>();
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                return RedirectToPage("./Login");
+            }
+
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Utils", "Data", "content.json");
 
             try
@@ -72,7 +77,7 @@ namespace Dashboard.Pages
                 content = content.Where(s => s.section.ToLower().Contains(SectionFilter.ToLower())).ToList();
             }
 
-
+            return Page();
         }
 
         public void OnPost()

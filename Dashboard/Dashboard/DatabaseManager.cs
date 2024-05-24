@@ -3,18 +3,29 @@ using System.Data;
 using System.Xml.Linq;
 using MySql.Data.MySqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
+using Microsoft.Extensions.Configuration;
 using Dashboard;
-
 
 
 namespace Dashboard
 {
 	public static class DatabaseManager
 	{
-        private static readonly string ConnectionString = "Server=127.0.0.1;Port=3306;Database=AWAQ;Uid=root;password=4038;";
+        private static string ConnectionString = "";
 
-        private static readonly MySqlConnection Connection = new MySqlConnection(ConnectionString);
+        private static MySqlConnection Connection;
+        private static IConfigurationRoot _configuration;
 
+        static DatabaseManager()
+        {
+            var builder = new ConfigurationBuilder()
+            .SetBasePath(Directory.GetCurrentDirectory())
+            .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            _configuration = builder.Build();
+            ConnectionString = _configuration.GetConnectionString("myDb1");
+            Connection = new MySqlConnection(ConnectionString);
+        }
 
         public static MySqlConnection GetConnection()
         {

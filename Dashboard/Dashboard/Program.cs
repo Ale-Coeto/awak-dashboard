@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Identity.Web;
 using Microsoft.Identity.Web.UI;
 using Microsoft.Extensions.FileProviders;
+using Microsoft.AspNetCore.Rewrite;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -84,5 +85,15 @@ app.UseSession();
 
 app.MapRazorPages();
 app.MapControllers();
+
+app.UseRewriter(
+new RewriteOptions().Add(
+    context =>
+    {
+        if (context.HttpContext.Request.Path == "/MicrosoftIdentity/Account/SignedOut")
+        {
+            context.HttpContext.Response.Redirect("/login");
+        }
+    }));
 
 app.Run();

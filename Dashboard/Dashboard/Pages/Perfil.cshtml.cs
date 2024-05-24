@@ -52,8 +52,12 @@ namespace Dashboard.Pages
 
         Usuario user = new Usuario();
 
-        public void OnGet()
+        public IActionResult OnGet()
         {
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                return RedirectToPage("./Login");
+            }
             //string id = "";
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")) == false)
             {
@@ -82,7 +86,7 @@ namespace Dashboard.Pages
 
             //IsUser = true;
 
-
+            return Page();
         }
 
         public void OnPostPerfil()

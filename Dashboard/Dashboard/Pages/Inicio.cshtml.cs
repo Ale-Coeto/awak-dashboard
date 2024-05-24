@@ -13,18 +13,16 @@ namespace Dashboard.Pages
 
         public IActionResult OnGet()
         {
-            
-            //if (User?.Identity?.IsAuthenticated ?? false)
-            //{
-                
-            //}
-            return Page();
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                return RedirectToPage("./Login");
+            }
 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")) == false)
             {
                 Nombre = HttpContext.Session.GetString("Nombre");
             }
-            return Redirect("/login");
+            return Page();
         }
     }
 }
