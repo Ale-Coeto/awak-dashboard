@@ -1,5 +1,4 @@
-﻿using System;
-namespace Dashboard
+﻿namespace Dashboard
 {
     public class Usuario
     {

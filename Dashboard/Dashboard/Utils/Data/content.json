@@ -1,0 +1,178 @@
+[
+  {
+    "section": "Ética",
+    "concepts": [
+      {
+        "title": "Respeto",
+        "description": "Tratar a todas las personas dignamente, sin discriminación por sexo, raza, nacionalidad o religión, considerando siempre sus derechos laborales. Y colaborando e impulsando políticas inclusivas."
+      },
+      {
+        "title": "Integridad",
+        "description": "Actuar con imparcialidad, justicia y buena fe. Orientar el trabajo hacia la lucha contra la pobreza y hacia la sostenibilidad, evitando cualquier beneficio personal de los recursos públicos."
+      },
+      {
+        "title": "Responsabilidad",
+        "description": "Respetar la legislación, actuar honesta y ejemplarmente, teniendo en cuenta las consecuencias en terceros. Reconocer los errores, solucionándolos y evitando su repetición."
+      },
+      {
+        "title": "Profesionalidad",
+        "description": "Dedicación, entrega y compromiso con la Calidad y la mejora continua. Mejorar conocimientos y capacidades participando en acciones de formación permanente buscando siempre la excelencia profesional."
+      },
+      {
+        "title": "Compromiso",
+        "description": "Mantener la lealtad y compromiso con la Organización así como los proyectos y programas a los que nos comprometemos."
+      },
+      {
+        "title": "Participación y Diálogo",
+        "description": "Trabajar en equipo, compartir conocimientos, fomentar la participacióny la comunicación efectiva. Reconocer el derecho a opinar de todos los afectados, huyendo de cualquier muestra de superioridad."
+      },
+      {
+        "title": "Transparencia",
+        "description": "Acreditar de forma veraz y completa los resultados y los criterios seguidos."
+      },
+      {
+        "title": "Pautas básicas",
+        "description": "Actuar siempre en beneficio de la ONG evitando intereses personales y cualquier discriminación."
+      },
+      {
+        "title": "Pautas respecto con los colaboradores",
+        "description": "Actuar siempre con Compromiso, corresponsabilidad, igualdad e imparcialidad, colaborando con transparencia y buena fe."
+      },
+      {
+        "title": "Pautas respecto al resto de compañeros",
+        "description": "Respetoalasdiferentesculturas,diálogoytrabajoenequipo"
+      },
+      {
+        "title": "Pautas respecto a la ONG",
+        "description": "Eficacia, honradez, profesionalidad y responsabilidad, respeto a su nombre como embajadores de la org."
+      },
+      {
+        "title": "Normas de actuación",
+        "description": "1. Compromiso de cumplimiento de las leyes en los países en que operamoc por parte de todos los integrantes de la ONG. \n2. Declarar a la organización cualquier conflicto de interés por parte de los integrantes para su correcta resolución. \n3. Respeto por la confidencialidad de la información y normativas de ciberseguridad de la organización. \n4. El personal de la ONGD no aceptará ni ofrecerá regalos ni beneficios que puedan comprometer la objetividad del proyecto. \n5. La Dirección garantizará el conocimiento del código y será responsable de que se cumpla pudiendo tomar las medidas disciplinarias que la organización considere. \n6. El incumplimiento de la ley acarreará consecuencias para todos aquellos que la vulneren."
+      }
+    ]
+  },
+  {
+    "section": "Comunicaciones",
+    "concepts": [
+      {
+        "title": "Outlook",
+        "description": "En esta aplicacion recibes todos los correos tanto internos como externos. Si necesitas registratre en una compania externa a Awaq para obtener cualquier tipo de informacion necesaria para la colaboracion deberas hacerlo usando el correo org que se te facilito. \nNo esta permitido usar el correo org en registros web que fomenten actividades no relacionadas con las actividades de Awaq, pudiendo constituir un delito el registro en webs que incurran en un dano moral, material o financiero a la organizacion. \nNo esta permitido usar el correo org en registros web que fomenten actividades no relacionadas con las actividades de Awaq, pudiendo constituir un delito el registro en webs que incurran en un dano moral, material o financiero a la organizacion. \nIMPORTANTE : Outlook combina correo y agenda todo en uno, mante siempre actulizado tu correo. Es muy recommendable que te descarges la app en el movil ya que te notifica de la llegada de nuevos correos."
+      },
+      {
+        "title": "Rainbow",
+        "description": "En esta aplicacion mantienes todos tus contactos enganchados en conversaciones para poder colaborar en los distintos proyectos a los que te puedas incorporar, es nuestra oficina virtual. \nEs muy aconsejable tenerla en el movil para poder recibir las notificaciones de aquellos proyectos en los que te veas implicado."
+      },
+      {
+        "title": "Sharepoint",
+        "description": "Sharepoint sirve como metodo de almaceanmiento y repositorio. Es muy aconsejable tenerla en el movil para poder recibir las notificaciones de aquellos proyectos en los que te veas implicado"
+      }
+    ]
+  },
+  {
+    "section": "Información y Seguridad",
+    "concepts": [
+      {
+        "title": "Confidencialidad",
+        "description": "Garantizar que la información sensible se mantenga privada y solo esté accesible para aquellos autorizados a verla."
+      },
+      {
+        "title": "Ciber ataques",
+        "description": "Estos se inician desde una computadora en contra de un sitio web,sistema informático o computadora individual que compromete la confidencialidad, integridad o disponibilidad del ordenador o de la información almacenada en el mismo."
+      },
+      {
+        "title": "Uso seguro de dispositivos móviles",
+        "description": "Proteger los dispositivos móviles con contraseñas, cifrado y aplicaciones de seguridad, además de tener cuidado al descargar aplicaciones y compartir información."
+      },
+      {
+        "title": "Contraseña",
+        "description": "Su contraseña debe: \nTener almenos 12 caracteres de longitud,cuando sea compatible con la tecnología. \nContener una mezcla de caracteres alfabéticos y no alfabéticos o una mezcla de al menos dos tipos de caracteres no alfabéticos. \nNo tener ID del usuario como parte de la contraseña. \nNunca contener patrones restringidos como qwerty, asdf, 1234, etc. \nNunca ser un palindrome. \nSer únicamente de su propiedad y nunca compartirse con nadie."
+      },
+      {
+        "title": "Ciber ataques",
+        "description": "Ingeneria Social, Phishing, Vishing, Quishing, Smishing, Malware"
+      },
+      {
+        "title": "Phishing",
+        "description": "Es un tipo de ataque de ciberseguridad utilizado a menudo para robar datos personales y financieros, como credenciales de acceso, números de tarjetas de créditos, etc. Haciéndose pasar por una entidad de confianza, los hackers engañan a los destinatarios para que hagan clic en un enlace malicioso, instalar un archivo malicioso o divulgar información confidencial. \nUn ataque de phishing puede tener efectos devastadores para las personas,la organización y nuestros clientes, por lo tanto, debemos estar siempre alerta."
+      },
+      {
+        "title": "Indicadores de Phishing",
+        "description": "Comprobar el remitente. Los atacantes suelen utilizar nombres de dominios falsos que imitan a organizaciones de confianza. \nAnalizar como esta escrito el mensaje del correo. Buscar por fallos gramaticales o faltas ortográficas. \nEstar atento a cualquier inconsistencia. \nRevise si hay solicitudes sospechosas o inusuales. \nNo hacer clic en link sin antes confirmar su procedencia y/o valides. \nSi identifica un correo phishing,reportarlo con el botón de phishing y alertar a seguridad@somosawaq.org"
+      },
+      {
+        "title": "Identificar Phishing",
+        "description": "Al recibir correos electrónicos externos, si es necesario ponerse en contacto con el remitente, no responda al correo electrónico original ni llame al numero proporcionado. Asegúrese de verificar primero que el remitente sea legitimo. \nLas muestras de aprecio, los elogios, las recompensas, las felicitaciones o los obsequios recibidos sin ninguna razón especial deber ser tratados con precaución. \nVerifique la URL en la página de inicio de sesión de SSO. No juzgue por el aspecto de la página; las apariencias engañan."
+      }
+    ]
+  },
+  {
+    "section": "TEDI",
+    "concepts": [
+      {
+        "title": "HTML",
+        "description": "HTML es un lenguaje de marcado que se utiliza para el desarrollo de páginas de Internet. Se trata de la sigla que corresponde a HyperText Markup Language, es decir, Lenguaje de Marcas de Hipertexto. Es un estándar que sirve de referencia del software que conecta con la elaboración de páginas web en sus diferentes versiones, define una estructura básica y un código para la definición de contenido de una página web, como texto, imágenes, videos, juegos, entre otros. \nHTML se escribe en forma de 'etiquetas', rodeadas por corchetes angulares (<,>). HTML también puede describir, hasta un cierto punto, la apariencia de un documento, y la mayoría de las versiones actuales de HTML (HTML 4.01 y XHTML) soportan hojas de estilo en cascada (CSS)."
+      },
+      {
+        "title": "CSS",
+        "description": "CSS es un lenguaje usado para definir y crear la presentación de un documento estructurado escrito en HTML o XML (y por extensión en XHTML). CSS es la mejor forma de separar los contenidos y su presentación y es imprescindible para crear páginas web complejas. La separación de HTML de CSS hace más sencilla la mantenibilidad y la accesibilidad del contenido."
+      },
+      {
+        "title": "Typescript",
+        "description": "TypeScript es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipado estático y objetos basados en clases. "
+      },
+      {
+        "title": "React",
+        "description": "React es una biblioteca de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página. Se utiliza para construir componentes de interfaz de usuario reutilizables."
+      },
+      {
+        "title": "Tailwind CSS",
+        "description": "Tailwind CSS es un framework de CSS que se basa en clases y que permite crear interfaces de usuario de forma rápida y sencilla."
+      },
+      {
+        "title": "Github",
+        "description": "GitHub es una plataforma de desarrollo colaborativo de software para alojar proyectos utilizando el sistema de control de versiones Git. Se utiliza principalmente para la creación de código fuente de programas de ordenador."
+      },
+      {
+        "title": "Scrum",
+        "description": "Scrum es un marco de trabajo ágil para el desarrollo y mantenimiento de productos complejos. Se define por sus roles, eventos, artefactos y reglas."
+      },
+      {
+        "title": "Git add",
+        "description": "Añade un archivo al área de preparación. Puede ser un archivo o un directorio."
+      },
+      {
+        "title": "Git commit",
+        "description": "Registra los cambios realizados en el repositorio."
+      },
+      {
+        "title": "Git push",
+        "description": "Sube los cambios realizados en el repositorio local al repositorio remoto."
+      },
+      {
+        "title": "Git pull",
+        "description": "Descarga los cambios realizados en el repositorio remoto al repositorio local."
+      },
+      {
+        "title": "Git clone",
+        "description": "Copia un repositorio remoto en un repositorio local."
+      },
+      {
+        "title": "Git branch",
+        "description": "Muestra las ramas del repositorio."
+      },
+      {
+        "title": "Git checkout",
+        "description": "Cambia de rama."
+      },
+      {
+        "title": "Git merge",
+        "description": "Combina dos ramas."
+      },
+      {
+        "title": "Pull request",
+        "description": "Es una petición que se hace a un repositorio para que se incorporen los cambios realizados en una rama."
+      }
+    ]
+  }
+]
