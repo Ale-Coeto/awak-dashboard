@@ -17,15 +17,17 @@ namespace Dashboard.Pages
 
         public static List<Section> content = new List<Section>();
 
-
         public static Dictionary<int, string> sections = new Dictionary<int, string>();
 
         public static List<string> sectionTitles = new List<string>();
 
-
-        public void OnGet()
+       public IActionResult OnGet()
         {
-            
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                return RedirectToPage("./Login");
+            }
+
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Utils", "Data", "content.json");
             Console.WriteLine(filePath);
             sections.Clear();
@@ -94,7 +96,7 @@ namespace Dashboard.Pages
                 }
             }
 
-
+            return Page();
         }
 
         public void OnPost()

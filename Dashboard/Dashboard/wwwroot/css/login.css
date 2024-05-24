@@ -1,11 +1,15 @@
 :root {
-  --verde_claro: #407b46;
-  --verde_principal: #2c5629;
-  --verde_oscuro: #0c270a;
-  --gris_oscuro: #4e4f5d;
-  --gris_claro: #f1f2f7;
-  --amarillo: #f9b235;
-  --rojo: #c75a4d;
+    --verde_claro: #89b486;
+    --verde_principal: #2c5629;
+    --verde_oscuro: #0c270a;
+    --verde_hover: #afdfab;
+    --verde_texto: #407b46;
+    --gris_oscuro: #4e4f5d;
+    --gris_claro: #f1f2f7;
+    --gris_select: #e4e7f4;
+    --gris_medio: #a3a4ad;
+    --amarillo: #f9b235;
+    --rojo: #c75a4d;
 }
 
 html {
@@ -73,6 +77,10 @@ h2 {
   background-color: #f8f9fa;
   color: #89b486;
   width: 100%;
+}
+
+a.btn-text {
+    color: var(--verde_texto) !important;
 }
 
 .redirect {

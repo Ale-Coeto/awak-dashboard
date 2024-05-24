@@ -12,6 +12,9 @@
       "Microsoft.AspNetCore": "Warning"
     }
   },
+  "ConnectionStrings": {
+    "myDb1": "Server=127.0.0.1;Port=3306;Database=<DBNAME>;Uid=root;password=<PASS>;"
+  },
   // Make sure this matches your authorized urls in the app registration in azure.
   "Urls": "http://localhost:44321",
   "AllowedHosts": "*"
