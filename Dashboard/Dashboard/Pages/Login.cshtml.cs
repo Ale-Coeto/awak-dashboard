@@ -67,22 +67,23 @@ namespace Dashboard.Pages
 
            if (User.Identity?.IsAuthenticated == true)
            {
-               // Iterate through the claims obtained
-               //foreach (var claim in User.Claims)
-               //{
+                // Iterate through the claims obtained
+                // foreach (var claim in User.Claims)
+                // {
 
-               //    Console.WriteLine($"{claim.Type}: {claim.Value}");
-               //}
+                //     Console.WriteLine($"{claim.Type}: {claim.Value}");
+                // }
 
-               // Extract user email
-               var preferredUsernameClaim = User.Claims.FirstOrDefault(c => c.Type == "preferred_username");
-               string Correo = preferredUsernameClaim.Value;
+                // Extract user email
+                var preferredUsernameClaim = User.Claims.FirstOrDefault(c => c.Type == "preferred_username");
+                string nameClaim = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
+                string Correo = preferredUsernameClaim.Value;
 
                ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
 
                if (ID_Usuario == -1)
                {
-                   DatabaseManager.InsertUser(User.Identity.Name ?? Correo, Correo, "OAUTH");
+                   DatabaseManager.InsertUser(nameClaim ?? Correo, Correo, "OAUTH");
                    ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
                }
 
