@@ -6,13 +6,13 @@
 
 <div class="">
 
-    <form class="flex gap-4 py-4 fixed h-22 w-full pr-64 pl-8 glass" method="post">
+    <form enctype="application/x-www-form-urlencoded" class="flex gap-4 py-4 fixed h-22 w-full pr-64 pl-8 glass" method="post">
 
         <select asp-for="SectionFilter" id="filters"
             class="max-h-9 w-auto rounded-md bg-gray-100 py-2 px-3 text-gray-400 focus:text-gray-600 focus:outline-none">
-            <option value=-1 class="text-gray-400">Filtrar</option>
-            @foreach (var item in ContentModel.sections) {
-                <option value="@item.Key">@item.Value</option>
+            <option value="" class="text-gray-400">Filtrar</option>
+            @foreach (var item in ContentModel.sectionTitles) {
+                <option value="@item">@item</option>
             }
         </select>
 
@@ -35,7 +35,7 @@
 
         @if (ContentModel.content.Count == 0)
         {
-            <div class="alert alert-danger"> No se encontró contenido. </div>
+            <div class="alert alert-danger"> No se encontró contenido. Puede que el contenido que buscas no se encuentre en el filtro seleccionado. Puedes reiniciar los filtros con el botón de reiniciar. </div>
         }
         else
         {

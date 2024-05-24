@@ -1,10 +1,5 @@
-﻿using System;
-using System.Data;
-using System.Xml.Linq;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
-using static System.Runtime.InteropServices.JavaScript.JSType;
-using Dashboard;
-
 
 
 namespace Dashboard
