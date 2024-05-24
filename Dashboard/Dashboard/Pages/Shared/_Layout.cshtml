@@ -32,49 +32,40 @@
 
 </head>
 
-<body>
-    <header>
-        <div class="navbar bg-gray">
+<div class="">
+    <div class="navbar w-56 bg-gray z-10">
+
+        <div>
+            <div class="img-container mb-5">
+                <img src="~/images/logo.png" />
+            </div>
 
             <div>
-                <div class="img-container mb-5">
-                    <img src="~/images/logo.png" />
-                </div>
-
-                <div>
-                    <div class="nav-group mb-4">
-                        <label class="mb-2"> Menu </label>
-                        <div class="group">
-                            <div class="nav-item">
-                                <a class="nav-link @((string)ViewData["Title"] == "Inicio" ? "active" : "none")"
-                                    aria-current="page" asp-page="/Inicio">Inicio</a>
-                            </div>
-                            <div class="nav-item">
-                                <a class="nav-link @((string)ViewData["Title"] == "Dashboard" ? "active" : "none")"
-                                    asp-page="/Dashboard">Dashboard</a>
-                            </div>
-                            <div class="nav-item">
-                                <a class="nav-link @((string)ViewData["Title"] == "Contenido" ? "active" : "none")"
-                                    asp-page="/Contenido">Contenido</a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="nav-group">
-                        <label class="mb-2"> Otros </label>
+                <div class="nav-group mb-4">
+                    <label class="mb-2"> Menú </label>
+                    <div class="group">
                         <div class="nav-item">
-                            <a class="nav-link @((string)ViewData["Title"] == "Perfil" ? "active" : "none")"
-                                asp-page="/Perfil">Perfil</a>
+                            <a class="nav-link @((string)ViewData["Title"] == "Inicio" ? "active" : "none")"
+                                aria-current="page" asp-page="/Inicio">Inicio</a>
                         </div>
-
                         <div class="nav-item">
-                            <a class="nav-link @((string)ViewData["Title"] == "Ayuda" ? "active" : "none")"
-                                asp-page="/Ayuda">Ayuda</a>
+                            <a class="nav-link @((string)ViewData["Title"] == "Dashboard" ? "active" : "none")"
+                                asp-page="/Dashboard">Dashboard</a>
+                        </div>
+                        <div class="nav-item">
+                            <a class="nav-link @((string)ViewData["Title"] == "Contenido" ? "active" : "none")"
+                                asp-page="/Content">Contenido</a>
                         </div>
                     </div>
                 </div>
 
-            </div>
+                <div class="nav-group">
+                    <label class="mb-2"> Otros </label>
+                    <div class="nav-item">
+                        <a class="nav-link @((string)ViewData["Title"] == "Perfil" ? "active" : "none")"
+                            asp-page="/Perfil">Perfil</a>
+                    </div>
+
 
             <div class="nav-item">
                 @if (User.Identity?.IsAuthenticated == true)
@@ -85,17 +76,24 @@
                 {
                     <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar Sesión</a>
                 }
+
             </div>
 
-
-
         </div>
-    </header>
+
+        <div class="nav-item">
+            <a class="nav-link dull" asp-page="/Login"> Cerrar sesión </a>
+        </div>
 
 
 
-    <div class="body-content">
-        <div class="d-flex justify-content-between">
+    </div>
+
+
+
+
+    <div class="fixed top-0 flex w-full pl-56 h-20 z-0 items-center glass">
+        <div class="w-full flex justify-between items-center px-6 py-3">
             <h1 class="title">
                 @ViewData["Title"]
             </h1>
@@ -110,9 +108,12 @@
                 </div>
             </div>
         </div>
+    </div>
 
+    <div class="pl-56 mt-20 w-full">
         @RenderBody()
     </div>
+
 
 
     @*<footer class="border-top footer text-muted">
@@ -126,6 +127,6 @@
     <script src="~/js/site.js" asp-append-version="true"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
-</body>
+</div>
 
 </html>

@@ -8,7 +8,7 @@
 
 
 
-<div class="container mt-5">
+<div class="w-full py-10 px-20">
     <div class="perfil">
         <div class="container mr-3">
 
@@ -16,28 +16,29 @@
                 <h2 class="subtitulo">
                     Datos generales
                 </h2>
-                <hr class="mb-4" />
-
+                <div class="line mb-4"></div>
 
                 <div class="mb-3">
                     <div class="d-flex align-items-center">
                         <label class="form-label">Nombre</label>
                     </div>
-                    <input asp-for="Nombre" type="text" value="@Model.Nombre" required disabled="@Model.IsUser" class="form-control" />
+                    <input asp-for="Nombre" type="text" value="@Model.Nombre" required disabled="@Model.IsUser"
+                        class="form-control" />
                 </div>
 
                 <div class="mb-5">
                     <div class="d-flex align-items-center">
                         <label class="form-label">Correo Electrónico</label>
                     </div>
-                    <input asp-for="Correo" type="text" value="@Model.Correo" required disabled="@Model.IsUser" class="form-control" />
+                    <input asp-for="Correo" type="text" value="@Model.Correo" required disabled="@Model.IsUser"
+                        class="form-control" />
                 </div>
 
 
                 <h2 class="subtitulo mt-5">
                     Datos adicionales
                 </h2>
-                <hr class="mb-4" />
+                <div class="line mb-4"></div>
 
                 <div class="mb-3">
                     <div class="d-flex align-items-center">
@@ -48,7 +49,7 @@
 
                 <div class="mb-3">
                     <div class="d-flex align-items-center">
-                        <label class="form-label">Red social o linkedin</label>
+                        <label class="form-label">Red social o Linkedin</label>
                     </div>
                     <input asp-for="Red" type="text" value="@Model.Red" class="form-control" />
                 </div>
@@ -57,7 +58,8 @@
                     <div class="d-flex align-items-center">
                         <label class="form-label">Cumpleaños</label>
                     </div>
-                    <input asp-for="Cumpleanios" type="date" class="form-control" value="@Model.CumpleaniosTxt" min="1900-01-01" max="2025-12-31" />
+                    <input asp-for="Cumpleanios" type="date" class="form-control" value="@Model.CumpleaniosTxt"
+                        min="1900-01-01" max="2025-12-31" />
                 </div>
 
                 <div class="mb-4">
@@ -82,7 +84,7 @@
                 <h2 class="subtitulo">
                     Imagen de perfil
                 </h2>
-                <hr class="mb-4" />
+                <div class="line mb-4"></div>
 
                 <div class="d-flex flex-column justify-content-center">
                     <div class="imgP-container mb-4">
@@ -99,7 +101,7 @@
                 <h2 class="subtitulo">
                     Contraseña
                 </h2>
-                <hr class="mb-4" />
+                <div class="line mb-4"></div>
 
                 <form method="post" asp-page-handler="Contrasenia">
                     <div class="mb-2">
