@@ -1,0 +1,19 @@
+﻿{
+  "AzureAd": {
+    "Instance": "https://login.microsoftonline.com/",
+    "Domain": "[Your domain]",
+    "TenantId": "[Your tenant id]",
+    "ClientId": "[Your app client id]",
+    "CallbackPath": "/signin-oidc"
+  },
+  "Logging": {
+    "LogLevel": {
+      "Default": "Information",
+      "Microsoft.AspNetCore": "Warning"
+    }
+  },
+  // Make sure this matches your authorized urls in the app registration in azure.
+  "Urls": "http://localhost:44321",
+  "AllowedHosts": "*"
+}
+

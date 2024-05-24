@@ -66,11 +66,17 @@
                             asp-page="/Perfil">Perfil</a>
                     </div>
 
-                    <div class="nav-item">
-                        <a class="nav-link @((string)ViewData["Title"] == "Ayuda" ? "active" : "none")"
-                            asp-page="/Ayuda">Ayuda</a>
-                    </div>
-                </div>
+
+            <div class="nav-item">
+                @if (User.Identity?.IsAuthenticated == true)
+                {
+                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Cerrar sesión</a>
+                }
+                else
+                {
+                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar Sesión</a>
+                }
+
             </div>
 
         </div>

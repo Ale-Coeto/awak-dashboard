@@ -2,6 +2,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
+
 //using namespace Dashboar;
 
 namespace Dashboard.Pages
@@ -47,5 +48,16 @@ namespace Dashboard.Pages
             else
                 return Page();
         }
+
+        public IActionResult OnGet()
+        {
+            if (User.Identity?.IsAuthenticated == true)
+            {
+                return Redirect("/inicio");
+            }
+
+            return Page();
+        }
+
     }
 }
