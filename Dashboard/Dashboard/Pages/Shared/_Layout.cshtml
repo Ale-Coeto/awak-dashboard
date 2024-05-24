@@ -1,4 +1,4 @@
-@using Microsoft.AspNetCore.Http;
+﻿@using Microsoft.AspNetCore.Http;
 @inject IHttpContextAccessor HttpContextAccessor
 @{
     string test = HttpContextAccessor.HttpContext.Session.GetString("Correo");
@@ -72,18 +72,6 @@
                     </div>
                 </div>
             </div>
-
-            <!-- <div class="nav-item">
-                @if (User.Identity?.IsAuthenticated == true)
-                {
-                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut">Cerrar sesión</a>
-                }
-                else
-                {
-                    <a class="nav-link text-dark" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn">Iniciar Sesión</a>
-                }
-                <a class="nav-link dull" asp-page="/signout"> Cerrar sesión </a>
-            </div> -->
         </div>
 
         <div class="nav-item">
