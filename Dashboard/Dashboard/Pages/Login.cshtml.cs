@@ -56,9 +56,9 @@ namespace Dashboard.Pages
         public IActionResult OnGet()
         {
             
-           Console.WriteLine(HttpContext.Session.GetString("Correo"));
-           Console.WriteLine(HttpContext.Session.GetString("ID"));
-           Console.WriteLine(HttpContext.Session.GetString("Nombre"));
+        //    Console.WriteLine(HttpContext.Session.GetString("Correo"));
+        //    Console.WriteLine(HttpContext.Session.GetString("ID"));
+        //    Console.WriteLine(HttpContext.Session.GetString("Nombre"));
 
            if (HttpContext.Session.GetString("Correo") != null)
            {
@@ -78,6 +78,7 @@ namespace Dashboard.Pages
                 var preferredUsernameClaim = User.Claims.FirstOrDefault(c => c.Type == "preferred_username");
                 string nameClaim = User.Claims.FirstOrDefault(c => c.Type == "name").Value;
                 string Correo = preferredUsernameClaim.Value;
+                Console.WriteLine("Correo: " + Correo);
 
                ID_Usuario = DatabaseManager.GetUserIDByMail(Correo);
 
@@ -106,10 +107,18 @@ namespace Dashboard.Pages
 
            if (user.ID_usuario != -1)
            {
-               HttpContext.Session.SetString("ID", user.ID_usuario.ToString());
-               HttpContext.Session.SetString("Correo", user.Correo);
-               HttpContext.Session.SetString("Nombre", user.Nombre);
-               return true;
+                HttpContext.Session.SetString("ID", user.ID_usuario.ToString());
+                HttpContext.Session.SetString("Correo", user.Correo);
+                HttpContext.Session.SetString("Nombre", user.Nombre);
+
+                if (user.ID_usuario == 5) {
+                    HttpContext.Session.SetString("Rol", "superadmin");
+                }
+                else {
+                    HttpContext.Session.SetString("Rol", user.Admin ? "admin" : "colaborador");
+                }
+
+                return true;
            }
            return false;
         }

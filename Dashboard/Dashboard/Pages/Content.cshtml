@@ -9,15 +9,15 @@
     <form enctype="application/x-www-form-urlencoded" class="flex gap-4 py-4 fixed h-22 w-full pr-64 pl-8 glass" method="post">
 
         <select asp-for="SectionFilter" id="filters"
-            class="max-h-9 w-auto rounded-md bg-gray-100 py-2 px-3 text-gray-400 focus:text-gray-600 focus:outline-none">
-            <option value="" class="text-gray-400">Filtrar</option>
+            class="pt-1 pb-1 max-h-9 w-auto rounded-md bg-gray-100 self-center py-2 px-3 border-0 text-gray-400 focus:text-gray-600 focus:outline-none">
+            <option value="" class="">Filtrar</option>
             @foreach (var item in ContentModel.sectionTitles) {
                 <option value="@item">@item</option>
             }
         </select>
 
         <input asp-for="SearchString"
-            class="max-h-9 w-full rounded-md bg-gray-100 py-2 px-3 text-gray-800 focus:text-gray-600 focus:outline-none"
+            class="pt-1 pb-1 max-h-9 w-full rounded-md bg-gray-100 py-2 px-3 border-0 text-gray-800 focus:text-gray-600 focus:outline-none"
             type="text" placeholder="Buscar" />
 
         <button id='submitBtn' type="submit" class="max-h-9 rounded-md px-8  text-white no-underline  bg-green">
@@ -66,13 +66,6 @@
 
 <script>
     const submitButton = document.getElementById('submitBtn');
-
-    @* const searchInput = document.querySelector('input[type="text"]');
-        searchInput.addEventListener('input', () => {
-        if (searchInput.value.length > 0) {
-        submitButton.click();
-        }
-        }); *@
 
     const selectionList = document.getElementById('filters');
     selectionList.addEventListener('change', () => {
