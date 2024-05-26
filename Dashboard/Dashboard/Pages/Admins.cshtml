@@ -7,6 +7,9 @@
 @* <div class="px-32 py-8">
     Users
 </div> *@
+<div id="loading-container" class="spinner-border" style="display: none;" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
 
 <form enctype="application/x-www-form-urlencoded" class="flex gap-4 py-4 fixed h-22 w-full pr-64 pl-8 glass" method="post">
     
@@ -118,10 +121,20 @@
 
 </div>
 <script>
+
+    function showLoading() {
+        document.getElementById("my-spinner").style.display = "block";
+    }
+
+    function hideLoading() {
+        document.getElementById("my-spinner").style.display = "none";
+    }
+
     function select(id) {
         var dir = window.location.href; 
         const url = new URL(window.location.href);
         const searchParams = new URLSearchParams(url.search);
+        document.getElementById("loading-container").style.display = "block";
 
         if (searchParams.has('search') && searchParams.has('usuario')) {
             dir = window.location.origin + `/Admins?search=${searchParams.get('search')}&usuario=${id}`;
@@ -130,11 +143,16 @@
         } else {
             dir = window.location.origin + `/Admins?usuario=${id}`;
         }
-
         console.log(dir);
         window.location.href = dir;
     }
-  
+
+    
+
+    // Example usage
+    
+    // Your long operation here
+    @* hideLoading(); *@
 
 </script>
 

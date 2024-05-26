@@ -38,6 +38,7 @@ namespace Dashboard.Pages
 
             Console.WriteLine("Admins");
             usuarios = DatabaseManager.GetUsuarios();
+            Console.WriteLine("Usuarios: " + usuarios.Count);
 
             // Check if the search query is present
             bool search = false;
