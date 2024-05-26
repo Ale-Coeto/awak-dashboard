@@ -70,7 +70,7 @@ namespace Dashboard.Pages
                     for (int j = 0; j < section.concepts.Count; j++)
                     {
                         Concept concept = section.concepts[j];
-                        if (concept.title.ToLower().Contains(Request.Query["search"].ToString().ToLower()))
+                        if (concept.title.ToLower().Contains(Request.Query["search"].ToString().ToLower()) || concept.description.ToLower().Contains(Request.Query["search"].ToString().ToLower()))
                         {
                             newConcepts.Add(concept);
                         }
