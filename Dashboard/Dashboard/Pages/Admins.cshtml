@@ -24,7 +24,7 @@
     </button>
 </form>
 
-<div class="px-24 pt-28 h-screen max-h-screen flex flex-row gap-8 overflow-hidden">
+<div class="px-24 pt-28 flex flex-row gap-8 overflow-hidden">
 
     <div class="w-full justify-center">
         <div class="font-bold text-lg pb-2">
@@ -52,8 +52,8 @@
         <div class="font-bold text-lg pb-2 pt-5">
             Colaboradores
         </div>
-        <div class="mt-3 overflow-y-scroll">
-            @foreach (var user in Model.colaboradoes)
+        <div class="mt-3 overflow-y-scroll pb-10">
+            @foreach (var user in Model.colaboradores)
             {
                 <button type="button" onclick="select(@user.ID_usuario)" class="flex flex-col gap-2 text-left w-full">
                     <div class="w-full flex flex-row px-3 py-2 rounded-md hover:bg-gray-100 ">
@@ -131,6 +131,7 @@
             dir = window.location.origin + `/Admins?usuario=${id}`;
         }
 
+        console.log(dir);
         window.location.href = dir;
     }
   

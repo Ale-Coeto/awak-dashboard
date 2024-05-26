@@ -10,6 +10,8 @@
         public string RedSocial { get; set; }
         public string Bio { get; set; }
         public bool Admin { get; set; }
+
+        public bool Superadmin { get; set; }
         public DateOnly Cumpleanios { get; set; }
         public string FechaRegistro { get; set; }
 

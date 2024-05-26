@@ -227,6 +227,7 @@ namespace Dashboard
                             user.RedSocial = reader["redSocial"].ToString();
                             user.Bio = reader["biography"].ToString();
                             user.Admin = Convert.ToBoolean(reader["admin"]);
+                            user.Superadmin = Convert.ToBoolean(reader["superadmin"]);
                             object cumpleaniosValue = reader["cumpleanios"];
 
                             if (cumpleaniosValue != DBNull.Value)
@@ -240,7 +241,7 @@ namespace Dashboard
                         }                      
                     }
                     
-
+                    Console.WriteLine("User: " + user.Nombre);
                     return user;
 
                 }

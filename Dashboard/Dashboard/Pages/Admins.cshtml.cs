@@ -20,7 +20,7 @@ namespace Dashboard.Pages
 
         public List<Usuario> usuarios = new List<Usuario>();
         public List<Usuario> admins = new List<Usuario>();
-        public List<Usuario> colaboradoes = new List<Usuario>();
+        public List<Usuario> colaboradores = new List<Usuario>();
 
 
         public IActionResult OnGet()
@@ -36,32 +36,57 @@ namespace Dashboard.Pages
                 return RedirectToPage("./Inicio");
             }
 
+            Console.WriteLine("Admins");
             usuarios = DatabaseManager.GetUsuarios();
 
             // Check if the search query is present
+            bool search = false;
             if (Request.Query.ContainsKey("search"))
             {
-                usuarios = usuarios.Where(x => x.Nombre.ToLower().Contains(Request.Query["search"].ToString().ToLower())).ToList();
+                search = true;
+                // usuarios = usuarios.Where(x => x.Nombre.ToLower().Contains(Request.Query["search"].ToString().ToLower())).ToList();
                 SearchString = Request.Query["search"].ToString();
             }
 
             //Exclude id 1 (superadmin)
-            usuarios = usuarios.Where(x => x.ID_usuario != 1).ToList();
+            // usuarios = usuarios.Where(x => x. != 1).ToList();
 
             // Sort users alphabetically
-            usuarios = usuarios.OrderBy(x => x.Nombre).ToList();
+            // usuarios = usuarios.OrderBy(x => x.Nombre).ToList();
+            selectedUser = new Usuario();
+            selectedUser.ID_usuario = -1;
 
             // Set admins and colaboradores
-            admins = usuarios.Where(x => x.Admin == true).ToList();
-            colaboradoes = usuarios.Where(x => x.Admin == false).ToList();
-            
-            if (Request.Query.ContainsKey("usuario"))
-            {
-                selectedUser = usuarios.Where(x => x.ID_usuario == Convert.ToInt32(Request.Query["usuario"])).FirstOrDefault();
-            } else {
-                selectedUser = new Usuario();
-                selectedUser.ID_usuario = -1;
+            foreach (var usuario in usuarios)
+            {   
+                if (search && !usuario.Nombre.ToLower().Contains(SearchString.ToLower())) {
+                        continue;
+                }
+
+                if (Request.Query.ContainsKey("usuario") && usuario.ID_usuario == Convert.ToInt32(Request.Query["usuario"]))
+                {
+                    selectedUser = usuario;
+                }
+
+                if (usuario.Admin)
+                {
+                    admins.Add(usuario);
+                }
+                else
+                {
+                    colaboradores.Add(usuario);
+                }
             }
+
+            Console.WriteLine("Admins: " + admins.Count);
+            
+            // if (Request.Query.ContainsKey("usuario"))
+            // {
+            //     // selectedUser = DatabaseManager.GetUsuario(Request.Query["usuario"].ToString());
+            //     selectedUser = usuarios.Where(x => x.ID_usuario == Convert.ToInt32(Request.Query["usuario"])).FirstOrDefault();
+            // } else {
+                
+            // }
 
             
 
@@ -75,7 +100,7 @@ namespace Dashboard.Pages
             if (Request.Form.ContainsKey("setAdmin")) {
 
                 usuarios = DatabaseManager.GetUsuarios();
-                
+
                 if (Request.Query.ContainsKey("usuario"))
                 {
                     selectedUser = usuarios.Where(x => x.ID_usuario == Convert.ToInt32(Request.Query["usuario"])).FirstOrDefault();

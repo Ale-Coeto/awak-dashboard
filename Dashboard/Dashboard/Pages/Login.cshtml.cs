@@ -111,7 +111,8 @@ namespace Dashboard.Pages
                 HttpContext.Session.SetString("Correo", user.Correo);
                 HttpContext.Session.SetString("Nombre", user.Nombre);
 
-                if (user.ID_usuario == 5) {
+                    Console.WriteLine("Superadmin" + user.Superadmin);
+                if (user.Superadmin) {
                     HttpContext.Session.SetString("Rol", "superadmin");
                 }
                 else {
