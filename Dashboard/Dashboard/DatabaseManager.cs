@@ -80,7 +80,7 @@ namespace Dashboard
                 Connection.Open();
             }
 
-            string updateQuery = "UPDATE Usuario SET username = @username, cumpleanios = STR_TO_DATE(@cumpleanios, '%Y-%m-%d'), redSocial = @red, biography = @bio WHERE ID_usuario = @id";
+            string updateQuery = "UPDATE Usuario SET username = @username, cumpleanios = STR_TO_DATE(@cumpleanios, '%Y-%m-%d'), redSocial = @red, biografia = @bio WHERE ID_Usuario = @id";
 
             try
             {
@@ -199,17 +199,23 @@ namespace Dashboard
                 Connection.Open();
             }
 
-            string userQuery = $"SELECT ID_usuario, contrasenia, correo, nombre, username, redSocial, biography, admin, cumpleanios, fecha_registro FROM Usuario WHERE ID_usuario='{id}' LIMIT 1";
+            string query = "getUsuario";
 
             Usuario user = new Usuario();
+            Console.WriteLine("ID query: " + id);
 
             try
             {
 
                 {
-                    MySqlCommand userCommand = new MySqlCommand(userQuery, Connection);
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters["@id"].Direction = ParameterDirection.Input;
 
-                    using (MySqlDataReader reader = userCommand.ExecuteReader())
+                    using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         if (reader.Read())
                         {
@@ -322,7 +328,6 @@ namespace Dashboard
 
             try
             {
-
                 {
                     
                     MySqlCommand userCommand = new MySqlCommand(userQuery, Connection);
@@ -338,6 +343,110 @@ namespace Dashboard
             }
 
         }
+
+        public static List<Usuario> GetUsuarios()
+        {
+            MySqlConnection Connection = new MySqlConnection(ConnectionString);
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "getUsuarios";
+
+            List<Usuario> usuarios = new List<Usuario>();
+
+            try
+            {
+
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+                   
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Usuario user = new Usuario();
+                            user.ID_usuario = Convert.ToInt32(reader["ID_usuario"]);
+                            user.Contrasenia = reader["contrasenia"].ToString();
+                            user.Correo = reader["correo"].ToString();
+                            user.Nombre = reader["nombre"].ToString();
+                            user.Username = reader["username"].ToString();
+                            user.RedSocial = reader["redSocial"].ToString();
+                            user.Bio = reader["biography"].ToString();
+                            user.Admin = Convert.ToBoolean(reader["admin"]);
+                            object cumpleaniosValue = reader["cumpleanios"];
+
+                            if (cumpleaniosValue != DBNull.Value)
+                            {
+                                DateTime dateTimeValue = (DateTime)reader["cumpleanios"];
+                                DateOnly dateOnlyValue = DateOnly.FromDateTime(dateTimeValue);
+                                user.Cumpleanios = dateOnlyValue;
+                            }
+
+                            usuarios.Add(user);
+
+                        }
+                    }
+                    
+
+                    return usuarios;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return usuarios;
+            }
+
+        }
+
+        public static void UpdateAdmin(int id, bool admin)
+        {
+            MySqlConnection Connection = new MySqlConnection(ConnectionString);
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "updateAdmin";
+
+            try
+            {
+
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@admin", admin);
+                    command.Parameters["@admin"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters["@id"].Direction = ParameterDirection.Input;
+
+
+                    command.ExecuteNonQuery();
+            Console.WriteLine("ID: " + id + " Admin: " + admin);
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+        }
+
+        
+
     }
 }
 
