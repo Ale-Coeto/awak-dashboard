@@ -6,8 +6,8 @@ namespace Dashboard
 {
     public class Progreso_Zona  
     {
-        public int ID_Usuario { get; set; }
-        public int ID_Zona { get; set; }
+        public int id_usuario { get; set; }
+        public int id_zona { get; set; }
         public string Nombre { get; set; } = "";
 
         public bool MinijuegoCompletado { get; set; }

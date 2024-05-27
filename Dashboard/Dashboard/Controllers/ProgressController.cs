@@ -18,40 +18,22 @@ namespace Dashboard.Controllers
             _configuration = configuration;
         }
 
-// publicarprogreso y retornarlo
-
-        // GET: api/<ValuesController>
-        [HttpGet]
-        public IList<Usuario> Get()
-        {
-            List<Usuario> allB = new List<Usuario>();
-            return allB;
-            
-        }
 
         // GET api/<ValuesController>/5
         [HttpGet("{id}")]
-        public IList<Usuario> Get(int id)
+        public IList<Progreso_Zona> Get(int id)
         {
-            string connectionString = _configuration.GetConnectionString("myDb1");
-
-            List<Usuario> allB = new List<Usuario>();
-
-            return allB;
+            List<Progreso_Zona> list = new List<Progreso_Zona>();
+            list = DatabaseManager.GetProgress(id);
+            return list;
         }
 
-        // POST api/<ValuesController>
-        //[HttpPost]
-        //public string Post([FromBody] string value)
-        //{
-        //    return value;
-        //}
 
-        // PUT api/<ValuesController>/5
-        [HttpPut("{id}")]
-        public void Put([FromBody] Usuario bookItem)
+       [HttpPost("{id_zona}")]
+        public void Put(int id_zona)
         {
-            
+            Console.WriteLine("PUT");
+            // DatabaseManager.UpdateProgress(progreso_Zona);
         }
 
     
