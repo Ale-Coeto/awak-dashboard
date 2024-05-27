@@ -3,6 +3,7 @@ using MySql.Data.MySqlClient;
 using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Extensions.Configuration;
 using Dashboard;
+using System.Text.Json;
 
 namespace Dashboard
 {
@@ -446,8 +447,114 @@ namespace Dashboard
 
         }
 
+        public static List<Progreso_Zona> GetProgress(int id) {
+            List<Progreso_Zona> progresos = new List<Progreso_Zona>();
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "getProgreso";
+
+            try
+            {
+
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+                    command.Parameters.AddWithValue("@id", id);
+                    command.Parameters["@id"].Direction = ParameterDirection.Input;
+
+                    using (MySqlDataReader reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Progreso_Zona progreso = new Progreso_Zona();
+                            progreso.id_usuario = Convert.ToInt32(reader["ID_Usuario"]);
+                            progreso.id_zona = Convert.ToInt32(reader["ID_Zona"]);
+                            progreso.Nombre = reader["nombre"].ToString();
+                            progreso.MinijuegoCompletado = Convert.ToBoolean(reader["minijuegoCompletado"]);
+                            progreso.Puntaje = Convert.ToInt32(reader["puntaje"]);
+
+                            TimeSpan sqlTime = reader.GetTimeSpan(reader.GetOrdinal("tiempo"));
+                            
+                            progreso.Tiempo = TimeOnly.FromTimeSpan(sqlTime);
+                            progreso.JefeVencido = Convert.ToBoolean(reader["jefeVencido"]);
+
+                            progresos.Add(progreso);
+
+                        }
+                    }
+                    
+
+                    return progresos;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return progresos;
+            }
+            
+        }
+
+        public static void UpdateProgress(Progreso_Zona progreso)
+        {
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string updateQuery = "updateProgreso";
+
+            try
+            {
+                // Console.WriteLine("ID: " + progreso.ID_Usuario + " Zona: " + progreso.ID_Zona + " Minijuego: " + progreso.MinijuegoCompletado + " Puntaje: " + progreso.Puntaje + " Jefe: " + progreso.JefeVencido + " Tiempo: " + progreso.Tiempo);
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = updateQuery;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@id_usuario", progreso.id_usuario);
+                    command.Parameters["@id_usuario"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@id_zona", progreso.id_zona);
+                    command.Parameters["@id_zona"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@minijuegoCompletado", progreso.MinijuegoCompletado);
+                    command.Parameters["@minijuegoCompletado"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@puntaje", progreso.Puntaje);
+                    command.Parameters["@puntaje"].Direction = ParameterDirection.Input;
+
+                    string sqlTime = progreso.Tiempo.ToString(@"HH\:mm\:ss");
+                    command.Parameters.AddWithValue("@tiempo", sqlTime);
+                    command.Parameters["@tiempo"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@jefeVencido", progreso.JefeVencido);
+                    command.Parameters["@jefeVencido"].Direction = ParameterDirection.Input;
+
+
+                    command.ExecuteNonQuery();
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+        }
+
         
 
     }
+
+    
 }
 
