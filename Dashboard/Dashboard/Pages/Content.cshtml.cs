@@ -29,7 +29,6 @@ namespace Dashboard.Pages
             }
 
             string filePath = Path.Combine(Directory.GetCurrentDirectory(), "Utils", "Data", "content.json");
-            Console.WriteLine(filePath);
             sections.Clear();
             sectionTitles.Clear();
             
@@ -38,15 +37,13 @@ namespace Dashboard.Pages
                 string json = System.IO.File.ReadAllText(filePath);
                 content = JsonSerializer.Deserialize<List<Section>>(json);
 
-                // Sort content in each section alphabetically
-
+                // Sort alphabetically
                 for (int i = 0; i < content.Count; i++)
                 {
                 Section section = content[i];
                 section.concepts = section.concepts.OrderBy(x => x.title).ToList();
                 sections.Add(i, section.section);
                 sectionTitles.Add(section.section);
-                // sections.Add(new Ids { id = i, title = section.section });
                 }
             }
             catch (Exception e)

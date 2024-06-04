@@ -465,9 +465,12 @@ namespace Dashboard
                     command.Connection = Connection;
                     command.CommandText = query;
                     command.CommandType = CommandType.StoredProcedure;
+
                     command.Parameters.AddWithValue("@id", id);
                     command.Parameters["@id"].Direction = ParameterDirection.Input;
 
+
+                    Console.WriteLine("ID quer: " + id);
                     using (MySqlDataReader reader = command.ExecuteReader())
                     {
                         while (reader.Read())
@@ -478,7 +481,7 @@ namespace Dashboard
                             progreso.Nombre = reader["nombre"].ToString();
                             progreso.MinijuegoCompletado = Convert.ToBoolean(reader["minijuegoCompletado"]);
                             progreso.Puntaje = Convert.ToInt32(reader["puntaje"]);
-
+                            
                             TimeSpan sqlTime = reader.GetTimeSpan(reader.GetOrdinal("tiempo"));
                             
                             progreso.Tiempo = TimeOnly.FromTimeSpan(sqlTime);
@@ -489,7 +492,7 @@ namespace Dashboard
                         }
                     }
                     
-
+                    Console.WriteLine("Progresos aa: " + progresos.Count);
                     return progresos;
 
                 }
@@ -550,6 +553,20 @@ namespace Dashboard
             }
 
         }
+
+        public static int GetPuntaje() {
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "getPuntaje";
+
+
+            return 1;
+        }
+        
+        
 
         
 
