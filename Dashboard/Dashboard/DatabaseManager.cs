@@ -4,6 +4,9 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using Microsoft.Extensions.Configuration;
 using Dashboard;
 using System.Text.Json;
+using Microsoft.CodeAnalysis.Elfie.Diagnostics;
+using System.Security.Policy;
+using Dashboard.Utils.Model;
 
 namespace Dashboard
 {
@@ -565,10 +568,204 @@ namespace Dashboard
 
             return 1;
         }
-        
-        
 
-        
+        public static List<Zona> GetZonasByUserId(int userId)
+        {
+            MySqlConnection Connection = new MySqlConnection(ConnectionString);
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "getZonasByUserId";
+            List<Zona> allZones = new List<Zona>();
+
+            try
+            {
+
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@user_id", userId);
+                    command.Parameters["@user_id"].Direction = ParameterDirection.Input;
+                    Zona z;
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            z = new Zona();
+                            z.Name = reader["nombre"].ToString();
+                            z.Description = reader["descripcion"].ToString();
+                            z.ID = Convert.ToInt32(reader["ID_Zona"]);
+                            allZones.Add(z);
+                        }
+                    }
+                    return allZones;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return allZones;
+
+        }
+
+        public static List<MiniGame> GetMinijuegosZona(int zonaId)
+        {
+            MySqlConnection Connection = new MySqlConnection(ConnectionString);
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "getMinijuegosZona";
+            List<MiniGame> zoneMinigames = new List<MiniGame>();
+
+            try
+            {
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@zona_id", zonaId);
+                    command.Parameters["@zona_id"].Direction = ParameterDirection.Input;
+                    MiniGame m;
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            m = new MiniGame();
+                            m.Name = reader["nombre"].ToString();
+                            m.IsBoss = Convert.ToBoolean(reader["jefe"]);
+                            m.IdGame = Convert.ToInt32(reader["ID_minijuego"]);
+                            zoneMinigames.Add(m);
+                        }
+                    }
+                    return zoneMinigames;
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            return zoneMinigames;
+
+        }
+
+        public static Partida GetPartidaDatos(int minigameId, int userId)
+        {
+            MySqlConnection Connection = new MySqlConnection(ConnectionString);
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "getMinijuegoDatos";
+            Partida p = null;
+
+            try
+            {
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@minijuego_id", minigameId);
+                    command.Parameters["@minijuego_id"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@user_id", userId);
+                    command.Parameters["@user_id"].Direction = ParameterDirection.Input;
+
+                    
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            p = new Partida();
+                            p.Puntaje = Convert.ToInt32(reader["puntaje"].ToString());
+                            p.Tiempo = Convert.ToInt32(reader["tiempo"]);
+                            p.IdUsuario = userId;
+                            p.IdMinijuego = minigameId;
+                            return p;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return p;
+
+        }
+
+        public static Partida SetPartida(Partida p)
+        {
+            MySqlConnection Connection = new MySqlConnection(ConnectionString);
+
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
+
+            string query = "setPartida";
+            Partida nuevaPartida = null;
+
+            try
+            {
+                {
+                    MySqlCommand command = new MySqlCommand();
+                    command.Connection = Connection;
+                    command.CommandText = query;
+                    command.CommandType = CommandType.StoredProcedure;
+
+                    command.Parameters.AddWithValue("@minijuego_id", p.IdMinijuego);
+                    command.Parameters["@minijuego_id"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@user_id", p.IdUsuario);
+                    command.Parameters["@user_id"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@nuevo_puntaje", p.Puntaje);
+                    command.Parameters["@nuevo_puntaje"].Direction = ParameterDirection.Input;
+
+                    command.Parameters.AddWithValue("@nuevo_tiempo", p.Tiempo);
+                    command.Parameters["@nuevo_tiempo"].Direction = ParameterDirection.Input;
+
+
+                    using (var reader = command.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            nuevaPartida = new Partida();
+                            nuevaPartida.Puntaje = Convert.ToInt32(reader["puntaje"].ToString());
+                            nuevaPartida.Tiempo = Convert.ToInt32(reader["tiempo"]);
+                            nuevaPartida.IdUsuario = Convert.ToInt32(reader["ID_Usuario"]);
+                            nuevaPartida.IdMinijuego = Convert.ToInt32(reader["ID_Minijuego"]);
+                            return nuevaPartida;
+                        }
+                    }
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return nuevaPartida;
+
+        }
+
 
     }
 
