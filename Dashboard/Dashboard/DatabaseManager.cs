@@ -1,4 +1,4 @@
-﻿using System.Data;
+using System.Data;
 using MySql.Data.MySqlClient;
 using Dashboard.Utils.Model;
 
@@ -502,12 +502,11 @@ namespace Dashboard
 
                         command.Parameters.AddWithValue("@jefeVencido", progreso.JefeVencido);
                         command.Parameters["@jefeVencido"].Direction = ParameterDirection.Input;
-
-
                         command.ExecuteNonQuery();
                     }
                 }
             }
+
             catch (MySqlException ex)
             {
                 Console.WriteLine("Error: " + ex.Message);
@@ -523,7 +522,6 @@ namespace Dashboard
             }
 
             string query = "getPuntaje";
-
 
             return 1;
         }
@@ -703,9 +701,38 @@ namespace Dashboard
 
         }
 
+        public static void InsertFeedback(int id_usuario, string nombre, string correo, string sugerencias, string remover, string preguntas)
+        {
+            if (Connection.State != ConnectionState.Open)
+            {
+                Connection.Open();
+            }
 
+            string insertQuery = "InsertFeedback";
+
+            try
+            {
+                using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, Connection))
+                {
+                    insertCommand.CommandType = CommandType.StoredProcedure;
+
+                    insertCommand.Parameters.AddWithValue("@ID_Usuario", id_usuario);
+                    insertCommand.Parameters.AddWithValue("@nombre", nombre);
+                    insertCommand.Parameters.AddWithValue("@correo", correo);
+                    insertCommand.Parameters.AddWithValue("@sugerencias", sugerencias);
+                    insertCommand.Parameters.AddWithValue("@remover", remover);
+                    insertCommand.Parameters.AddWithValue("@preguntas", preguntas);
+                    insertCommand.ExecuteNonQuery();
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+            finally
+            {
+                CloseConnection();
+            }
+        }
     }
-
-
 }
-
