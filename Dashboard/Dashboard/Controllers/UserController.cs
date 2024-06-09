@@ -1,8 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
-using Microsoft.Extensions.Configuration;
-using System.Data;
-using Org.BouncyCastle.Bcpg;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -22,9 +18,7 @@ namespace Dashboard.Controllers
         [HttpGet]
         public IList<Usuario> Get()
         {
-            List<Usuario> list = new List<Usuario>();
-            list = DatabaseManager.GetUsuarios();
-            return list;
+            return DatabaseManager.GetUsuarios();
             
         }
 
@@ -32,9 +26,14 @@ namespace Dashboard.Controllers
         [HttpGet("{id}")]
         public Usuario Get(int id)
         {
-            Usuario user = new Usuario();
-            user = DatabaseManager.GetUsuario(id.ToString());
-            return user;
+            return DatabaseManager.GetUsuario(id.ToString());
+        }
+
+        // GET api/<ValuesController>/5
+        [HttpGet("getId/{mail}/{password}")]
+        public int GetUserId(string mail, string password)
+        {
+            return DatabaseManager.GetUserID(mail, password);
         }
 
     }
