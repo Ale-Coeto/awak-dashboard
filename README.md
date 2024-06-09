@@ -20,6 +20,7 @@ Dashboard para visualizar el progreso de usuarios en su proceso de onboarding.
 | --- | --- | --- |
 |  | [](https://github.com/) | @ |
 |  | [](https://github.com/) | @ |
+| Pablo García | [@pagmtz03](https://github.com/pagmtz03) | a01412895@tec.mx |
 | Axel Grande | [@4xlRose](https://github.com/4xlRose) | a01611811@tec.mx |
 |  Oscar Arreola | [@Oscar-gg](https://github.com/Oscar-gg) | a01178076@tec.mx |
 | Alejandra Coeto | [@Ale-Coeto](https://github.com/AleCoeto) | a01285221@tec.mx |
