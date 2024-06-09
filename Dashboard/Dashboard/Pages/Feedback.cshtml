@@ -1,0 +1,63 @@
+@page
+@model Dashboard.Pages.FeedbackModel;
+@{
+    ViewData["Title"] = "Feedback";
+    Layout = "Shared/_Layout.cshtml";
+}
+
+<div class="w-full py-10 px-20">
+    <div class="feedback">
+        <div class="container mr-3">
+
+            <p class="mb-5 mt-3">
+                Este proyecto fue hecho como colaboración del Tecnológico de Monterrey y AWAQ Estaciones Biológicas para poder
+                mejorar el proceso de On Boarding para AWAQ mediante la aplicación de técnicas de gamificación a su proceso actual.
+
+                Siendo le motivo principal que este proceso sea divertido y entretenido, a la vez que enriquecedor, por lo que
+                cualquier duda o comentario para mejorar sería de mucha ayuda para continuar mejorando y brindando una agradable
+                experiencia gamificada.
+            </p>
+
+            <form method="post" asp-page-handler="Feedback">
+
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="Nombre">Nombre</label>
+                        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="Correo">Correo</label>
+                        <input type="email" class="form-control" id="Correo" name="Correo" required />
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="Sugerencias">Sugerencias</label>
+                        <textarea class="form-control" id="Sugerencias" name="Sugerencias" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="Remover">¿Qué removerías?</label>
+                        <textarea class="form-control" id="Remover" name="Remover" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <div class="form-group">
+                        <label for="Preguntas">Preguntas</label>
+                        <textarea class="form-control" id="Preguntas" name="Preguntas" rows="3" required></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+
+            </form>
+        </div>
+    </div>
+</div>
