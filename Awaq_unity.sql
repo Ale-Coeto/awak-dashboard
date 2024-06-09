@@ -31,7 +31,7 @@ CREATE PROCEDURE getZonasByUserId(IN user_id INT)
 begin
     SELECT z.ID_Zona, z.nombre, z.descripcion 
 	FROM Zona_Usuario zu
-	join zonas z on zu.ID_Zona = z.ID_Zona 
+	join Zonas z on zu.ID_Zona = z.ID_Zona 
 	WHERE ID_Usuario = user_id;
 end;
 
@@ -94,7 +94,6 @@ DELIMITER ;
 -- Test
 call getZonasByUserId(1);
 call getMinijuegosZona(2); 
-call getMinijuegosZonaUser(2, 1);
 call getMinijuegoDatos(1, 1); 
 call setPartida(1, 1, 500, 5);
 
