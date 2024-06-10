@@ -125,6 +125,8 @@ namespace Dashboard
                 Console.WriteLine("Error: " + ex.Message);
             }
 
+            // User user = GetUserID
+
         }
 
         public static bool IsValidUser(string correo, string contrasenia)

@@ -49,6 +49,10 @@ namespace Dashboard.Pages
 
         public string Id { set; get; } = "";
 
+        public string ErrorMessage { set; get; } = "";
+
+        public string SuccessMessage { set; get; } = "";
+
         Usuario user = new Usuario();
 
         public IActionResult OnGet()
@@ -100,33 +104,67 @@ namespace Dashboard.Pages
             Correo = HttpContext.Session.GetString("Correo");
             string pass = DatabaseManager.GetPassword(Id);
 
-
-            user.Username = Username;
-            user.RedSocial = Red;
-            user.Cumpleanios = Cumpleanios;
-            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
-
-            if (CumpleaniosTxt == "0001-01-01")
+            if (NuevaContrasenia1 != "")
             {
-                CumpleaniosTxt = "";
-            }
-            user.Bio = Bio;
+                if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2) {
+                    user = DatabaseManager.GetUsuario(Id);
+                    Nombre = user.Nombre;
+                    Username = user.Username;
+                    Correo = user.Correo;
+                    Red = user.RedSocial;
+                    Bio = user.Bio;
+                    Cumpleanios = user.Cumpleanios;
+                    CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
 
-            if (NuevaContrasenia1 != "" && Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
-            {
-                // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
-                DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+                    if (CumpleaniosTxt == "0001-01-01")
+                    {
+                        CumpleaniosTxt = "";
+                    }
+                    DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+                    SuccessMessage = "Contraseña actualizada correctamente.";
+
+                } else if (Contrasenia != pass) {
+                    ErrorMessage = "La anterior contraseña es incorrecta.";
+                } else if (NuevaContrasenia1 != NuevaContrasenia2) {
+                    ErrorMessage = "Las nuevas contraseñas no coinciden.";
+                }
+
+
                 // RedirectToPage("./Perfil");
 
             } else {
+                user.Username = Username;
+                user.RedSocial = Red;
+                user.Cumpleanios = Cumpleanios;
+                CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+
+                if (CumpleaniosTxt == "0001-01-01")
+                {
+                    CumpleaniosTxt = "";
+                }
+                user.Bio = Bio;
                 DatabaseManager.UpdateUser(Id, user);
             }
 
-            
-            Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
+            Console.WriteLine("USERNAMEPRE : " + Username);
 
-            Console.WriteLine(Username);
-            Console.WriteLine(Id);
+            
+
+            // if (NuevaContrasenia1 != "" && Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
+            // {
+            //     // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+            //     DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+            //     // RedirectToPage("./Perfil");
+
+            // } else {
+            //     DatabaseManager.UpdateUser(Id, user);
+            // }
+
+            
+            // Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
+
+            // Console.WriteLine("USERNAME : " + Username);
+            // Console.WriteLine(Id);
             
             RedirectToPage("./Perfil");
         }

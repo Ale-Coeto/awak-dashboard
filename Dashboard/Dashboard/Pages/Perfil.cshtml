@@ -103,6 +103,18 @@
                 </h2>
                 <div class="line mb-4"></div>
 
+                @if(Model.ErrorMessage != "") {
+                <div class="alert alert-danger" role="alert">
+                    @Model.ErrorMessage
+                </div>
+                }
+
+                @if(Model.SuccessMessage != "") {
+                <div class="alert alert-success" role="alert">
+                    @Model.SuccessMessage
+                </div>
+                }
+
                 <form method="post">
                     <div class="mb-2">
                         <label class="form-label">Anterior Contraseña</label>
