@@ -103,7 +103,7 @@
     ]
   },
   {
-    "section": "TEDI",
+    "section": "TEDI (General)",
     "concepts": [
       {
         "title": "HTML",
@@ -132,20 +132,8 @@
     ]
   },
   {
-    "section": "TEDI",
+    "section": "TEDI (Avanzado)",
     "concepts": [
-      {
-        "title": "HTML",
-        "description": "HTML es un lenguaje de marcado que se utiliza para el desarrollo de páginas de Internet. Se trata de la sigla que corresponde a HyperText Markup Language, es decir, Lenguaje de Marcas de Hipertexto. Es un estándar que sirve de referencia del software que conecta con la elaboración de páginas web en sus diferentes versiones, define una estructura básica y un código para la definición de contenido de una página web, como texto, imágenes, videos, juegos, entre otros. HTML se escribe en forma de 'etiquetas', rodeadas por corchetes angulares (<,>). HTML también puede describir, hasta un cierto punto, la apariencia de un documento, y la mayoría de las versiones actuales de HTML (HTML 4.01 y XHTML) soportan hojas de estilo en cascada (CSS)."
-      },
-      {
-        "title": "CSS",
-        "description": "CSS es un lenguaje usado para definir y crear la presentación de un documento estructurado escrito en HTML o XML (y por extensión en XHTML). CSS es la mejor forma de separar los contenidos y su presentación y es imprescindible para crear páginas web complejas. La separación de HTML de CSS hace más sencilla la mantenibilidad y la accesibilidad del contenido."
-      },
-      {
-        "title": "Typescript",
-        "description": "TypeScript es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipado estático y objetos basados en clases."
-      },
       {
         "title": "React",
         "description": "React es una biblioteca de código abierto diseñada para crear interfaces de usuario con el objetivo de facilitar el desarrollo de aplicaciones en una sola página. Se utiliza para construir componentes de interfaz de usuario reutilizables."
@@ -157,10 +145,6 @@
       {
         "title": "Github",
         "description": "GitHub es una plataforma de desarrollo colaborativo de software para alojar proyectos utilizando el sistema de control de versiones Git. Se utiliza principalmente para la creación de código fuente de programas de ordenador."
-      },
-      {
-        "title": "Scrum",
-        "description": "Scrum es un marco de trabajo ágil para el desarrollo y mantenimiento de productos complejos. Se define por sus roles, eventos, artefactos y reglas."
       },
       {
         "title": "Git add",
