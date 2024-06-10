@@ -35,7 +35,7 @@
 </head>
 
 <div class="">
-    <div class="navbar w-56 bg-gray z-10">
+    <div class="navbar bg-gray z-10 w-56">
 
         <div>
             <div class="img-container mb-5">
@@ -75,7 +75,10 @@
                                 asp-page="/Admins">Admins</a>
                         </div>
                     }
-
+                    <div class="nav-item">
+                        <a class="nav-link @((string)ViewData["Title"] == "Feedback" ? "active" : "none")"
+                           asp-page="/Feedback">Feedback</a>
+                    </div>
                     <div class="nav-item">
                         <a class="nav-link @((string)ViewData["Title"] == "Ayuda" ? "active" : "none")"
                             asp-page="/Ayuda">Ayuda</a>
@@ -89,8 +92,8 @@
         </div>
     </div>
 
-    <div class="fixed top-0 flex w-full pl-56 h-20 z-0 items-center glass">
-        <div class="w-full flex justify-between items-center px-6 py-3">
+    <div class="z-0 glass fixed top-0 flex h-20 w-full items-center pl-56">
+        <div class="flex w-full items-center justify-between px-6 py-3">
             <h1 class="title">
                 @ViewData["Title"]
             </h1>
@@ -107,7 +110,7 @@
         </div>
     </div>
 
-    <div class="pl-56 h-screen pt-20 w-full">
+    <div class="h-screen w-full pl-56 pt-20">
         @RenderBody()
     </div>
 

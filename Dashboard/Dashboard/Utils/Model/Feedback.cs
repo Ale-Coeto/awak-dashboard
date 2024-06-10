@@ -10,5 +10,14 @@ namespace Dashboard.Models
         public string Remover { get; set; }
         public string Preguntas { get; set; }
         public DateTime Fecha { get; set; } = DateTime.Now;
+        public DateTimeOffset LocalTime()
+        {
+            string timeZoneId = "Central Standard Time (Mexico)";
+
+            DateTimeOffset utcTimestamp = new DateTimeOffset(Fecha, TimeSpan.Zero);
+            TimeZoneInfo targetTimeZone = TimeZoneInfo.FindSystemTimeZoneById(timeZoneId);
+
+            return TimeZoneInfo.ConvertTime(utcTimestamp, targetTimeZone);
+        }
     }
 }

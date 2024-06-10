@@ -14,7 +14,7 @@ namespace Dashboard.Pages
             int id = -1;
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Rol")))
             {
-                IsAdmin = HttpContext.Session.GetString("Rol") == "admin";
+                IsAdmin = HttpContext.Session.GetString("Rol") == "admin" || HttpContext.Session.GetString("Rol") == "superadmin";
             }
 
             if (!string.IsNullOrEmpty(HttpContext.Session.GetString("ID")))
