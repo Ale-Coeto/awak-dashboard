@@ -16,11 +16,11 @@
       },
       {
         "title": "Profesionalidad",
-        "description": "Dedicación, entrega y compromiso con la Calidad y la mejora continua. Mejorar conocimientos y capacidades participando en acciones de formación permanente, buscando siempre la excelencia profesional."
+        "description": "Dedicación, entrega y compromiso con la calidad y la mejora continua. Mejorar conocimientos y capacidades participando en acciones de formación permanente, buscando siempre la excelencia profesional."
       },
       {
         "title": "Compromiso",
-        "description": "Mantener la lealtad y compromiso con la Organización, así como con los proyectos y programas a los que nos comprometemos."
+        "description": "Mantener la lealtad y compromiso con la organización, así como con los proyectos y programas a los que nos comprometemos."
       },
       {
         "title": "Participación y Diálogo",
@@ -86,11 +86,7 @@
       },
       {
         "title": "Contraseña",
-        "description": "Su contraseña debe: \nTener al menos 12 caracteres de longitud, cuando sea compatible con la tecnología. \nContener una mezcla de caracteres alfabéticos y no alfabéticos o una mezcla de al menos dos tipos de caracteres no alfabéticos. \nNo tener ID del usuario como parte de la contraseña. \nNunca contener patrones restringidos como qwerty, asdf, 1234, etc. \nNunca ser un palíndromo. \nSer únicamente de su propiedad y nunca compartirse con nadie."
-      },
-      {
-        "title": "Ingeniería Social",
-        "description": "Ingeniería Social, Phishing, Vishing, Quishing, Smishing, Malware"
+        "description": "Su contraseña debe: \nTener al menos 12 caracteres de longitud, cuando sea compatible con la tecnología. \nContener una mezcla de caracteres alfabéticos y no alfabéticos o una mezcla de al menos dos tipos de caracteres no alfabéticos. \nNo tener ID del usuario como parte de la contraseña. \nNunca contener patrones restringidos como 'qwerty', 'asdf', '1234', etc. \nNunca ser un palíndromo. \nSer únicamente de su propiedad y nunca compartirse con nadie."
       },
       {
         "title": "Phishing",
@@ -118,16 +114,8 @@
         "description": "CSS es un lenguaje usado para definir y crear la presentación de un documento estructurado escrito en HTML o XML. Es un lenguaje que da la posibilidad de agregar estilos, colores y diseño a un sitio web porque es más eficiente. CSS define la presentación de una página web mediante el uso de estilos que pueden estar embebidos dentro del documento HTML, dentro de una etiqueta 'style' en el 'head' del documento, o como un documento separado con extensión '.css' que se vincula al documento HTML mediante la etiqueta 'link'."
       },
       {
-        "title": "JavaScript",
-        "description": "JavaScript es un lenguaje de programación interpretado, dialecto del estándar ECMAScript. Se define como orientado a objetos, basado en prototipos, imperativo, débilmente tipado y dinámico. Se utiliza principalmente del lado del cliente (client-side) en forma de JavaScript, una tecnología que puede ser incorporada en documentos HTML. Además de HTML y CSS, es una de las tres tecnologías más importantes y más utilizadas para la creación de páginas web. Originalmente fue implementado como parte de los navegadores web, permitiendo mejoras en la interfaz de usuario y páginas web dinámicas y controlando el navegador web."
-      },
-      {
         "title": "TypeScript",
         "description": "TypeScript es un lenguaje de programación libre y de código abierto desarrollado y mantenido por Microsoft. Es un superconjunto de JavaScript, que esencialmente añade tipado estático y objetos basados en clases."
-      },
-      {
-        "title": "JavaScript ES6",
-        "description": "JavaScript ES6 es una versión mejorada de JavaScript que incluye características nuevas como la declaración de variables con 'let' y 'const', las funciones flecha, la sintaxis de clases, y la desestructuración de arrays y objetos. ES6 también introduce nuevas estructuras de datos como Map y Set."
       },
       {
         "title": "Git",
