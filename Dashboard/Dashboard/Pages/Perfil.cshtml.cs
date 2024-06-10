@@ -24,7 +24,6 @@ namespace Dashboard.Pages
         public string Correo { set; get; } = "";
 
         [BindProperty]
-        [Required(ErrorMessage = "El campo \'Anterior Contraseña\' es obligatorio.")]
         public string Contrasenia { set; get; } = "";
 
         [BindProperty]
@@ -89,7 +88,7 @@ namespace Dashboard.Pages
             return Page();
         }
 
-        public void OnPostPerfil()
+        public void OnPost()
         {
 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")) == false)
@@ -99,6 +98,7 @@ namespace Dashboard.Pages
 
             Nombre = HttpContext.Session.GetString("Nombre");
             Correo = HttpContext.Session.GetString("Correo");
+            string pass = DatabaseManager.GetPassword(Id);
 
 
             user.Username = Username;
@@ -110,52 +110,64 @@ namespace Dashboard.Pages
             {
                 CumpleaniosTxt = "";
             }
-
             user.Bio = Bio;
+
+            if (NuevaContrasenia1 != "" && Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
+            {
+                // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+                DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+                // RedirectToPage("./Perfil");
+
+            } else {
+                DatabaseManager.UpdateUser(Id, user);
+            }
+
+            
             Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
 
             Console.WriteLine(Username);
             Console.WriteLine(Id);
-            DatabaseManager.UpdateUser(Id, user);
+            
             RedirectToPage("./Perfil");
         }
 
-        public void OnPostContrasenia()
-        {
-            Id = HttpContext.Session.GetString("ID");
+        // public void OnPostContrasenia()
+        // {
+        //     Id = HttpContext.Session.GetString("ID");
 
-            string pass = DatabaseManager.GetPassword(Id);
-            user = DatabaseManager.GetUsuario(Id);
-            Nombre = user.Nombre;
-            Username = user.Username;
-            Correo = user.Correo;
-            Red = user.RedSocial;
-            Bio = user.Bio;
-            Cumpleanios = user.Cumpleanios;
-            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+        //     // string pass = DatabaseManager.GetPassword(Id);
+        //     user = DatabaseManager.GetUsuario(Id);
+        //     Nombre = user.Nombre;
+        //     Username = user.Username;
+        //     Correo = user.Correo;
+        //     Red = user.RedSocial;
+        //     Bio = user.Bio;
+        //     Cumpleanios = user.Cumpleanios;
+        //     string pass = user.Contrasenia;
+        //     CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
 
-            if (CumpleaniosTxt == "0001-01-01")
-            {
-                CumpleaniosTxt = "";
-            }
+        //     if (CumpleaniosTxt == "0001-01-01")
+        //     {
+        //         CumpleaniosTxt = "";
+        //     }
 
-            //if (Contrasenia != pass)
-            //{
-            //    RedirectToPage("./Perfil");
-            //}
+        //     //if (Contrasenia != pass)
+        //     //{
+        //     //    RedirectToPage("./Perfil");
+        //     //}
 
-            //else if (NuevaContrasenia1 != NuevaContrasenia2)
-            //{
-            //    RedirectToPage("./Perfil");
-            //} 
-            if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
-            {
-                // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
-                DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
-                RedirectToPage("./Perfil");
+        //     //else if (NuevaContrasenia1 != NuevaContrasenia2)
+        //     //{
+        //     //    RedirectToPage("./Perfil");
+        //     //} 
+        //     if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
+        //     {
+        //         // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+        //         DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+        //         RedirectToPage("./Perfil");
 
-            }
-            //RedirectToPage("/YourPage", new { user = user });
-        }
+        //     }
+        //     //RedirectToPage("/YourPage", new { user = user });
+        // }
     }
 }
