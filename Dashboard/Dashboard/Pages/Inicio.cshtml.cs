@@ -42,12 +42,15 @@ namespace Dashboard.Pages
             Rol = usuario.Admin ? "Administrador" : "Usuario";
             int id_usuario = int.Parse(id);
             List<Progreso_Zona> progreso = DatabaseManager.GetProgress(id_usuario);
-            
+            //Progreso_dir progreso = DatabaseManager.GetProgreso2(id_usuario);
             foreach (Progreso_Zona p in progreso)
             {
                 Puntaje += p.Puntaje;
                 Progreso += p.JefeVencido ? 1 : 0;
             }
+            //p.Puntaje = progreso.puntaje;
+            //p.JefeVencido = progreso.jefeVencido;
+            //p.
             Console.WriteLine("PROGRESO: " + progreso.Count);
 
             return Page();
