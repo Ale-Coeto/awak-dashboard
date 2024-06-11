@@ -471,6 +471,54 @@ namespace Dashboard
 
         }
 
+        public static Progreso_dir GetProgreso2(int id)
+        {
+            Progreso_dir p = new Progreso_dir();
+            string query = "getProgresoTest";
+
+            try
+            {
+
+                {
+                    using (var connection = new MySqlConnection(ConnectionString))
+                    {
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand();
+                        command.Connection = connection;
+                        command.CommandText = query;
+                        command.CommandType = CommandType.StoredProcedure;
+
+                        command.Parameters.AddWithValue("@user_id", id);
+                        command.Parameters["@user_id"].Direction = ParameterDirection.Input;
+
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Progreso_dir progreso = new Progreso_dir();
+                                progreso.rol = reader["Rol"].ToString();
+                                Console.WriteLine("rol: " + reader["Rol"].ToString());
+
+                                Console.WriteLine(Convert.ToInt32(reader["puntuacion"].ToString()));
+                                progreso.puntos = Convert.ToInt32(reader["Puntuacion"].ToString());
+                                progreso.zonas = Convert.ToInt32(reader["completed_zones"].ToString());
+                                return progreso;
+                            }
+                        }
+                    }
+                    
+                    return p;
+
+                }
+            }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+                return p;
+            }
+
+        }
+
         public static void UpdateProgress(Progreso_Zona progreso)
         {
             string updateQuery = "updateProgreso";

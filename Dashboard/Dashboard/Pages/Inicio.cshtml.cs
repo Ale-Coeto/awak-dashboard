@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.AspNetCore.Mvc; // Add this using directive
+using Microsoft.AspNetCore.Mvc;
+using Dashboard.Utils.Model; // Add this using directive
 
 namespace Dashboard.Pages
 {
@@ -48,10 +49,15 @@ namespace Dashboard.Pages
                 Puntaje += p.Puntaje;
                 Progreso += p.JefeVencido ? 1 : 0;
             }
-            //p.Puntaje = progreso.puntaje;
-            //p.JefeVencido = progreso.jefeVencido;
+            Progreso_dir pnuevo = DatabaseManager.GetProgreso2(id_usuario);
+
+            Console.WriteLine(pnuevo.puntos);
+            Puntaje = pnuevo.puntos;
+            Progreso = pnuevo.zonas;
+            Rol = pnuevo.rol;
+
             //p.
-            Console.WriteLine("PROGRESO: " + progreso.Count);
+            //Console.WriteLine("PROGRESO: " + progreso.Count);
 
             return Page();
         }
