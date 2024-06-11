@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Http;
 @inject IHttpContextAccessor HttpContextAccessor
 @{
     string correo = HttpContextAccessor.HttpContext.Session.GetString("Correo");
@@ -74,11 +74,13 @@
                             <a class="nav-link @((string)ViewData["Title"] == "Admins" ? "active" : "none")"
                                 asp-page="/Admins">Admins</a>
                         </div>
+                        
                     }
                     <div class="nav-item">
                         <a class="nav-link @((string)ViewData["Title"] == "Feedback" ? "active" : "none")"
-                           asp-page="/Feedback">Feedback</a>
+                            asp-page="/Feedback">Feedback</a>
                     </div>
+
                     <div class="nav-item">
                         <a class="nav-link @((string)ViewData["Title"] == "Ayuda" ? "active" : "none")"
                             asp-page="/Ayuda">Ayuda</a>

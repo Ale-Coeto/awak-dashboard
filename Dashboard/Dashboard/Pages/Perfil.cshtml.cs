@@ -24,7 +24,6 @@ namespace Dashboard.Pages
         public string Correo { set; get; } = "";
 
         [BindProperty]
-        [Required(ErrorMessage = "El campo \'Anterior Contraseña\' es obligatorio.")]
         public string Contrasenia { set; get; } = "";
 
         [BindProperty]
@@ -49,6 +48,10 @@ namespace Dashboard.Pages
         public bool IsUser { set; get; } = true;
 
         public string Id { set; get; } = "";
+
+        public string ErrorMessage { set; get; } = "";
+
+        public string SuccessMessage { set; get; } = "";
 
         Usuario user = new Usuario();
 
@@ -89,7 +92,7 @@ namespace Dashboard.Pages
             return Page();
         }
 
-        public void OnPostPerfil()
+        public void OnPost()
         {
 
             if (string.IsNullOrEmpty(HttpContext.Session.GetString("ID")) == false)
@@ -99,63 +102,110 @@ namespace Dashboard.Pages
 
             Nombre = HttpContext.Session.GetString("Nombre");
             Correo = HttpContext.Session.GetString("Correo");
+            string pass = DatabaseManager.GetPassword(Id);
 
-
-            user.Username = Username;
-            user.RedSocial = Red;
-            user.Cumpleanios = Cumpleanios;
-            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
-
-            if (CumpleaniosTxt == "0001-01-01")
+            if (NuevaContrasenia1 != "")
             {
-                CumpleaniosTxt = "";
+                if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2) {
+                    user = DatabaseManager.GetUsuario(Id);
+                    Nombre = user.Nombre;
+                    Username = user.Username;
+                    Correo = user.Correo;
+                    Red = user.RedSocial;
+                    Bio = user.Bio;
+                    Cumpleanios = user.Cumpleanios;
+                    CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+
+                    if (CumpleaniosTxt == "0001-01-01")
+                    {
+                        CumpleaniosTxt = "";
+                    }
+                    DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+                    SuccessMessage = "Contraseña actualizada correctamente.";
+
+                } else if (Contrasenia != pass) {
+                    ErrorMessage = "La anterior contraseña es incorrecta.";
+                } else if (NuevaContrasenia1 != NuevaContrasenia2) {
+                    ErrorMessage = "Las nuevas contraseñas no coinciden.";
+                }
+
+
+                // RedirectToPage("./Perfil");
+
+            } else {
+                user.Username = Username;
+                user.RedSocial = Red;
+                user.Cumpleanios = Cumpleanios;
+                CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+
+                if (CumpleaniosTxt == "0001-01-01")
+                {
+                    CumpleaniosTxt = "";
+                }
+                user.Bio = Bio;
+                DatabaseManager.UpdateUser(Id, user);
             }
 
-            user.Bio = Bio;
-            Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
+            Console.WriteLine("USERNAMEPRE : " + Username);
 
-            Console.WriteLine(Username);
-            Console.WriteLine(Id);
-            DatabaseManager.UpdateUser(Id, user);
+            
+
+            // if (NuevaContrasenia1 != "" && Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
+            // {
+            //     // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+            //     DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+            //     // RedirectToPage("./Perfil");
+
+            // } else {
+            //     DatabaseManager.UpdateUser(Id, user);
+            // }
+
+            
+            // Console.WriteLine("test" + Nombre + user.Nombre + "ddd");
+
+            // Console.WriteLine("USERNAME : " + Username);
+            // Console.WriteLine(Id);
+            
             RedirectToPage("./Perfil");
         }
 
-        public void OnPostContrasenia()
-        {
-            Id = HttpContext.Session.GetString("ID");
+        // public void OnPostContrasenia()
+        // {
+        //     Id = HttpContext.Session.GetString("ID");
 
-            string pass = DatabaseManager.GetPassword(Id);
-            user = DatabaseManager.GetUsuario(Id);
-            Nombre = user.Nombre;
-            Username = user.Username;
-            Correo = user.Correo;
-            Red = user.RedSocial;
-            Bio = user.Bio;
-            Cumpleanios = user.Cumpleanios;
-            CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
+        //     // string pass = DatabaseManager.GetPassword(Id);
+        //     user = DatabaseManager.GetUsuario(Id);
+        //     Nombre = user.Nombre;
+        //     Username = user.Username;
+        //     Correo = user.Correo;
+        //     Red = user.RedSocial;
+        //     Bio = user.Bio;
+        //     Cumpleanios = user.Cumpleanios;
+        //     string pass = user.Contrasenia;
+        //     CumpleaniosTxt = Cumpleanios.ToString("yyyy-MM-dd");
 
-            if (CumpleaniosTxt == "0001-01-01")
-            {
-                CumpleaniosTxt = "";
-            }
+        //     if (CumpleaniosTxt == "0001-01-01")
+        //     {
+        //         CumpleaniosTxt = "";
+        //     }
 
-            //if (Contrasenia != pass)
-            //{
-            //    RedirectToPage("./Perfil");
-            //}
+        //     //if (Contrasenia != pass)
+        //     //{
+        //     //    RedirectToPage("./Perfil");
+        //     //}
 
-            //else if (NuevaContrasenia1 != NuevaContrasenia2)
-            //{
-            //    RedirectToPage("./Perfil");
-            //} 
-            if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
-            {
-                // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
-                DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
-                RedirectToPage("./Perfil");
+        //     //else if (NuevaContrasenia1 != NuevaContrasenia2)
+        //     //{
+        //     //    RedirectToPage("./Perfil");
+        //     //} 
+        //     if (Contrasenia == pass && NuevaContrasenia1 == NuevaContrasenia2)
+        //     {
+        //         // Console.WriteLine("D" + Id + " " + NuevaContrasenia1);
+        //         DatabaseManager.UpdatePassword(Id, NuevaContrasenia1);
+        //         RedirectToPage("./Perfil");
 
-            }
-            //RedirectToPage("/YourPage", new { user = user });
-        }
+        //     }
+        //     //RedirectToPage("/YourPage", new { user = user });
+        // }
     }
 }

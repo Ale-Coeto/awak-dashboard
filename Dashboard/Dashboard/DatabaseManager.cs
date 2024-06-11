@@ -1,4 +1,4 @@
-using System.Data;
+﻿using System.Data;
 using MySql.Data.MySqlClient;
 using Dashboard.Utils.Model;
 using Dashboard.Models;
@@ -117,7 +117,7 @@ namespace Dashboard
                         updateCommand.Parameters.AddWithValue("@contrasenia", passcode);
 
                         int rowsUpdated = updateCommand.ExecuteNonQuery();
-                        Console.WriteLine(rowsUpdated + " Rows updated");
+                        Console.WriteLine(rowsUpdated + " Rows updated cod");
                     }
                 }
             }
@@ -125,6 +125,8 @@ namespace Dashboard
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
+
+            // User user = GetUserID
 
         }
 
