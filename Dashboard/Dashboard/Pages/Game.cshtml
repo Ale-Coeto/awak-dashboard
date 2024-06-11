@@ -1,0 +1,228 @@
+﻿@page "/Game"
+@model Dashboard.Pages.GameModel
+@{
+    ViewData["Title"] = "VideoJuego";
+    Layout = "Shared/_Layout.cshtml";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/game.css">
+</head>
+
+<div class="px-32 py-8">
+    <!-- Banner -->
+    <div class="row no-padding">
+        <div class="menu-container">
+            <div class="bg-welcome">
+                <div class="p-5 text-left">
+                    <h2 class="subtitulo">
+                        Hola!
+                    </h2>
+                    <p class="mb-5 mt-3">
+                        ¡En esta página podrás encontrar información sobre como jugar nuestro minijuego!
+                    </p>
+                    <br /><br />
+                    <br class="mb-5" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- Introduccion -->
+    <div class="row mb-5 justify-content-center d-flex align-items-stretch">
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 h-100">
+                <h3 class="mb-4 font-semibold">Nuestro videojuego</h3>
+                <p class="mb-3">
+                    Esta sección se desglosará en 6 secciones:
+                    Introducción, controles, Mundo, SubMundos, Minijuegos, Jefes.
+                </p>
+                <ol>
+                    <li><a href="#introduccion">1. Introducción</a></li>
+                    <li><a href="#controles">2. Controles</a></li>
+                    <li><a href="#mundo">3. Mundo</a></li>
+                    <li><a href="#submundos">4. SubMundos</a></li>
+                    <li><a href="#minijuegos">5. Minijuegos</a></li>
+                    <li><a href="#jefes">6. Jefes</a></li>
+                </ol>
+
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-4">
+            <div class="card p-4 h-100">
+                <h3 class="mb-4 font-semibold">Introducción</h3>
+                <p>
+                    Este videojuego fue diseñado con el propósito de facilitar el onboarding en Awaq. Para ello, se han creado cuatro mundos distintos: Ética, Comunicaciones, Seguridad y TEDI. Cada mundo presenta su propio minijuego y jefe final.
+                </p>
+                <p>
+                    Para completar el juego en su totalidad, es necesario superar los cuatro minijuegos y derrotar a los cuatro jefes. A medida que avances en la historia, se irán desbloqueando los niveles posteriores, ofreciendo un desafío progresivo y una experiencia de aprendizaje interactiva.
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Controles basicos -->
+    <div id="controles" class="section text-center">
+        <h3 class="mb-4 font-semibold">Controles</h3>
+        <p>
+            En esta sección aprenderás los controles básicos del videojuego.
+        </p>
+        <p>
+            A continuación, se detallan los controles específicos para cada acción importante en el juego.
+        </p>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/Up.png" alt="Up" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Arriba</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/Down.png" alt="Down" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Abajo</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/Left.png" alt="Left" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Izquierda</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/Right.png" alt="Right" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Derecha</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mundos -->
+    <div id="mundo" class="section text-center">
+        <h3 class="mb-4 font-semibold">Mundo</h3>
+        <p>Es el mapa donde estarán todos los niveles con los minijuegos y la batalla contra el jefe. Aquí se te dará una explicación de cómo funciona el juego, además de su objetivo principal y como navegar a través del mundo.</p>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-md-6">
+                <img src="~/images/ImgAxel/MundoPrincipal.jpg" alt="MundoPrincipal" class="img-fluid">
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SubMundos -->
+    <div id="submundos" class="section text-center">
+        <h3 class="mb-4 font-semibold">Sub Mundos</h3>
+        <p>Esta escena se repetirá cuatro veces en total, una por cada mundo. Aquí se dirá la importancia de las diferentes áreas de AWAQ (dependiendo el mundo en el que estés) y se explicará por qué son relevantes. Dentro de cada mundo temático se encontrará un minijuego en conjunto de un jefe.</p>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/MundoEtica.png" alt="MEtica" class="card-img-top img-fluid rounded submundos-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Mundo etica...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/MundoComunicacion.png" alt="MComu" class="card-img-top img-fluid rounded submundos-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Mundo comunicacion...</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/MundoSeguridad.png" alt="MSeguridad" class="card-img-top img-fluid rounded submundos-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Mundo Seguridad...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Minijuegos -->
+    <div id="minijuegos" class="section text-center">
+        <h3 class="mb-4 font-semibold">MiniJuegos</h3>
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/PlatformGame.png" alt="MiniPlat" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">En este juego se tendrá que superar un nivel de plataformas, donde, al ir saltando para avanzar hasta el final del nivel, se recolectarán poderes, los cuales van a ser necesarios para derrotar al jefe. También habrá obstáculos, los cuales son unos láseres, que al tocarlos restan vida, y hacen que el usuario regrese al punto de inicio del nivel de plataformas.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/MiniCartas.png" alt="MiniMemo" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Aquí en esta escena se tendrán que juntar pares de imágenes similares. Al inicio aparecen estas imágenes volteadas como si fueran tarjetas, las cuales se revelaran al seleccionarlas. El objetivo es juntar todas las parejas de imágenes. Al juntar una pareja de imágenes se te explicará su nombre y definición asociada a la imagen. Estos son los poderes que requerirías para vencer al jefe.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/Maze.png" alt="MiniMaze" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">En este minijuego el jugador se encontrará en un laberinto a oscuras, donde se tendrá que caminar para ir encontrando cofres, los cuales darán poderes que necesitará para poder enfrentarse contra el jefe. El laberinto es confuso y no se ve todo, entonces se tendrá que tener buena memoria para acordarse por donde ya pasó y por donde aún no.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Jefes -->
+    <div id="jefes" class="section text-center">
+        <h3 class="mb-4 font-semibold">Jefes</h3>
+        <p>Se utilizarán los poderes obtenidos mediante los minijuegos para vencer a un jefe utilizando un sistema por turnos y un sistema de defensa. El poder que necesitas usar varía dependiendo de una hint que aparece en la pantalla, si se usa el poder corrector darás un ataque, si no se abrirá una pregunta, la cual al responder correctamente proseguirá el ataque, y al no hacerlo el usuario recibirá daño.</p>
+        <p>A lo largo del videojuego encontraras 4 jefes, vence todos para convertirte en un ¡AWAK RANGER!</p>
+        <br />
+        <div class="row justify-content-center">
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/BossEtica.png" alt="BossEtica" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Jefe final Ética</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/BossComunicacion.png" alt="BossComunicacion" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Jefe final Comunicación</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 mb-4">
+                <div class="card">
+                    <img src="~/images/ImgAxel/BossSeguridad.png" alt="BossSeguridad" class="card-img-top img-fluid rounded uniform-img">
+                    <div class="card-body">
+                        <p class="card-text text-center">Jefe final Seguridad</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
