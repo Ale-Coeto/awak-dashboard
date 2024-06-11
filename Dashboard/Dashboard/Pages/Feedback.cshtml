@@ -24,7 +24,7 @@
 
     @if (Model.SeeForm || !Model.IsAdmin)
     {
-        <div class="feedback">
+        <div class="feedback pt-10 px-10">
             <div class="container mr-3">
 
                 <h2 class="subtitulo">
@@ -90,7 +90,7 @@
     }
     else
     {
-        <div class="container overflow-y-scroll px-24 pt-28">
+        <div class="container overflow-y-scroll px-10 pt-10">
 
             @if (FeedbackModel.feedbacks.Count == 0)
             {
@@ -98,16 +98,20 @@
             }
             else
             {
+                <h2 class="subtitulo ">
+                    Respuestas
+                </h2>
+                <div class="line mb-4"></div>
 
                 <div class="grid-cols-1 grid gap-x-10 gap-y-10 lg:grid-cols-2">
                     @foreach (var item in FeedbackModel.feedbacks)
                     {
                         <div class="pb-12">
-                            <h2 class="pb-4 text-xl font-semibold">
+                            <h2 class="pb-4 px-12 text-lg font-semibold">
                                 @item.Nombre - @item.LocalTime().DateTime
                             </h2>
 
-                            <div class="flex flex-col gap-3 px-4">
+                            <div class="flex flex-col gap-3 px-16">
                                 <div class="pb-2">
                                     <h3 class="pb-1 font-semibold">Sugerencias</h3>
                                     <p class="whitespace-pre-wrap">@item.Sugerencias</p>
