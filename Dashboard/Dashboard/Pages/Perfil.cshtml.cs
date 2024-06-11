@@ -103,6 +103,7 @@ namespace Dashboard.Pages
             Nombre = HttpContext.Session.GetString("Nombre");
             Correo = HttpContext.Session.GetString("Correo");
             string pass = DatabaseManager.GetPassword(Id);
+            Console.WriteLine("PASS: " + pass);
 
             if (NuevaContrasenia1 != "")
             {

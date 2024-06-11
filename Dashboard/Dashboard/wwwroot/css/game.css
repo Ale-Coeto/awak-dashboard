@@ -75,13 +75,13 @@
 .submundos-img,
 .card-img-top {
     width: 100%;
-    height: 200px; 
+    height: 140px; 
     object-fit: cover;
 }
 
-.card {
+.card1 {
     margin-bottom: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); */
     transition: 0.3s;
     display: flex;
     flex-direction: column;
@@ -99,7 +99,7 @@
 }
 
 .card:hover {
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .row.d-flex.align-items-stretch {
@@ -108,7 +108,7 @@
 }
 
 .section h3 {
-    font-size: 2.5em;
+    font-size: 1.4em;
 }
 
 /* Vinculos inicio */

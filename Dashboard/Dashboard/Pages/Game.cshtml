@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="~/css/game.css">
 </head>
 
+<div class="z-0">
+
+
 <div class="px-32 py-8">
     <!-- Banner -->
     <div class="row no-padding">
@@ -16,10 +19,10 @@
             <div class="bg-welcome">
                 <div class="p-5 text-left">
                     <h2 class="subtitulo">
-                        Hola!
+                        ¡Hola!
                     </h2>
                     <p class="mb-5 mt-3">
-                        ¡En esta página podrás encontrar información sobre como jugar nuestro minijuego!
+                        En esta página podrás encontrar información sobre cómo jugar el videojuego de tu proceso de OnBoarding.
                     </p>
                     <br /><br />
                     <br class="mb-5" />
@@ -52,8 +55,8 @@
         </div>
 
         <div class="col-md-6 mb-4">
-            <div class="card p-4 h-100">
-                <h3 class="mb-4 font-semibold">Introducción</h3>
+            <div class="card p-4 h-100 z-0">
+                <h3 class="mb-4 font-semibold text-lg">Introducción</h3>
                 <p>
                     Este videojuego fue diseñado con el propósito de facilitar el onboarding en Awaq. Para ello, se han creado cuatro mundos distintos: Ética, Comunicaciones, Seguridad y TEDI. Cada mundo presenta su propio minijuego y jefe final.
                 </p>
@@ -75,8 +78,8 @@
             A continuación, se detallan los controles específicos para cada acción importante en el juego.
         </p>
         <br />
-        <div class="row justify-content-center">
-            <div class="col-md-3 mb-4">
+        <div class="flex flex-row gap-4 justify-around">
+            <div class=" mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/Up.png" alt="Up" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -84,7 +87,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class=" mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/Down.png" alt="Down" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -92,7 +95,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/Left.png" alt="Left" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -100,7 +103,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class="mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/Right.png" alt="Right" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -125,11 +128,11 @@
     </div>
 
     <!-- SubMundos -->
-    <div id="submundos" class="section text-center">
-        <h3 class="mb-4 font-semibold">Sub Mundos</h3>
+    <div id="submundos" class="section text-center mt-10">
+        <h3 class="mb-4 font-semibold pt-6">Sub Mundos</h3>
         <p>Esta escena se repetirá cuatro veces en total, una por cada mundo. Aquí se dirá la importancia de las diferentes áreas de AWAQ (dependiendo el mundo en el que estés) y se explicará por qué son relevantes. Dentro de cada mundo temático se encontrará un minijuego en conjunto de un jefe.</p>
         <br />
-        <div class="row justify-content-center">
+        <div class="flex flex-row justify-around gap-4 px-8">
             <div class="col-md-3 mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/MundoEtica.png" alt="MEtica" class="card-img-top img-fluid rounded submundos-img">
@@ -169,8 +172,8 @@
     <!-- Minijuegos -->
     <div id="minijuegos" class="section text-center">
         <h3 class="mb-4 font-semibold">MiniJuegos</h3>
-        <div class="row justify-content-center">
-            <div class="col-md-3 mb-4">
+        <div class="flex flex-row justify-around gap-16">
+            <div class=" mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/PlatformGame.png" alt="MiniPlat" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -178,7 +181,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class=" mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/MiniCartas.png" alt="MiniMemo" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -186,7 +189,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-3 mb-4">
+            <div class=" mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/Maze.png" alt="MiniMaze" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -204,7 +207,7 @@
         <p>Se utilizarán los poderes obtenidos mediante los minijuegos para vencer a un jefe utilizando un sistema por turnos y un sistema de defensa. El poder que necesitas usar varía dependiendo de una hint que aparece en la pantalla, si se usa el poder corrector darás un ataque, si no se abrirá una pregunta, la cual al responder correctamente proseguirá el ataque, y al no hacerlo el usuario recibirá daño.</p>
         <p>A lo largo del videojuego encontraras 4 jefes, vence todos para convertirte en un ¡AWAK RANGER!</p>
         <br />
-        <div class="row justify-content-center">
+        <div class="flex flex-row justify-around gap-8">
             <div class="col-md-3 mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/BossEtica.png" alt="BossEtica" class="card-img-top img-fluid rounded uniform-img">
@@ -214,8 +217,8 @@
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
-                <div class="card">
+            <div class="mb-4">
+                <div class="card z-0">
                     <img src="~/images/ImgAxel/BossComunicacion.png" alt="BossComunicacion" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
                         <p class="card-text text-center">Jefe final Comunicación</p>
@@ -223,7 +226,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
+            <div class="mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/BossSeguridad.png" alt="BossSeguridad" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -232,7 +235,7 @@
                 </div>
             </div>
 
-            <div class="col-md-3 mb-4">
+            <div class="mb-4">
                 <div class="card">
                     <img src="~/images/ImgAxel/Jefe TEDI.jpg" alt="BossTEDI" class="card-img-top img-fluid rounded uniform-img">
                     <div class="card-body">
@@ -243,4 +246,6 @@
 
         </div>
     </div>
+</div>
+
 </div>

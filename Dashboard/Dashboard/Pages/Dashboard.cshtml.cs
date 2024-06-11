@@ -23,7 +23,9 @@ namespace Dashboard.Pages
             }
 
             if (!IsAdmin) {
-                URL = "https://lookerstudio.google.com/embed/reporting/53df42ab-f54b-4c1f-b258-dbb238dcfe2c/page/dcH1D?params={%22id%22:%22" + id + "%22}";
+                URL = "https://lookerstudio.google.com/embed/u/0/reporting/53df42ab-f54b-4c1f-b258-dbb238dcfe2c/page/dcH1D?params=%7B%22id_base%22:"+ id +",%22id_base2%22:"+id+"%7D";
+                // URL = "https://lookerstudio.google.com/embed/u/0/reporting/53df42ab-f54b-4c1f-b258-dbb238dcfe2c/page/dcH1D?params=%7B%22id_base%22:" + id + ",%22id_base2%22:" + id + "%7D";
+                // URL = "https://lookerstudio.google.com/embed/reporting/53df42ab-f54b-4c1f-b258-dbb238dcfe2c/page/dcH1D?params={%22id%22:%22" + id + "%22}";
                 Console.WriteLine(URL);
             }
 
