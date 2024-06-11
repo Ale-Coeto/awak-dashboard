@@ -5,68 +5,134 @@
     Layout = "Shared/_Layout.cshtml";
 }
 
-<div class="w-full py-10 px-20">
-    <div class="feedback">
-        <div class="container mr-3">
-            <h2 class="subtitulo">
+
+<div class="w-full px-20 py-10">
+
+    @if (Model.IsAdmin)
+    {
+        <form enctype="application/x-www-form-urlencoded" class="flex w-full flex-row flex-wrap items-center justify-center gap-x-10" method="get">
+
+            <button name="SeeForm" value="false" type="submit" class="@(!Model.SeeForm ? "bg-green rounded-md px-8 py-2 text-center align-middle text-white no-underline" : "border-2 border-green rounded-md px-8 py-2 no-underline")">
+                Ver feedback
+            </button>
+
+            <button type="submit" name="SeeForm" value="true"
+                    class="@(Model.SeeForm ? "bg-green rounded-md px-8 py-2 text-center align-middle text-white no-underline" : "border-2 border-green rounded-md px-8 py-2 no-underline")">
+                <p>Ver formulario</p>
+            </button>
+        </form>
+    }
+
+    @if (Model.SeeForm || !Model.IsAdmin)
+    {
+        <div class="feedback pt-10 px-10">
+            <div class="container mr-3">
+
+                <h2 class="subtitulo">
                 Historia
-            </h2>
-            <div class="line "></div>
+                </h2>
+                <div class="line "></div>
 
-            <p class="mb-5 mt-2">
-                Este proyecto fue hecho como colaboración del Tecnológico de Monterrey y AWAQ Estaciones Biológicas para poder
-                mejorar el proceso de On Boarding para AWAQ mediante la aplicación de técnicas de gamificación a su proceso actual.
+                <p class="mb-5 mt-2">
+                    Este proyecto fue hecho como colaboración del Tecnológico de Monterrey y AWAQ Estaciones Biológicas para poder
+                    mejorar el proceso de On Boarding para AWAQ mediante la aplicación de técnicas de gamificación a su proceso actual.
 
-                Siendo le motivo principal que este proceso sea divertido y entretenido, a la vez que enriquecedor, por lo que
-                cualquier duda o comentario para mejorar sería de mucha ayuda para continuar mejorando y brindando una agradable
-                experiencia gamificada.
-            </p>
+                    Siendo le motivo principal que este proceso sea divertido y entretenido, a la vez que enriquecedor, por lo que
+                    cualquier duda o comentario para mejorar sería de mucha ayuda para continuar mejorando y brindando una agradable
+                    experiencia gamificada.
+                </p>
 
-             <h2 class="subtitulo">
-                ¡Déjanos tus comentarios!
-            </h2>
-            <div class="line "></div>
+                <h2 class="subtitulo">
+                    ¡Déjanos tus comentarios!
+                </h2>
+                <div class="line "></div>
 
-            <form method="post" asp-page-handler="Feedback">
-
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="Nombre">Nombre completo:</label>
-                        <input type="text" class="form-control" id="Nombre" name="Nombre" required />
+                <form method="post" asp-page-handler="Feedback">
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="Nombre">Nombre:</label>
+                            <input type="text" class="form-control" id="Nombre" name="Nombre" required disabled value="@Model.Nombre" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="Correo">Correo electrónico:</label>
-                        <input type="email" class="form-control" id="Correo" name="Correo" required />
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="Correo">Correo electrónico:</label>
+                            <input type="email" class="form-control" id="Correo" name="Correo" required disabled value="@Model.Correo" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="Sugerencias">Sugerencias para mejorar los juegos:</label>
-                        <textarea class="form-control" id="Sugerencias" name="Sugerencias" rows="3" required></textarea>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="Sugerencias">Sugerencias para mejorar los juegos:</label>
+                            <textarea class="form-control" id="Sugerencias" name="Sugerencias" rows="3" required></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="Remover">¿Qué se debería quitar del juego (no aporta valor)?</label>
-                        <textarea class="form-control" id="Remover" name="Remover" rows="3" required></textarea>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="Remover">¿Qué se debería quitar del juego (no aporta valor)?</label>
+                            <textarea class="form-control" id="Remover" name="Remover" rows="3" required></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <div class="mb-3">
-                    <div class="form-group">
-                        <label for="Preguntas">Pregunta(s) para AWAQ:</label>
-                        <textarea class="form-control" id="Preguntas" name="Preguntas" rows="3" required></textarea>
+                    <div class="mb-3">
+                        <div class="form-group">
+                            <label for="Preguntas">Pregunta(s) para AWAQ:</label>
+                            <textarea class="form-control" id="Preguntas" name="Preguntas" rows="3" required></textarea>
+                        </div>
                     </div>
-                </div>
 
-                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
 
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
+    }
+    else
+    {
+        <div class="container overflow-y-scroll px-10 pt-10">
+
+            @if (FeedbackModel.feedbacks.Count == 0)
+            {
+                <div class="alert alert-danger"> No se encontró contenido. Nadie ha enviado retroalimentación aún.</div>
+            }
+            else
+            {
+                <h2 class="subtitulo ">
+                    Respuestas
+                </h2>
+                <div class="line mb-4"></div>
+
+                <div class="grid-cols-1 grid gap-x-10 gap-y-10 lg:grid-cols-2">
+                    @foreach (var item in FeedbackModel.feedbacks)
+                    {
+                        <div class="pb-12">
+                            <h2 class="pb-4 px-12 text-lg font-semibold">
+                                @item.Nombre - @item.LocalTime().DateTime
+                            </h2>
+
+                            <div class="flex flex-col gap-3 px-16">
+                                <div class="pb-2">
+                                    <h3 class="pb-1 font-semibold">Sugerencias</h3>
+                                    <p class="whitespace-pre-wrap">@item.Sugerencias</p>
+                                </div>
+                                <div class="pb-2">
+                                    <h3 class="pb-1 font-semibold">Cosas que se podrían quitar</h3>
+                                    <p class="whitespace-pre-wrap">@item.Remover</p>
+                                </div>
+                                <div class="pb-2">
+                                    <h3 class="pb-1 font-semibold">Preguntas adicionales</h3>
+                                    <p class="whitespace-pre-wrap">@item.Preguntas</p>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
+               
+            }
+        </div>
+    }
+
 </div>

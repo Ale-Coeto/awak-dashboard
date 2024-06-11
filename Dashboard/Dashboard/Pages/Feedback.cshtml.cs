@@ -34,7 +34,14 @@ namespace Dashboard.Pages
         public bool IsUser { set; get; } = true;
         public string Id { set; get; } = "";
 
-        Feedback feedback = new Feedback();
+        public bool IsAdmin { get; set; }
+
+        [BindProperty(SupportsGet = true)]
+        public bool SeeForm { get; set; }
+
+        public Feedback feedback = new Feedback();
+
+        public static List<Feedback> feedbacks { get; set; } = new List<Feedback>();
 
         /*/ public IActionResult OnPost()
         {
@@ -67,6 +74,11 @@ namespace Dashboard.Pages
                 Id = HttpContext.Session.GetString("ID");
             }
 
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Rol")))
+            {
+                IsAdmin = HttpContext.Session.GetString("Rol") == "admin" || HttpContext.Session.GetString("Rol") == "superadmin";
+            }
+
             Nombre = HttpContext.Session.GetString("Nombre");
             Correo = HttpContext.Session.GetString("Correo");
 
@@ -76,6 +88,38 @@ namespace Dashboard.Pages
 
             DatabaseManager.InsertFeedback(Convert.ToInt32(Id), Nombre, Correo, Sugerencias, Remover, Preguntas);
             RedirectToPage("./Perfil");
+        }
+
+        public IActionResult OnGet()
+        {
+
+            if (string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                return RedirectToPage("./Login");
+            }
+
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Nombre")))
+            {
+                Nombre = HttpContext.Session.GetString("Nombre");
+            }
+
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Rol")))
+            {
+                IsAdmin = HttpContext.Session.GetString("Rol") == "admin" || HttpContext.Session.GetString("Rol") == "superadmin";
+            }
+
+            if (!string.IsNullOrEmpty(HttpContext.Session.GetString("Correo")))
+            {
+                Correo = HttpContext.Session.GetString("Correo");
+            }
+
+            if (!SeeForm && IsAdmin)
+            {
+                feedbacks = DatabaseManager.GetFeedback();
+                feedbacks.Reverse();
+            }
+
+            return Page();
         }
     }
 }

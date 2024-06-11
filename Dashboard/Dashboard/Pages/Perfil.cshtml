@@ -1,4 +1,4 @@
-﻿@page
+@page
 @model Dashboard.Pages.PerfilModel
 @{
     ViewData["Title"] = "Perfil";
@@ -8,7 +8,7 @@
 
 
 
-<div class="w-full py-10 px-20">
+<div class="w-full px-20 py-10">
     <div class="perfil">
         <div class="container mr-3">
 
@@ -69,7 +69,7 @@
                     <textarea asp-for="Bio" type="text" value="@Model.Bio" class="form-control"></textarea>
                 </div>
 
-                <button type="submit" class="btn btn-primary mt-5 mb-5">
+                <button type="submit" class="btn btn-primary mb-5 mt-5">
                     Actualizar Perfil
                 </button>
 
@@ -118,18 +118,20 @@
                 <form method="post">
                     <div class="mb-2">
                         <label class="form-label">Anterior Contraseña</label>
+
                         <input asp-for="Contrasenia" type="password" class="form-control " />
+
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Nueva Contraseña</label>
-                        <input asp-for="NuevaContrasenia1" type="password" required class="form-control " />
+                        <input asp-for="NuevaContrasenia1" type="password" required class="form-control" />
                     </div>
                     <div class="mb-2">
                         <label class="form-label">Confirmar Contraseña</label>
-                        <input asp-for="NuevaContrasenia2" type="password" required class="form-control " />
+                        <input asp-for="NuevaContrasenia2" type="password" required class="form-control" />
                     </div>
 
-                    <button type="submit" class="btn btn-primary mt-5 mb-5">
+                    <button type="submit" class="btn btn-primary mb-5 mt-5">
                         Actualizar contraseña
                     </button>
                 </form>

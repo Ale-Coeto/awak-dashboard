@@ -1,6 +1,7 @@
 ﻿using System.Data;
 using MySql.Data.MySqlClient;
 using Dashboard.Utils.Model;
+using Dashboard.Models;
 
 namespace Dashboard
 {
@@ -536,7 +537,7 @@ namespace Dashboard
             try
             {
                 using (var connection = new MySqlConnection(ConnectionString))
-                    {
+                {
                     connection.Open();
                     MySqlCommand command = new MySqlCommand();
                     command.Connection = connection;
@@ -705,18 +706,18 @@ namespace Dashboard
 
         public static void InsertFeedback(int id_usuario, string nombre, string correo, string sugerencias, string remover, string preguntas)
         {
-            if (Connection.State != ConnectionState.Open)
-            {
-                Connection.Open();
-            }
-
+            Console.WriteLine("CALLING INSERT FEEDBACK");
             string insertQuery = "InsertFeedback";
 
             try
             {
-                using (MySqlCommand insertCommand = new MySqlCommand(insertQuery, Connection))
+                using (var connection = new MySqlConnection(ConnectionString))
                 {
+                    connection.Open();
+                    MySqlCommand insertCommand = new MySqlCommand();
+                    insertCommand.Connection = connection;
                     insertCommand.CommandType = CommandType.StoredProcedure;
+                    insertCommand.CommandText = insertQuery;
 
                     insertCommand.Parameters.AddWithValue("@ID_Usuario", id_usuario);
                     insertCommand.Parameters.AddWithValue("@nombre", nombre);
@@ -731,10 +732,44 @@ namespace Dashboard
             {
                 Console.WriteLine("Error: " + ex.Message);
             }
-            finally
+        }
+        public static List<Feedback> GetFeedback()
+        {
+            string userQuery = $"SELECT * FROM Feedback";
+            List<Feedback>  feedbacks = new List<Feedback>();
+            try
             {
-                CloseConnection();
+                {
+                    using (var connection = new MySqlConnection(ConnectionString))
+                    {
+                        connection.Open();
+                        MySqlCommand command = new MySqlCommand(userQuery, connection);
+                        using (MySqlDataReader reader = command.ExecuteReader())
+                        {
+                            while (reader.Read())
+                            {
+                                Feedback feedback = new Feedback();
+                                feedback.ID_Feedback = Convert.ToInt32(reader["ID_Formulario"]);
+                                feedback.ID_Usuario = Convert.ToInt32(reader["ID_Formulario"]);
+                                feedback.Nombre = reader["nombre"].ToString();
+                                feedback.Correo = reader["correo"].ToString();
+                                feedback.Sugerencias = reader["sugerencias"].ToString();
+                                feedback.Remover = reader["remover"].ToString();
+                                feedback.Preguntas = reader["preguntas"].ToString();
+                                DateTime dateTimeValue = (DateTime)reader["fecha"];
+                                feedback.Fecha = dateTimeValue;
+                                feedbacks.Add(feedback);
+                            }
+                        }
+                    }
+                }
             }
+            catch (MySqlException ex)
+            {
+                Console.WriteLine("Error: " + ex.Message);
+            }
+
+            return feedbacks;
         }
     }
 }
