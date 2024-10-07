@@ -40,3 +40,10 @@ More about the videogame setup checkout the repo: [AWAQ Game](https://github.com
 | Pablo García | [@pagmtz03](https://github.com/pagmtz03) | a01412895@tec.mx |
 | Axel Grande | [@4xlRose](https://github.com/4xlRose) | a01611811@tec.mx |
 | Axel Iparrea | [@axeliparrea](https://github.com/axeliparrea) | a00836682@tec.mx |
+
+## Preview
+<img width="1404" alt="Captura de pantalla 2024-10-06 a la(s) 11 42 54 p m" src="https://github.com/user-attachments/assets/577c9c10-5fd5-4c11-a839-471fbf36d155">
+<img width="1470" alt="Captura de pantalla 2024-06-07 a la(s) 3 17 00 p m" src="https://github.com/user-attachments/assets/0a7fd4b8-a7ff-4623-b53b-c3c15593b5c9">
+<img width="1407" alt="Captura de pantalla 2024-10-06 a la(s) 11 44 56 p m" src="https://github.com/user-attachments/assets/fd16e527-cd6b-469b-84e4-9bf25f6a3625">
+<img width="1400" alt="Captura de pantalla 2024-10-06 a la(s) 11 44 25 p m" src="https://github.com/user-attachments/assets/833146b1-0560-4d49-a33b-9c6808a271bc">
+
